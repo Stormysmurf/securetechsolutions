@@ -114,6 +114,14 @@ main { padding: 30px 10px 60px; }
     width: 100%;
     border-radius: 10px;
 }
+
+/* All banners same small height */
+.thin-banner {
+    width: 100%;
+    height: 180px;  /* adjust for thin look */
+    object-fit: cover;
+    border-radius: 10px;
+}
 .banner-text {
     position: absolute;
     top: 20px;
@@ -176,45 +184,43 @@ main { padding: 30px 10px 60px; }
 
     <!-- Product banners -->
     <div class="banners">
+
+        <!-- Products heading -->
+        <h2 style="text-align:center; color: var(--accent); margin: 20px 0;">Products</h2>
+
         <div class="banner">
-            <img src="assets/time.jpg" alt="Time Attendance Reader">
+            <img src="assets/time.jpg" alt="Time Attendance Reader" class="thin-banner">
             <div class="banner-text">Time Attendance Reader</div>
         </div>
         <div class="banner">
-            <img src="assets/biometric.jpg" alt="Biometric">
+            <img src="assets/biometric.jpg" alt="Biometric" class="thin-banner">
             <div class="banner-text">Time Attendance Reader & Biometric</div>
         </div>
-         
-       
-    <div class="banner">
-            <img src="assets/cctv.jpg" alt="Cctv" >
+        <div class="banner">
+            <img src="assets/cctv.jpg" alt="CCTV" class="thin-banner">
             <div class="banner-text">CCTV Surveillance systems</div>
         </div>
-     
-      <div class="banner">
-            <img src="assets/home.jpg" alt="Home" >
-            <div class="banner-text"> Secure your home with us </div>
+        <div class="banner">
+            <img src="assets/home.jpg" alt="Home" class="thin-banner">
+            <div class="banner-text">Secure your home with us</div>
         </div>
-              
-            <div class="banner">
-            <img src="assets/network.jpg" alt="Network" >
-            <div class="banner-text"> we also offer networking solutions</div>
+        <div class="banner">
+            <img src="assets/network.jpg" alt="Network" class="thin-banner">
+            <div class="banner-text">We also offer networking solutions</div>
         </div>
-
-            <div class="banner">
-            <img src="assets/ptz.jpg" alt="Ptz" >
-            <div class="banner-text">PTZ camera </div>
+        <div class="banner">
+            <img src="assets/ptz.jpg" alt="PTZ" class="thin-banner">
+            <div class="banner-text">PTZ camera</div>
         </div>
-
-           <div class="banner">
-            <img src="assets/dome.jpg" alt="Dome" >
+        <div class="banner">
+            <img src="assets/dome.jpg" alt="Dome" class="thin-banner">
             <div class="banner-text">PTZ camera 360 view</div>
         </div>
-            
-            <div class="banner">
-            <img src="assets/bullet.jpg" alt="Bullet" >
+        <div class="banner">
+            <img src="assets/bullet.jpg" alt="Bullet" class="thin-banner">
             <div class="banner-text">Dome camera indoor camera</div>
         </div>
+
     </div>
 
     <!-- Tiny bouncing animation -->
