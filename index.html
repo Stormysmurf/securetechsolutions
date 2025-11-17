@@ -7,23 +7,33 @@
 <title>SecureTech Solutions</title>
 <style>
 :root {
-    --bg:#0a0a0a;
+    --bg1:#0a0a0a;
+    --bg2:#1a1a1a;
     --card:#111;
     --accent:#00bcd4;
     --muted:#b0b0b0;
     --faint:#666;
 }
 *{box-sizing:border-box}
+
+/* Animated background */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: #e0e0e0;
-
-  background-image: url('assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  min-height: 100vh;
+  background: linear-gradient(270deg, var(--bg1), var(--bg2));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Skip link */
 a.skip-link{
     position:absolute;
     left:-999px;
@@ -36,19 +46,17 @@ a.skip-link:focus{
     position:static;
     width:auto;
     height:auto;
-    left:auto;
-    top:auto;
     padding:8px;
     background:#000;
     color:#fff;
     z-index:1000;
 }
 
-/* Header adjustments */
+/* Header */
 header {
     text-align: center;
     padding: 50px 20px;
-    background: rgba(0,0,0,0); /* fully transparent */
+    background: rgba(0,0,0,0);
     position: relative;
 }
 header img {
@@ -58,9 +66,7 @@ header img {
     display: inline-block;
     transition: transform 0.3s ease;
 }
-header img:hover {
-    transform: rotate(-5deg) scale(1.05);
-}
+header img:hover { transform: rotate(-5deg) scale(1.05); }
 header h1 {
     margin: 0;
     font-size: 2.5em;
@@ -68,17 +74,12 @@ header h1 {
     color: var(--accent);
     text-shadow: 0 0 8px rgba(0,188,212,0.7);
 }
-header p {
-    font-size: 1.1em;
-    color: var(--muted);
-    margin: 8px 0 0;
-}
+header p { font-size: 1.1em; color: var(--muted); margin: 8px 0 0; }
 
-main {
-    padding: 30px 10px 60px;
-}
+/* Main content */
+main { padding: 30px 10px 60px; }
 
-/* Services adjustments */
+/* Services */
 .services {
     display: flex;
     justify-content: center;
@@ -88,7 +89,7 @@ main {
     max-width: 1100px;
 }
 .service {
-    background-color: rgba(0,0,0,0.5); /* semi-transparent */
+    background-color: rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     padding: 28px 20px;
@@ -99,38 +100,51 @@ main {
     opacity: 0;
     transform: translateY(40px);
 }
-.service h3 { 
-    margin-top: 0; 
-    color: var(--accent); 
-    text-transform: uppercase;
-}
-.service p { 
-    color: var(--muted); 
-    margin: 8px 0 0; 
-    line-height: 1.5;
-}
+.service h3 { margin-top: 0; color: var(--accent); text-transform: uppercase; }
+.service p { color: var(--muted); margin: 8px 0 0; line-height: 1.5; }
 .service:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 12px 36px rgba(0,188,212,0.25);
-    background-color: rgba(0,0,0,0.6); /* slightly darker on hover */
+    background-color: rgba(0,0,0,0.6);
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.6); /* semi-transparent footer */
-    color: var(--faint);
-    font-size: .95em;
+/* Banner section for products */
+.banners {
+    max-width: 1200px;
+    margin: 40px auto;
+}
+.banner {
+    position: relative;
+    margin: 20px 0;
+}
+.banner img {
+    width: 100%;
+    border-radius: 10px;
+}
+.banner-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
 
 /* Scroll animation */
-@keyframes fadeInUp {
-    0% {opacity:0; transform: translateY(40px);}
-    100% {opacity:1; transform: translateY(0);}
+@keyframes fadeInUp { 0% {opacity:0; transform: translateY(40px);} 100% {opacity:1; transform: translateY(0);} }
+.service.visible { animation: fadeInUp 0.6s forwards; }
+
+/* Tiny bouncing animation */
+.tiny-animation {
+    width: 12px;
+    height: 12px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-color: var(--accent);
+    animation: bounce 1s infinite alternate;
 }
-.service.visible {
-    animation: fadeInUp 0.6s forwards;
-}
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
 
 /* Responsive */
 @media (max-width:600px){
@@ -150,6 +164,8 @@ footer {
 </header>
 
 <main id="main-content" role="main">
+
+    <!-- Services -->
     <section class="services" aria-label="Services">
         <div class="service">
             <h3>Access Control</h3>
@@ -164,52 +180,30 @@ footer {
             <p>Track employee attendance accurately and efficiently.</p>
         </div>
     </section>
-   <div class="service">
-            <h3>Access Control</h3>
-            <p>Secure your premises with advanced door acc>
-        </div>
-        <div class="service">
-            <h3>CCTV Surveillance</h3>
-            <p>Professional CCTV installation for homes an>        </div>
-        <div class="service">
-            <h3>Time Attendance</h3>
-            <p>Track employee attendance accurately and ef>
-        </div>
-    </section>
-<!-- Tiny bouncing animation -->
-<div class="tiny-animation"></div>
 
-<style>
-.tiny-animation {
-    width: 12px;
-    height: 12px;
-    margin: 20px auto; /* centers it */
-    border-radius: 50%;
-    background-color: var(--accent);
-    animation: bounce 1s infinite alternate;
-}
+    <!-- Product banners -->
+    <div class="banners">
+        <div class="banner">
+            <img src="assets/time.jpg" alt="Time Attendance Reader">
+            <div class="banner-text">Time Attendance Reader</div>
+        </div>
+        <div class="banner">
+            <img src="assets/biometric.jpg" alt="Time Attendance Reader and Biometric">
+            <div class="banner-text">Time Attendance Reader & Biometric</div>
+        </div>
+    </div>
 
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-}
-</style>
+    <!-- Tiny bouncing animation -->
+    <div class="tiny-animation"></div>
+
 </main>
 
 <footer>
-   &copy; 2025 SecureTech Solutions | Contact:+254113301244>
+    &copy; 2025 SecureTech Solutions | Contact: +254 113 301 244
 </footer>
 
 <script>
-// Simple scroll animat
-</main>
-
-<footer>
-    &copy; 2025 SecureTech Solutions | Contact: +254 113 301 244 Director Elias
-</footer>
-
-<script>
-// Simple scroll animation for services
+// Scroll animation for services
 const services = document.querySelectorAll('.service');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
