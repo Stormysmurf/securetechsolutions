@@ -1,226 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>SecureTech Solutions</title>
+<meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
+
 <style>
-:root {
-    --accent:#00bcd4;
-    --neon:#ff2de3;
-    --muted:#ccc;
-    --bg:#0a0a0a;
-    --card-bg:rgba(0,0,0,0.5);
-    --card-hover-bg:rgba(255,45,227,0.1);
+/* -------------------------
+   Variables / Reset
+   ------------------------- */
+:root{
+  --bg:#000000;
+  --neon-purple: #8b2cff;
+  --neon-pink: #ff2de3;
+  --neon-blue: #00d9ff;
+  --muted:#cfd6db;
+  --card-bg: rgba(20,20,20,0.55);
+  --glass: rgba(255,255,255,0.03);
+  --accent: var(--neon-purple);
+  --max-width:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background: #000;
+  color:var(--muted);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.35;
+  overflow-x:hidden;
 }
 
-/* Reset */
-* { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
-
-/* Body */
-body {
-    background-color: var(--bg);
-    color: var(--muted);
-    min-height: 100vh;
+/* -------------------------
+   Animated neon waves background (CSS only)
+   ------------------------- */
+.bg-waves {
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background: radial-gradient(ellipse at 20% 20%, rgba(139,44,255,0.08), transparent 10%),
+              radial-gradient(ellipse at 80% 60%, rgba(0,217,255,0.05), transparent 10%),
+              linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.92));
+  overflow:hidden;
+}
+.bg-waves::before, .bg-waves::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background-repeat:no-repeat;
+  filter: blur(60px) saturate(140%);
+  opacity:0.35;
+  transform: translate3d(0,0,0);
+}
+.bg-waves::before{
+  background: radial-gradient(circle at 30% 35%, rgba(139,44,255,0.9), transparent 20%);
+  animation: waveMoveLeft 18s linear infinite;
+}
+.bg-waves::after{
+  background: radial-gradient(circle at 70% 65%, rgba(255,45,227,0.9), transparent 20%);
+  animation: waveMoveRight 20s linear infinite;
+}
+@keyframes waveMoveLeft{
+  0%{transform: translateX(-20%) scale(0.9)}
+  50%{transform: translateX(10%) scale(1.05)}
+  100%{transform: translateX(-20%) scale(0.9)}
+}
+@keyframes waveMoveRight{
+  0%{transform: translateX(20%) scale(0.95)}
+  50%{transform: translateX(-10%) scale(1.08)}
+  100%{transform: translateX(20%) scale(0.95)}
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 50px 20px;
+/* -------------------------
+   Sticky Neon Header
+   ------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
-header img {
-    width: 150px;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
+.header-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:14px 18px;
 }
-header img:hover { transform: rotate(-5deg) scale(1.05);}
-header h1 {
-    color: var(--accent);
-    font-size: 2.5rem;
-    text-shadow: 0 0 8px var(--accent);
-    margin: 15px 0;
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
-header p { color: var(--muted); font-size: 1.1rem; }
-
-/* Services section */
-.services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin: 40px auto;
-    max-width: 1200px;
+.logo-large{
+  width:260px;             /* A1: Large logo */
+  height:auto;
+  border-radius:18px;
+  padding:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 0 28px rgba(139,44,255,0.18);
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform .28s ease, box-shadow .28s linear;
 }
-.service {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    padding: 25px;
-    width: 250px;
-    text-align: center;
-    border: 2px solid transparent;
-    transition: 0.3s ease all;
-    box-shadow: 0 0 20px transparent;
+.logo-large:hover{
+  transform: scale(1.03);
+  box-shadow: 0 0 45px rgba(139,44,255,0.32);
 }
-.service:hover {
-    border: 3px solid var(--accent);
-    box-shadow: 0 0 25px var(--accent);
-    background: rgba(0,188,212,0.1);
+.header-title{
+  font-weight:700;
+  color:var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255,45,227,0.14), 0 0 28px rgba(139,44,255,0.06);
+  font-size:18px;
+  letter-spacing:1px;
 }
-.service h3 { color: var(--accent); text-transform: uppercase; text-shadow: 0 0 8px var(--accent);}
-.service p { color: var(--muted); font-weight:600; }
-
-/* Products heading */
-h2.products-heading {
-    text-align:center;
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
-    margin: 50px 0 25px;
+.header-cta{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
-
-/* Products grid */
-.banners {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto 50px;
+.cta-btn{
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color:var(--muted);
+  cursor:pointer;
+  transition: all .22s ease;
 }
-.banner {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 2px solid transparent;
-    box-shadow: 0 0 15px transparent;
-    transition: 0.3s ease all;
-}
-.banner:hover {
-    border: 3px solid var(--neon);
-    box-shadow: 0 0 25px var(--neon);
-    background: var(--card-hover-bg);
-}
-.banner img, .banner video {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-.banner-text {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 2px 2px 8px var(--neon);
+.cta-btn:hover{
+  box-shadow: 0 0 20px rgba(0,217,255,0.12), 0 0 18px rgba(255,45,227,0.08);
+  transform: translateY(-3px);
 }
 
-/* Footer */
-footer {
-    text-align:center;
-    padding:20px;
-    border-top:1px solid rgba(255,255,255,0.1);
-    color: var(--muted);
+/* -------------------------
+   Page container
+   ------------------------- */
+.container{
+  max-width:var(--max-width);
+  margin: 28px auto;
+  padding: 0 20px 60px;
 }
 
-/* Tiny bouncing animation */
-.tiny-animation {
-    width:12px;
-    height:12px;
-    margin: 20px auto;
-    border-radius:50%;
-    background-color: var(--accent);
-    animation: bounce 1s infinite alternate;
+/* -------------------------
+   HERO (big centered logo area)
+   ------------------------- */
+.hero{
+  text-align:center;
+  padding:30px 0 18px;
 }
-@keyframes bounce { 0% { transform: translateY(0);} 100% { transform: translateY(-10px);} }
+.hero h1{
+  font-size:32px;
+  color: #fff;
+  letter-spacing:0.6px;
+  margin-top:12px;
+  text-shadow: 0 0 20px rgba(139,44,255,0.18), 0 0 14px rgba(255,45,227,0.08);
+}
 
-/* Responsive */
-@media(max-width:600px){
-    header h1{ font-size:1.8rem; }
-    .service { width:100%; }
+/* -------------------------
+   TOP 3 BANNERS ROW
+   - B1: Neon border + hover bounce style (selected)
+   - These three will also animate (hard bounce) when scrolling UP and entering viewport
+   ------------------------- */
+.top-banners{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:stretch;
+  flex-wrap:wrap;
+  margin:18px 0;
+}
+.top-card{
+  flex: 1 1 30%;
+  min-width:180px;
+  max-width: 360px;
+  border-radius:14px;
+  overflow:hidden;
+  background: var(--card-bg);
+  border: 2px solid rgba(255,255,255,0.02);
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease, border-color .18s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+  position:relative;
+}
+.top-card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+}
+.top-card .caption{
+  padding:12px;
+  font-weight:700;
+  color:#fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+  font-size:15px;
+}
+.top-card:hover{
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--neon-pink);
+  box-shadow: 0 8px 40px rgba(255,45,227,0.16), 0 0 22px rgba(139,44,255,0.06);
+}
+
+/* Hard bounce keyframes (for scroll-up trigger) */
+@keyframes hardBounceUp {
+  0% { transform: translateY(40px); opacity:0 }
+  50% { transform: translateY(-18px); opacity:1 }
+  75% { transform: translateY(8px) }
+  100% { transform: translateY(0) }
+}
+
+/* class applied when element should bounce (JS adds when scrolling up) */
+.bounce-up {
+  animation: hardBounceUp 700ms cubic-bezier(.2,1,.3,1) both;
+}
+
+/* -------------------------
+   Products grid (auto-fit responsive)
+   ------------------------- */
+.products-title{
+  text-align:center;
+  margin:30px 0 12px;
+  font-size:22px;
+  color:var(--neon-purple);
+  text-shadow: 0 0 16px rgba(139,44,255,0.18);
+}
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* C3: auto-fit grid */
+  gap:18px;
+  align-items:stretch;
+}
+.product{
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.03);
+  transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease, border-color .2s ease;
+  box-shadow: 0 0 18px rgba(0,0,0,0.6);
+}
+/* Hover glow for all items (3D neon effect) - spec 3d: All items glow on hover */
+.product:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(139,44,255,0.12), 0 0 30px rgba(255,45,227,0.08);
+  border-color: rgba(139,44,255,0.28);
+}
+.product img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid rgba(255,255,255,0.02);
+}
+.product .p-caption{
+  padding:10px;
+  font-weight:700;
+  color:#fff;
+  font-size:14px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* Add subtle entrance fade for products (soft, but we use bounce only for top banners) */
+@keyframes fadeInUpSoft {
+  from{transform: translateY(16px); opacity:0}
+  to{transform: translateY(0); opacity:1}
+}
+.product { animation: fadeInUpSoft 450ms ease both; }
+
+/* -------------------------
+   Video block (D4: centered glowing card)
+   ------------------------- */
+.video-block{
+  margin:36px auto 60px;
+  max-width:920px;
+  padding:18px;
+  border-radius:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 28px rgba(139,44,255,0.06);
+  text-align:center;
+  position:relative;
+}
+.video-block .v-title{
+  color:var(--neon-blue);
+  font-weight:700;
+  margin-bottom:12px;
+  text-shadow: 0 0 12px rgba(0,217,255,0.12);
+}
+.video-wrap{
+  display:flex;
+  justify-content:center;
+}
+.video-wrap video{
+  width:90%;
+  max-width:760px;
+  height:340px;
+  border-radius:12px;
+  object-fit:cover;
+  border: 2px solid rgba(255,255,255,0.03);
+  transition: box-shadow .22s ease, transform .22s ease;
+}
+.video-wrap video:hover{
+  box-shadow: 0 18px 60px rgba(139,44,255,0.12), 0 0 26px rgba(255,45,227,0.06);
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.footer{
+  text-align:center;
+  padding:28px 18px;
+  color: #bfc9cf;
+  border-top:1px solid rgba(255,255,255,0.02);
+  margin-top:60px;
+  font-size:13px;
+}
+
+/* -------------------------
+   Responsive tweaks
+   ------------------------- */
+@media (max-width:920px){
+  .top-card img{height:140px}
+  .video-wrap video{height:300px}
+  .logo-large{width:220px}
+}
+@media (max-width:640px){
+  .top-banners{gap:10px}
+  .top-card{min-width:140px}
+  .top-card img{height:120px}
+  .product img{height:120px}
+  .logo-large{width:180px}
+  .header-inner{padding:10px}
+  .header-title{font-size:14px}
 }
 </style>
 </head>
 <body>
 
-<header>
-    <img src="assets/logo.jpg" alt="SecureTech Logo">
-    <h1>SecureTech Solutions</h1>
-    <p>Smart Security Systems • Access Control • CCTV Installation</p>
-</header>
+<!-- animated background waves -->
+<div class="bg-waves" aria-hidden="true"></div>
 
-<main>
-    <!-- Services -->
-    <section class="services">
-        <div class="service">
-            <h3>Access Control</h3>
-            <p>Secure your premises with advanced door access systems.</p>
-        </div>
-        <div class="service">
-            <h3>CCTV Surveillance</h3>
-            <p>Professional CCTV installation for homes and businesses.</p>
-        </div>
-        <div class="service">
-            <h3>Time Attendance</h3>
-            <p>Track employee attendance accurately and efficiently.</p>
-        </div>
-    </section>
-
-    <!-- Products heading -->
-    <h2 class="products-heading">Products</h2>
-
-    <!-- Products grid -->
-    <div class="banners">
-        <div class="banner">
-            <img src="assets/time.jpg" alt="Time Attendance Reader">
-            <div class="banner-text">Time Attendance Reader</div>
-        </div>
-        <div class="banner">
-            <img src="assets/biometric.jpg" alt="Biometric">
-            <div class="banner-text">Time Attendance & Biometric</div>
-        </div>
-        <div class="banner">
-            <img src="assets/cctv.jpg" alt="CCTV">
-            <div class="banner-text">CCTV Surveillance</div>
-        </div>
-        <div class="banner">
-            <img src="assets/home.jpg" alt="Home">
-            <div class="banner-text">Secure Your Home</div>
-        </div>
-        <div class="banner">
-            <img src="assets/network.jpg" alt="Network">
-            <div class="banner-text">Networking Solutions</div>
-        </div>
-        <div class="banner">
-            <img src="assets/ptz.jpg" alt="PTZ Camera">
-            <div class="banner-text">PTZ Camera</div>
-        </div>
-        <div class="banner">
-            <img src="assets/dome.jpg" alt="Dome Camera">
-            <div class="banner-text">360° Dome Camera</div>
-        </div>
-        <div class="banner">
-            <img src="assets/bullet.jpg" alt="Bullet Camera">
-            <div class="banner-text">Indoor Bullet Camera</div>
-        </div>
-
-        <!-- Product video -->
-        <div class="banner">
-            <video controls>
-                <source src="assets/vid.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="banner-text">Watch Our Product in Action</div>
-        </div>
+<!-- Sticky header -->
+<header class="header" role="banner">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="assets/logo.jpg" alt="SecureTech Logo" class="logo-large">
+      <div>
+        <div class="header-title">SecureTech Solutions</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Access Control • CCTV • Time Attendance</div>
+      </div>
     </div>
 
-    <!-- Tiny bounce indicator -->
-    <div class="tiny-animation"></div>
+    <div class="header-cta">
+      <button class="cta-btn" onclick="location.href='#products'">Products</button>
+      <button class="cta-btn" onclick="location.href='#video'">Demo</button>
+    </div>
+  </div>
+</header>
+
+<!-- Page container -->
+<main class="container" role="main">
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Intro">
+    <h1>Professional Security Systems — Installation & Support</h1>
+    <p style="color:rgba(255,255,255,0.6);margin-top:10px;max-width:850px;margin-left:auto;margin-right:auto">
+      We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
+    </p>
+  </section>
+
+  <!-- TOP 3 BANNERS (these will bounce when scrolling UP) -->
+  <section class="top-banners" aria-label="Featured">
+    <article class="top-card" data-topcard>
+      <img src="assets/time.jpg" alt="Time Attendance Reader">
+      <div class="caption">Time Attendance Reader</div>
+    </article>
+    <article class="top-card" data-topcard>
+      <img src="assets/biometric.jpg" alt="Biometric">
+      <div class="caption">Biometric Attendance</div>
+    </article>
+    <article class="top-card" data-topcard>
+      <img src="assets/cctv.jpg" alt="CCTV">
+      <div class="caption">CCTV Surveillance</div>
+    </article>
+  </section>
+
+  <!-- Products grid -->
+  <h2 id="products" class="products-title">Products</h2>
+  <section class="product-grid" aria-label="Products list">
+    <div class="product"><img src="assets/home.jpg" alt="Home"><div class="p-caption">Secure Your Home</div></div>
+    <div class="product"><img src="assets/network.jpg" alt="Network"><div class="p-caption">Networking Solutions</div></div>
+    <div class="product"><img src="assets/ptz.jpg" alt="PTZ"><div class="p-caption">PTZ Camera</div></div>
+    <div class="product"><img src="assets/dome.jpg" alt="Dome"><div class="p-caption">360° Dome Camera</div></div>
+    <div class="product"><img src="assets/bullet.jpg" alt="Bullet"><div class="p-caption">Indoor Bullet Camera</div></div>
+    <div class="product"><img src="assets/network.jpg" alt="Switch"><div class="p-caption">Switch & Cabling</div></div>
+    <div class="product"><img src="assets/time.jpg" alt="Readers"><div class="p-caption">Access Readers</div></div>
+    <div class="product"><img src="assets/biometric.jpg" alt="Biometric2"><div class="p-caption">Biometric Units</div></div>
+  </section>
+
+  <!-- Video block -->
+  <section id="video" class="video-block" aria-label="Video demo">
+    <div class="v-title">Watch Our Product in Action</div>
+    <div class="video-wrap">
+      <video controls preload="metadata" playsinline>
+        <source src="assets/vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <div style="height:40px"></div>
 </main>
 
-<footer>
-    &copy; 2025 SecureTech Solutions | Contact: +254 113 301 244
+<footer class="footer" role="contentinfo">
+  &copy; 2025 SecureTech Solutions • Contact: +254 113 301 244
 </footer>
+
+<script>
+/* =========
+   Scroll direction + IntersectionObserver logic
+   - Requirement: when scrolling UP and the top 3 banners enter view, they should hard-bounce up
+   - We track scroll direction and when a top-card becomes intersecting while direction is 'up', add .bounce-up
+   ========= */
+
+let lastScroll = window.scrollY || 0;
+let scrollDir = 'down';
+window.addEventListener('scroll', ()=> {
+  const y = window.scrollY || 0;
+  scrollDir = (y < lastScroll) ? 'up' : 'down';
+  lastScroll = y;
+}, {passive:true});
+
+/* Observe top-card entries */
+const topCards = document.querySelectorAll('[data-topcard]');
+const options = { root: null, rootMargin: '0px', threshold: 0.22 };
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      // only trigger the bounce when scrolling UP
+      if(scrollDir === 'up'){
+        e.target.classList.remove('bounce-up'); // restart animation
+        // force reflow to restart
+        void e.target.offsetWidth;
+        e.target.classList.add('bounce-up');
+      } else {
+        // if scrolling down, we still ensure item visible but no bounce
+        e.target.classList.remove('bounce-up');
+      }
+    } else {
+      // optional: remove class when out of view
+      // e.target.classList.remove('bounce-up');
+    }
+  });
+}, options);
+
+topCards.forEach(c=> observer.observe(c));
+
+/* Add subtle glow on hover for all elements: handled by CSS :hover */
+/* Accessibility: reduce motion respect */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(prefersReduced) {
+  // disable animations by removing animation-related classes
+  document.querySelectorAll('.bounce-up').forEach(n => n.style.animation = 'none');
+  document.querySelectorAll('.product').forEach(n => n.style.animation = 'none');
+}
+</script>
 
 </body>
 </html>
