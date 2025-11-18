@@ -400,6 +400,22 @@ body{
 <!-- Page container -->
 <main class="container" role="main">
 
+
+<div class="slideshow" aria-label="Top slideshow">
+  <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
+  <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
+  <div class="slide active" style="background-image:url('assets/img1.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img2.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img3.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img4.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img5.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img6.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img7.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img8.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img9.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/img10.jpg')"></div>
+</div>
+
   <!-- Hero -->
   <section class="hero" aria-label="Intro">
     <h1>Professional Security Systems — Installation & Support</h1>
@@ -510,6 +526,25 @@ if(prefersReduced) {
   document.querySelectorAll('.bounce-up').forEach(n => n.style.animation = 'none');
   document.querySelectorAll('.product').forEach(n => n.style.animation = 'none');
 }
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===index));
+}
+
+function nextSlide(){
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide(){
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-slide every 2 seconds
+setInterval(nextSlide, 2000);
 </script>
 
 </body>
