@@ -38,8 +38,8 @@ body{
    ------------------------- */
 
 #product-btn {
-  background-color: #8b2cff;       /* neon purple */
-  border: 2px solid #bf00ff;       /* bright purple border */
+  background-color: #ff2de3;       /* neon pink matching header title */
+  border: 2px solid #8b2cff;       /* neon purple border accent */
   color: #fff;
   font-weight: 700;
   padding: 12px 20px;
@@ -48,6 +48,11 @@ body{
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: bounce 1.2s infinite;
+}
+
+#product-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff2de3, 0 0 25px #8b2cff;
 }
 
 #product-btn:hover {
