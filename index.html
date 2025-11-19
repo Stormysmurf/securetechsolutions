@@ -7,6 +7,50 @@
 <meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
 
 <style>
+   /* Highlight the Products Button */
+#product-btn {
+  background-color: #7CFC00; /* Bright green */
+  border: 2px solid #ADFF2F;
+  color: #000;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounce 1.2s infinite;
+}
+
+#product-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #7CFC00, 0 0 25px #ADFF2F;
+}
+
+/* Bounce animation for button */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Cartoon hand above button */
+#hand-pointer {
+  position: absolute;
+  top: -50px; /* adjust to place hand above button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px; /* size of hand image */
+  height: 40px;
+  background: url('assets/hand.png') no-repeat center center;
+  background-size: contain;
+  animation: handWave 1.5s infinite ease-in-out;
+}
+
+/* Hand waving animation */
+@keyframes handWave {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(-15deg); }
+}
+
 /* -------------------------
    Variables / Reset
    ------------------------- */
@@ -442,10 +486,12 @@ body{
 
   <!-- Products button -->
    <!-- Products button -->
-<div style="margin-top:20px; text-align:center;">
-  <button class="cta-btn" onclick="location.href='products.html'">
+
+   <div style="margin-top:20px; text-align:center; position: relative; display: inline-block;">
+  <button id="product-btn" onclick="location.href='products.html'">
     View Products
   </button>
+  <div id="hand-pointer"></div>
 </div>
 
  
