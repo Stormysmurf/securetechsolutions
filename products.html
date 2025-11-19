@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SecureTech Solutions - Products</title>
+<meta name="description" content="SecureTech Solutions — Access Control, CCTV, and Time Attendance Products">
+
+<style>
+:root{
+  --bg:#000000;
+  --neon-purple: #8b2cff;
+  --neon-pink: #ff2de3;
+  --neon-blue: #00d9ff;
+  --muted:#cfd6db;
+  --card-bg: rgba(20,20,20,0.55);
+  --glass: rgba(255,255,255,0.03);
+  --accent: var(--neon-purple);
+  --max-width:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background: #000;
+  color:var(--muted);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height:1.35;
+  overflow-x:hidden;
+}
+.container{
+  max-width:var(--max-width);
+  margin: 28px auto;
+  padding: 0 20px 60px;
+}
+.products-title{
+  text-align:center;
+  margin:30px 0 12px;
+  font-size:22px;
+  color:var(--neon-purple);
+  text-shadow: 0 0 16px rgba(139,44,255,0.18);
+}
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:18px;
+  align-items:stretch;
+}
+.product{
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.03);
+  transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease, border-color .2s ease;
+  box-shadow: 0 0 18px rgba(0,0,0,0.6);
+  animation: fadeInUpSoft 450ms ease both;
+}
+.product:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(139,44,255,0.12), 0 0 30px rgba(255,45,227,0.08);
+  border-color: rgba(139,44,255,0.28);
+}
+.product img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid rgba(255,255,255,0.02);
+}
+.product .p-caption{
+  padding:10px;
+  font-weight:700;
+  color:#fff;
+  font-size:14px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+@keyframes fadeInUpSoft {
+  from{transform: translateY(16px); opacity:0}
+  to{transform: translateY(0); opacity:1}
+}
+@media (max-width:920px){
+  .product img{height:120px}
+}
+@media (max-width:640px){
+  .product img{height:120px}
+}
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.header-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:14px 18px;
+}
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.logo-large{
+  width:260px;
+  height:auto;
+  border-radius:18px;
+  padding:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 0 28px rgba(139,44,255,0.18);
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform .28s ease, box-shadow .28s linear;
+}
+.logo-large:hover{
+  transform: scale(1.03);
+  box-shadow: 0 0 45px rgba(139,44,255,0.32);
+}
+.header-title{
+  font-weight:700;
+  color:var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255,45,227,0.14), 0 0 28px rgba(139,44,255,0.06);
+  font-size:18px;
+  letter-spacing:1px;
+}
+.header-cta{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.cta-btn{
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color:var(--muted);
+  cursor:pointer;
+  transition: all .22s ease;
+}
+.cta-btn:hover{
+  box-shadow: 0 0 20px rgba(0,217,255,0.12), 0 0 18px rgba(255,45,227,0.08);
+  transform: translateY(-3px);
+}
+.footer{
+  text-align:center;
+  padding:28px 18px;
+  color: #bfc9cf;
+  border-top:1px solid rgba(255,255,255,0.02);
+  margin-top:60px;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="assets/logo.jpg" alt="SecureTech Logo" class="logo-large">
+      <div>
+        <div class="header-title">SecureTech Solutions</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Access Control • CCTV • Time Attendance</div>
+      </div>
+    </div>
+    <div class="header-cta">
+      <button class="cta-btn" onclick="location.href='index.html'">Home</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="products-title">Products</h2>
+  <section class="product-grid">
+    <div class="product"><img src="assets/network.jpg" alt="Network"><div class="p-caption">Networking Solutions</div></div>
+    <div class="product"><img src="assets/ptz.jpg" alt="PTZ"><div class="p-caption">PTZ Camera</div></div>
+    <div class="product"><img src="assets/dome.jpg" alt="Dome"><div class="p-caption">Indoor Dome Camera</div></div>
+    <div class="product"><img src="assets/bullet.jpg" alt="Bullet"><div class="p-caption">Outdoor Bullet Camera</div></div>
+    <div class="product"><img src="assets/switch.jpg" alt="Switch"><div class="p-caption">Switch & Cabling</div></div>
+    <div class="product"><img src="assets/technician.jpg" alt="Tech"><div class="p-caption">Our Technicians</div></div>
+    <div class="product"><img src="assets/technician1.jpg" alt="Tech1"><div class="p-caption">Experts</div></div>
+  </section>
+</main>
+
+<footer class="footer">
+  &copy; 2025 SecureTech Solutions • Contact: +254 113 301 244
+</footer>
+
+</body>
+</html>
