@@ -228,25 +228,11 @@ body{
 
    
   <!-- Hero -->
-  
-<!-- Hero + Slideshow -->
-<section class="hero-slideshow" style="position:relative; text-align:center; margin-bottom:40px;">
+  <!-- Hero + Slideshow -->
+<section class="hero-slideshow" style="position:relative; height:500px; overflow:hidden; text-align:center; border-radius:12px;">
 
-  <!-- Hero text always on top -->
-  <div class="hero" style="position:relative; z-index:10; padding:30px 20px;">
-    <h1>Professional Security Systems — Installation & Support</h1>
-    <p style="color:rgba(255,255,255,0.6); max-width:850px; margin:10px auto 0;">
-      We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
-    </p>
-  </div>
-
-  <!-- Slideshow -->
-  <div class="slideshow" aria-label="Top slideshow" style="position:relative; width:100%; height:500px; overflow:hidden; border-radius:12px;">
-    <!-- Navigation arrows -->
-    <span class="slide-nav left" onclick="prevSlide()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:20;">&#10094;</span>
-    <span class="slide-nav right" onclick="nextSlide()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:20;">&#10095;</span>
-
-    <!-- Slides -->
+  <!-- Slides as background -->
+  <div class="slideshow" aria-label="Top slideshow" style="position:absolute; inset:0; width:100%; height:100%; overflow:hidden;">
     <div class="slide active" style="background-image:url('assets/time.webp');"></div>
     <div class="slide" style="background-image:url('assets/biometric.webp');"></div>
     <div class="slide" style="background-image:url('assets/cctv.webp');"></div>
@@ -261,6 +247,24 @@ body{
     <div class="slide" style="background-image:url('assets/img10.webp');"></div>
   </div>
 
+  <!-- Optional dark overlay for readability -->
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.35); z-index:5;"></div>
+
+  <!-- Hero text centered over slideshow -->
+  <div class="hero" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10; color:#fff; padding:0 20px;">
+    <h1 style="font-size:36px; text-shadow:0 0 20px rgba(0,0,0,0.6);">
+      Professional Security Systems — Installation & Support
+    </h1>
+    <p style="max-width:850px; margin:10px auto 0; font-size:16px; text-shadow:0 0 14px rgba(0,0,0,0.5);">
+      We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
+    </p>
+  </div>
+
+  <!-- Navigation arrows -->
+  <span class="slide-nav left" onclick="prevSlide()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:15;">&#10094;</span>
+  <span class="slide-nav right" onclick="nextSlide()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:15;">&#10095;</span>
+
+</section>
 
   <!-- Video block -->
   <section id="video" class="video-block" aria-label="Video demo">
