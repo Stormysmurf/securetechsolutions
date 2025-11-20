@@ -228,38 +228,38 @@ body{
 
    
   <!-- Hero -->
-  <section class="hero" aria-label="Intro">
+  
+<!-- Hero + Slideshow -->
+<section class="hero-slideshow" style="position:relative; text-align:center; margin-bottom:40px;">
+
+  <!-- Hero text always on top -->
+  <div class="hero" style="position:relative; z-index:10; padding:30px 20px;">
     <h1>Professional Security Systems — Installation & Support</h1>
-    <p style="color:rgba(255,255,255,0.6);margin-top:10px;max-width:850px;margin-left:auto;margin-right:auto">
+    <p style="color:rgba(255,255,255,0.6); max-width:850px; margin:10px auto 0;">
       We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
     </p>
-  </section>
-
-
- <div class="slideshow" aria-label="Top slideshow">
-  <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
-  <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
-
-  <div class="slide active" style="background-image:url('assets/time.webp')">
-    <div class="slide-caption">Time Attendance Solutions</div>
-  </div>
-  <div class="slide" style="background-image:url('assets/biometric.webp')">
-    <div class="slide-caption">Biometric Attendance Systems</div>
-  </div>
-  <div class="slide" style="background-image:url('assets/cctv.webp')">
-    <div class="slide-caption">CCTV Surveillance & Monitoring</div>
   </div>
 
-  <div class="slide" style="background-image:url('assets/img2.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img3.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img4.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img5.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img6.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img7.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img8.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img9.webp')"></div>
-  <div class="slide" style="background-image:url('assets/img10.webp')"></div>
-</div>
+  <!-- Slideshow -->
+  <div class="slideshow" aria-label="Top slideshow" style="position:relative; width:100%; height:500px; overflow:hidden; border-radius:12px;">
+    <!-- Navigation arrows -->
+    <span class="slide-nav left" onclick="prevSlide()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:20;">&#10094;</span>
+    <span class="slide-nav right" onclick="nextSlide()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:20;">&#10095;</span>
+
+    <!-- Slides -->
+    <div class="slide active" style="background-image:url('assets/time.webp');"></div>
+    <div class="slide" style="background-image:url('assets/biometric.webp');"></div>
+    <div class="slide" style="background-image:url('assets/cctv.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img2.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img3.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img4.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img5.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img6.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img7.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img8.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img9.webp');"></div>
+    <div class="slide" style="background-image:url('assets/img10.webp');"></div>
+  </div>
 
 
   <!-- Video block -->
