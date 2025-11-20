@@ -7,10 +7,6 @@
 <meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
 
 <style>
-   
-/* -------------------------
-   Reset / Variables
-   ------------------------- */
 :root{
   --bg:#000000;
   --neon-purple: #8b2cff;
@@ -33,13 +29,10 @@ body{
   line-height:1.35;
 }
 
-/* -------------------------
-   Products Button
-   ------------------------- */
-
+/* Products Button */
 #product-btn {
-  background-color: #ff2de3;       /* neon pink matching header title */
-  border: 2px solid #8b2cff;       /* neon purple border accent */
+  background-color: #ff2de3;
+  border: 2px solid #8b2cff;
   color: #fff;
   font-weight: 700;
   padding: 12px 20px;
@@ -49,13 +42,10 @@ body{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: bounce 1.2s infinite;
 }
-
 #product-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px #ff2de3, 0 0 25px #8b2cff;
 }
-
-
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 #hand-pointer {
@@ -70,13 +60,8 @@ body{
   animation: handWave 1.5s infinite ease-in-out;
 }
 @keyframes handWave { 0%,100%{transform:translateX(-50%) rotate(0deg);}50%{transform:translateX(-50%) rotate(-15deg);} }
-@media (max-width:640px){
-  #hand-pointer { top: -40px; width:32px; height:32px; }
-}
 
-/* -------------------------
-   Animated Background Waves
-   ------------------------- */
+/* Animated Background Waves */
 .bg-waves {
   position:fixed; inset:0; z-index:-3;
   background: radial-gradient(ellipse at 20% 20%, rgba(139,44,255,0.08), transparent 10%),
@@ -97,9 +82,7 @@ body{
 @keyframes waveMoveLeft{0%{transform:translateX(-20%) scale(0.9)}50%{transform:translateX(10%) scale(1.05)}100%{transform:translateX(-20%) scale(0.9)}}
 @keyframes waveMoveRight{0%{transform:translateX(20%) scale(0.95)}50%{transform:translateX(-10%) scale(1.08)}100%{transform:translateX(20%) scale(0.95)}}
 
-/* -------------------------
-   Sticky Header
-   ------------------------- */
+/* Sticky Header */
 .header { position: sticky; top:0; z-index:40; backdrop-filter:blur(6px);
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
   border-bottom:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(0,0,0,0.6);
@@ -112,19 +95,13 @@ body{
 .cta-btn{ padding:10px 14px; border-radius:12px; font-weight:600; border:1px solid rgba(255,255,255,0.04); background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:var(--muted); cursor:pointer; transition: all .22s ease;}
 .cta-btn:hover{ box-shadow:0 0 20px rgba(0,217,255,0.12), 0 0 18px rgba(255,45,227,0.08); transform:translateY(-3px); }
 
-/* -------------------------
-   Container & Hero
-   ------------------------- */
+/* Container & Hero */
 .container{ max-width:var(--max-width); margin:28px auto; padding:0 20px 60px; }
 .hero{text-align:center; padding:30px 0 18px;}
 .hero h1{ font-size:32px; color:#fff; letter-spacing:0.6px; margin-top:12px; text-shadow:0 0 20px rgba(139,44,255,0.18),0 0 14px rgba(255,45,227,0.08);}
-.hero p{ max-width:90%; margin:10px auto 0; color:rgba(255,255,255,0.6);}
+.hero p{ max-width:90%; margin:10px auto 0; color:rgba(255,255,255,0.6); }
 
-/* 
-
-/* -------------------------
-   Products Grid
-   ------------------------- */
+/* Products Grid */
 .products-title{ text-align:center; margin:30px 0 12px; font-size:22px; color:var(--neon-purple); text-shadow:0 0 16px rgba(139,44,255,0.18); }
 .product-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:18px; align-items:stretch; }
 .product{ background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008)); border-radius:12px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.03); transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease, border-color .2s ease; box-shadow:0 0 18px rgba(0,0,0,0.6); animation: fadeInUpSoft 450ms ease both; }
@@ -133,26 +110,23 @@ body{
 .product img{ width:100%; height:140px; object-fit:cover; display:block; border-bottom:1px solid rgba(255,255,255,0.02); }
 .product .p-caption{ padding:10px; font-weight:700; color:#fff; font-size:14px; text-shadow:0 0 10px rgba(0,0,0,0.6); }
 
-
-/* -------------------------
-   Slideshow
-   ------------------------- */
+/* Slideshow */
 .slideshow { position:relative; width:100%; max-width:100vw; height:250px; margin:18px 0; overflow:hidden; border-radius:12px; }
 .slide { position:absolute; width:100%; height:100%; opacity:0; transition:opacity 0.4s ease-in-out; background-size:cover; background-position:center; }
 .slide.active { opacity:1; }
 .slide-nav { position:absolute; top:50%; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; user-select:none; padding:0 12px; z-index:10; }
 .slide-nav.left { left:10px; } .slide-nav.right { right:10px; }
 
-
+/* Slide caption */
 .slide-caption {
   position: absolute;
-  bottom: 20px; /* distance from bottom */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
   font-size: 20px;
   font-weight: 700;
-  background: rgba(0,0,0,0.5); /* semi-transparent bg */
+  background: rgba(0,0,0,0.5);
   padding: 8px 16px;
   border-radius: 8px;
   text-align: center;
@@ -161,14 +135,10 @@ body{
   z-index: 5;
 }
 
-/* -------------------------
-   Footer
-   ------------------------- */
+/* Footer */
 .footer{ text-align:center; padding:28px 18px; color:#bfc9cf; border-top:1px solid rgba(255,255,255,0.02); margin-top:60px; font-size:13px; }
 
-/* -------------------------
-   Responsive Tweaks
-   ------------------------- */
+/* Responsive */
 @media (max-width:920px){ .top-card img{height:140px} .video-wrap video{height:auto} .logo-large{max-width:220px} }
 @media (max-width:640px){
   .top-banners{gap:10px}
@@ -185,16 +155,12 @@ body{
   .container{padding:0 10px}
   .bg-waves::before, .bg-waves::after{inset:-30%}
 }
-
-
 </style>
 </head>
 <body>
 
-<!-- animated background waves -->
 <div class="bg-waves" aria-hidden="true"></div>
 
-<!-- Sticky header -->
 <header class="header" role="banner">
   <div class="header-inner">
     <div class="logo-wrap">
@@ -204,27 +170,17 @@ body{
         <div style="font-size:12px;color:var(--muted);margin-top:4px">Access Control • CCTV • Time Attendance</div>
       </div>
     </div>
+    <div class="header-cta">
+      <button id="product-btn" onclick="location.href='products.html'">
+        view services 
+      </button>
+      <div id="hand-pointer"></div>
+    </div>
+  </div>
+</header>
 
-     <div class="header-cta">
-  <button id="product-btn" onclick="location.href='products.html'">
-    view services 
-  </button>
-  <div id="hand-pointer"></div>
-</div>
-
-   
-     
-    
-
-<!-- Page container -->
 <main class="container" role="main">
-
-   
-  <!-- Hero -->
-  <!-- Hero + Slideshow -->
 <section class="hero-slideshow" style="position:relative; height:500px; overflow:hidden; text-align:center; border-radius:12px;">
-
-  <!-- Slides as background -->
   <div class="slideshow" aria-label="Top slideshow" style="position:absolute; inset:0; width:100%; height:100%; overflow:hidden;">
     <div class="slide active" style="background-image:url('assets/time.webp');">
       <div class="slide-caption">Time Attendance Solutions</div>
@@ -264,10 +220,15 @@ body{
     </div>
   </div>
 
-  <!-- Optional dark overlay for readability -->
-  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.35); z-index:5;"></div>
+  <!-- Video overlay inside hero -->
+  <div class="video-wrap" style="position:absolute; inset:0; z-index:7; display:flex; justify-content:center; align-items:center; pointer-events:none;">
+    <video autoplay muted loop style="width:100%; height:100%; object-fit:cover; opacity:0.3;">
+      <source src="assets/intro.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-  <!-- Hero text centered over slideshow -->
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.35); z-index:5;"></div>
   <div class="hero" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10; color:#fff; padding:0 20px;">
     <h1 style="font-size:36px; text-shadow:0 0 20px rgba(0,0,0,0.6);">
       Professional Security Systems — Installation & Support
@@ -276,16 +237,10 @@ body{
       We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
     </p>
   </div>
-
-  <!-- Navigation arrows -->
-  <span class="slide-nav left" onclick="prevSlide()" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:15;">&#10094;</span>
-  <span class="slide-nav right" onclick="nextSlide()" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:30px; color:rgba(255,255,255,0.7); cursor:pointer; z-index:15;">&#10095;</span>
-
+  <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
+  <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
 </section>
-
-  
-
-  <div style="height:40px"></div>
+<div style="height:40px"></div>
 </main>
 
 <footer class="footer" role="contentinfo">
@@ -293,38 +248,16 @@ body{
 </footer>
 
 <script>
-/* =========
-   Scroll direction + IntersectionObserver logic
-   - Requirement: when scrolling UP and the top 3 banners enter view, they should hard-bounce up
-   - We track scroll direction and when a top-card becomes intersecting while direction is 'up', add .bounce-up
-   ========= */
-
-/* Add subtle glow on hover for all elements: handled by CSS :hover */
-/* Accessibility: reduce motion respect */
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(prefersReduced) {
-  // disable animations by removing animation-related classes
   document.querySelectorAll('.bounce-up').forEach(n => n.style.animation = 'none');
   document.querySelectorAll('.product').forEach(n => n.style.animation = 'none');
 }
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-
-function showSlide(index){
-  slides.forEach((s,i)=> s.classList.toggle('active', i===index));
-}
-
-function nextSlide(){
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-
-function prevSlide(){
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-}
-
-// Auto-slide every 5 seconds
+function showSlide(index){ slides.forEach((s,i)=> s.classList.toggle('active', i===index)); }
+function nextSlide(){ currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
+function prevSlide(){ currentSlide = (currentSlide - 1 + slides.length) % slides.length; showSlide(currentSlide); }
 setInterval(nextSlide, 5000);
 </script>
 
