@@ -244,6 +244,94 @@ body{
   max-width: 80%;
   text-shadow: 0 0 8px rgba(0,0,0,0.6);
   z-index: 5;
+
+
+/* -------------------------
+   Hero Slideshow
+-------------------------- */
+.hero-slideshow {
+  position: relative;
+  height: 100vh;   /* full viewport height */
+  overflow: hidden;
+  text-align: center;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the container, crops intelligently */
+}
+
+/* Slide caption */
+.slide-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 80%;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+  z-index: 5;
+}
+
+/* Navigation arrows */
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 12px;
+  z-index: 10;
+  color: #ff2de3;
+  text-shadow: 0 0 10px #8b2cff, 0 0 20px #ff2de3;
+  font-weight: bold;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.slide-nav:hover {
+  transform: scale(1.25);
+  text-shadow: 0 0 20px #ff2de3, 0 0 35px #8b2cff;
+}
+
+.slide-nav.left { left: 10px; }
+.slide-nav.right { right: 10px; }
+
+/* Hero text overlay */
+.hero {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  z-index: 10;
 }
 
 /* Footer */
@@ -316,56 +404,65 @@ body{
 <main class="container" role="main">
 
 <section class="hero-slideshow">
-  <div class="slideshow" aria-label="Top slideshow">
-    <div class="slide active" style="background-image:url('assets/time.webp');">
+  <div class="slideshow">
+    <div class="slide active">
+      <img src="assets/time.webp" alt="Time Attendance Solutions">
       <div class="slide-caption">Time Attendance Solutions</div>
     </div>
-    <div class="slide" style="background-image:url('assets/biometric.webp');">
+    <div class="slide">
+      <img src="assets/biometric.webp" alt="Biometric Access Control">
       <div class="slide-caption">Biometric Access Control</div>
     </div>
-    <div class="slide" style="background-image:url('assets/cctv.webp');">
+    <div class="slide">
+      <img src="assets/cctv.webp" alt="CCTV Systems Installation">
       <div class="slide-caption">CCTV Systems Installation</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img2.webp');">
+    <div class="slide">
+      <img src="assets/img2.webp" alt="Access Control Devices">
       <div class="slide-caption">Access Control Devices</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img3.webp');">
+    <div class="slide">
+      <img src="assets/img3.webp" alt="Door Lock Solutions">
       <div class="slide-caption">Door Lock Solutions</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img4.webp');">
+    <div class="slide">
+      <img src="assets/img4.webp" alt="Alarm Systems">
       <div class="slide-caption">Alarm Systems</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img5.webp');">
+    <div class="slide">
+      <img src="assets/img5.webp" alt="Home Security Solutions">
       <div class="slide-caption">Home Security Solutions</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img6.webp');">
+    <div class="slide">
+      <img src="assets/img6.webp" alt="Business Security Systems">
       <div class="slide-caption">Business Security Systems</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img7.webp');">
+    <div class="slide">
+      <img src="assets/img7.webp" alt="24/7 Monitoring Services">
       <div class="slide-caption">24/7 Monitoring Services</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img8.webp');">
+    <div class="slide">
+      <img src="assets/img8.webp" alt="Smart Access Solutions">
       <div class="slide-caption">Smart Access Solutions</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img9.webp');">
+    <div class="slide">
+      <img src="assets/img9.webp" alt="Installation & Maintenance">
       <div class="slide-caption">Installation & Maintenance</div>
     </div>
-    <div class="slide" style="background-image:url('assets/img10.webp');">
+    <div class="slide">
+      <img src="assets/img10.webp" alt="Customer Support & Consultation">
       <div class="slide-caption">Customer Support & Consultation</div>
     </div>
   </div>
 
   <div class="hero">
-    <h1>
-      Professional Security Systems — Installation & Support
-    </h1>
-    <p>
-      We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.
-    </p>
+    <h1>Professional Security Systems — Installation & Support</h1>
+    <p>We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.</p>
   </div>
 
   <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
   <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
+
 </section>
 
 <div style="height:40px"></div>
