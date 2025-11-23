@@ -378,6 +378,16 @@ body{
     .hero p { font-size: 14px; }
 }
 
+/*mobile*/
+@media (max-width:640px) {
+  .hero-slideshow {
+    height: 60vh; /* reduce height so slides fit better */
+  }
+  .slide img {
+    object-fit: contain; /* prevent zoom/crop on small screens */
+  }
+}
+
 </style>
 </head>
 <body>
