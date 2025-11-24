@@ -26,6 +26,26 @@
     .card{background:rgba(0,0,0,0.5);padding:18px;border-radius:12px;margin-top:20px}
     .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
 
+    /* WhatsApp floating button */
+    .whatsapp-float{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:60px;
+      height:60px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 4px 6px rgba(0,0,0,0.3);
+      cursor:pointer;
+      z-index:999;
+      transition:transform 0.2s;
+    }
+    .whatsapp-float:hover{transform:scale(1.1);}
+    .whatsapp-float img{width:35px;height:35px;}
+
     @media(max-width:600px){
         .hero{height:190px}
         p.lead{max-width:100%}
@@ -69,5 +89,10 @@
 
     <footer style="margin-top:36px;color:#888;font-size:13px">&copy; 2025 SecureTech Solutions</footer>
   </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20Biometric%20Access%20Control" target="_blank" class="whatsapp-float" title="Contact Us Today!">
+    <img src="assets/whatsapp.webp" alt="WhatsApp">
+  </a>
 </body>
 </html>
