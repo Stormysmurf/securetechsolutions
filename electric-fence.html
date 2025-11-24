@@ -9,24 +9,60 @@
     :root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
 
-    .hero{
+    .hero-container{
+        position:relative;
         width:100%;
         height:260px;
-        background:url("assets/electricfence.webp") center/cover no-repeat;
         border-radius:12px;
         margin-top:18px;
+        overflow:hidden;
+    }
+    .hero-container::before{
+        content:"";
+        position:absolute;
+        top:0; left:0; right:0; bottom:0;
+        background: rgba(0,0,0,0.55); /* dark overlay */
+        z-index:1;
+    }
+    .hero{
+        width:100%;
+        height:100%;
+        background:url("assets/electricfence.webp") center/cover no-repeat;
+        position:absolute;
+        top:0; left:0;
+        z-index:0;
     }
 
     .page{max-width:1100px;margin:28px auto;padding:24px}
     header{display:flex;align-items:center;gap:12px}
     .logo{width:46px;border-radius:6px}
     h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-    p.lead{color:#bbb;max-width:60%}
-    .card{background:rgba(0,0,0,0.5);padding:18px;border-radius:12px;margin-top:20px}
+    p.lead{color:#eee;max-width:60%}
+    .card{background:rgba(0,0,0,0.6);padding:18px;border-radius:12px;margin-top:20px;color:#eee}
     .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
 
+    /* WhatsApp floating button */
+    .whatsapp-float{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:60px;
+      height:60px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 4px 6px rgba(0,0,0,0.3);
+      cursor:pointer;
+      z-index:999;
+      transition:transform 0.2s;
+    }
+    .whatsapp-float:hover{transform:scale(1.1);}
+    .whatsapp-float img{width:35px;height:35px;}
+
     @media(max-width:600px){
-        .hero{height:190px}
+        .hero-container{height:190px}
         p.lead{max-width:100%}
     }
   </style>
@@ -41,7 +77,9 @@
       </div>
     </header>
 
-    <div class="hero"></div>
+    <div class="hero-container">
+      <div class="hero"></div>
+    </div>
 
     <main>
       <h1>Electric Fence Systems</h1>
@@ -68,5 +106,10 @@
 
     <footer style="margin-top:36px;color:#888;font-size:13px">&copy; 2025 SecureTech Solutions</footer>
   </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20Electric%20Fence%20systems" target="_blank" class="whatsapp-float" title="Contact Us Today!">
+    <img src="assets/whatsapp.webp" alt="WhatsApp">
+  </a>
 </body>
 </html>
