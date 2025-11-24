@@ -4,29 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Electric Fence — SecureTech Solutions</title>
-  <meta name="description" content="Electric fence installation and deterrent systems by SecureTech Solutions">
+  <meta name="description" content="Electric fence installation and perimeter deterrent systems by SecureTech Solutions">
   <style>
     :root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
 
-    .hero{
+    .hero-container{
+        position:relative;
         width:100%;
         height:260px;
-        background:url("assets/electricfence.webp") center/cover no-repeat;
         border-radius:12px;
         margin-top:18px;
+        overflow:hidden;
+    }
+    .hero-container::before{
+        content:"";
+        position:absolute;
+        top:0; left:0; right:0; bottom:0;
+        background: rgba(0,0,0,0.55); /* dark overlay */
+        z-index:1;
+    }
+    .hero{
+        width:100%;
+        height:100%;
+        background:url("assets/electricfence.webp") center/cover no-repeat;
+        position:absolute;
+        top:0; left:0;
+        z-index:0;
     }
 
     .page{max-width:1100px;margin:28px auto;padding:24px}
     header{display:flex;align-items:center;gap:12px}
     .logo{width:46px;border-radius:6px}
     h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-    p.lead{color:#bbb;max-width:60%}
-    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:20px}
+    p.lead{color:#eee;max-width:60%}
+    .card{background:rgba(0,0,0,0.6);padding:18px;border-radius:12px;margin-top:20px;color:#eee}
     .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
 
+    /* WhatsApp floating button */
+    .whatsapp-float{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:60px;
+      height:60px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 4px 6px rgba(0,0,0,0.3);
+      cursor:pointer;
+      z-index:999;
+      transition:transform 0.2s;
+    }
+    .whatsapp-float:hover{transform:scale(1.1);}
+    .whatsapp-float img{width:35px;height:35px;}
+
     @media(max-width:600px){
-        .hero{height:190px}
+        .hero-container{height:190px}
         p.lead{max-width:100%}
     }
   </style>
@@ -41,18 +77,28 @@
       </div>
     </header>
 
-    <div class="hero"></div>
+    <div class="hero-container">
+      <div class="hero"></div>
+    </div>
 
     <main>
-      <h1>Electric Fence</h1>
-      <p class="lead">Placeholder page for Electric Fence systems. Add system options, safety notes, and installation procedures here.</p>
+      <h1>Electric Fence Systems</h1>
+      <p class="lead">Protect your property with our advanced electric fence systems. Designed for safety and reliability, our fences provide effective perimeter security for homes, businesses, and industrial facilities.</p>
+
+      <h2>Our Electric Fence Solutions:</h2>
+      <ul>
+        <li>Perimeter deterrent systems with customizable voltages</li>
+        <li>Backup power solutions for uninterrupted protection</li>
+        <li>Safety compliance and regular testing</li>
+        <li>Integration with alarm and CCTV systems</li>
+        <li>Professional installation and maintenance services</li>
+      </ul>
 
       <div class="card">
-        <p>Starter scaffold: Replace with full content when ready.</p>
         <ul>
-          <li>Perimeter deterrent systems</li>
-          <li>Power supply & backup</li>
-          <li>Safety compliance and testing</li>
+          <li>High-voltage perimeter protection</li>
+          <li>Seamless integration with access control</li>
+          <li>Monitoring and emergency alert features</li>
         </ul>
         <p style="margin-top:12px"><a class="btn" href="index.html">Back to Home</a></p>
       </div>
@@ -60,5 +106,10 @@
 
     <footer style="margin-top:36px;color:#888;font-size:13px">&copy; 2025 SecureTech Solutions</footer>
   </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20Electric%20Fence%20systems" target="_blank" class="whatsapp-float" title="Contact Us Today!">
+    <img src="assets/whatsapp.webp" alt="WhatsApp">
+  </a>
 </body>
 </html>
