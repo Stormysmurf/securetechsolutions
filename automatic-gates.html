@@ -8,13 +8,29 @@
 	<style>
 		:root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
 		html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+
+		.hero{
+			width:100%;
+			height:260px;
+			background:url("assets/gate.webp") center/cover no-repeat;
+			border-radius:12px;
+			margin-top:18px;
+		}
+
 		.page{max-width:1100px;margin:28px auto;padding:24px}
 		header{display:flex;align-items:center;gap:12px}
 		.logo{width:46px;border-radius:6px}
-		h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-		p.lead{color:#bbb;max-width:60%}
-		.card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:20px}
+		h1{color:var(--neon-pink);font-size:24px;margin:14px 0}
+		p.lead{color:#ddd;max-width:750px;font-size:15px;line-height:1.5}
+
+		.card{background:rgba(255,255,255,0.04);padding:18px;border-radius:12px;margin-top:24px}
 		.btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
+
+		/* mobile friendliness */
+		@media(max-width:600px){
+			.hero{height:190px}
+			p.lead{max-width:100%}
+		}
 	</style>
 </head>
 <body>
@@ -27,18 +43,38 @@
 			</div>
 		</header>
 
+		<div class="hero"></div>
+
 		<main>
 			<h1>Automatic Gates</h1>
-			<p class="lead">Placeholder page for Automatic Gates. Add descriptions, images and pricing here. This page exists so the service button on the homepage opens a dedicated page.</p>
+			<p class="lead">
+				We supply and install high-performance automatic gate systems designed for homes, apartments,
+				business premises, and industrial facilities. Our solutions focus on reliability, durability, and
+				smooth operation — ensuring fast entry and maximum security day and night.
+			</p>
 
 			<div class="card">
-				<p>This is a starter scaffold. When you're ready, replace this content with detailed information about your automated gate products, installation steps, and maintenance plans.</p>
+				<h2 style="margin:0 0 10px 0;color:var(--neon-pink);font-size:18px">What You Get</h2>
 				<ul>
-					<li>Gate motors & controllers</li>
-					<li>Remote access & sensors</li>
-					<li>Scheduled maintenance plans</li>
+					<li>Heavy-duty sliding & swing gate motors</li>
+					<li>Remote keyfob control + backup manual release</li>
+					<li>Smooth opening/closing with obstruction sensing</li>
+					<li>Steel racks, limit switches, and safety photocells</li>
+					<li>Professional installation & wiring</li>
+					<li>Semi-annual maintenance service</li>
 				</ul>
-				<p style="margin-top:12px"><a class="btn" href="index.html">Back to Home</a></p>
+
+				<h2 style="margin:18px 0 10px 0;color:var(--neon-pink);font-size:18px">Why Choose Us</h2>
+				<ul>
+					<li>Fast installation with clean workmanship</li>
+					<li>Reliable motors suitable for Kenyan climate</li>
+					<li>1-year service warranty</li>
+					<li>Affordable spare parts availability</li>
+				</ul>
+
+				<p style="margin-top:20px">
+					<a class="btn" href="index.html">Back to Home</a>
+				</p>
 			</div>
 		</main>
 
