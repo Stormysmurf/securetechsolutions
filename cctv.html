@@ -7,14 +7,52 @@
   <meta name="description" content="CCTV surveillance systems provided by SecureTech Solutions">
   <style>
     :root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
-    html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
-    .page{max-width:1100px;margin:28px auto;padding:24px}
-    header{display:flex;align-items:center;gap:12px}
-    .logo{width:46px;border-radius:6px}
-    h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-    p.lead{color:#bbb;max-width:60%}
-    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:20px}
-    .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--muted);
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 24px;
+      background-image: url('assets/anime.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo { width: 46px; border-radius: 6px; }
+    h1 { color: var(--neon-pink); font-size: 22px; margin: 6px 0; }
+    p.lead { color: #bbb; max-width: 60%; }
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--neon-pink), #ff78e8);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid var(--neon-purple);
+    }
+    @media (max-width: 640px) {
+      .page {
+        background-size: contain;
+        background-position: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -29,14 +67,16 @@
 
     <main>
       <h1>CCTV Surveillance</h1>
-      <p class="lead">Placeholder page for CCTV Surveillance. Add product details, camera types, coverage examples and installation notes here.</p>
+      <p class="lead">Protect your home or business with our advanced CCTV solutions. Monitor, record, and secure your property with professional-grade cameras and remote access.</p>
 
       <div class="card">
-        <p>Starter scaffold: Replace with full content when ready.</p>
+        <h2>Our CCTV Services</h2>
         <ul>
-          <li>IP & analog camera options</li>
-          <li>Recording (NVR) and remote monitoring</li>
-          <li>Installation & warranty</li>
+          <li>IP and analog camera options for flexible setups</li>
+          <li>Networked video recording (NVR) and cloud storage</li>
+          <li>Remote monitoring via mobile or desktop devices</li>
+          <li>Professional installation and positioning for maximum coverage</li>
+          <li>Maintenance, upgrades, and warranty support</li>
         </ul>
         <p style="margin-top:12px"><a class="btn" href="index.html">Back to Home</a></p>
       </div>
