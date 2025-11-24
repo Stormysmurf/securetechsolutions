@@ -25,8 +25,6 @@ body{
   background: #000;
   color:var(--muted);
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   line-height:1.35;
 }
 
@@ -47,7 +45,11 @@ body{
   transform: scale(1.1);
   box-shadow: 0 0 15px #ff2de3, 0 0 25px #8b2cff;
 }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+@keyframes bounce { 
+  0%,100% { transform: translateY(0); } 
+  50% { transform: translateY(-8px); }
+}
 
 #hand-pointer {
   position: absolute;
@@ -60,7 +62,11 @@ body{
   background-size: contain;
   animation: handWave 1.5s infinite ease-in-out;
 }
-@keyframes handWave { 0%,100%{transform:translateX(-50%) rotate(0deg);}50%{transform:translateX(-50%) rotate(-15deg);} }
+
+@keyframes handWave { 
+  0%,100%{transform:translateX(-50%) rotate(0deg);} 
+  50%{transform:translateX(-50%) rotate(-15deg);} 
+}
 
 /* Animated Background Waves */
 .bg-waves {
@@ -68,33 +74,14 @@ body{
   background: radial-gradient(ellipse at 20% 20%, rgba(139,44,255,0.08), transparent 10%),
               radial-gradient(ellipse at 80% 60%, rgba(0,217,255,0.05), transparent 10%),
               linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.92));
-  overflow:hidden;
 }
-.bg-waves::before, .bg-waves::after{
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background-repeat:no-repeat;
-  filter: blur(60px) saturate(140%);
-  opacity:0.35;
-}
-.bg-waves::before{ background: radial-gradient(circle at 30% 35%, rgba(139,44,255,0.9), transparent 20%); animation: waveMoveLeft 18s linear infinite;}
-.bg-waves::after{ background: radial-gradient(circle at 70% 65%, rgba(255,45,227,0.9), transparent 20%); animation: waveMoveRight 20s linear infinite;}
-@keyframes waveMoveLeft{0%{transform:translateX(-20%) scale(0.9)}50%{transform:translateX(10%) scale(1.05)}100%{transform:translateX(-20%) scale(0.9)}}
-@keyframes waveMoveRight{0%{transform:translateX(20%) scale(0.95)}50%{transform:translateX(-10%) scale(1.08)}100%{transform:translateX(20%) scale(0.95)}}
 
-
-/* -------------------------
-   Header & Logo
--------------------------- */
+/* Header */
 .header { 
-  position: sticky; 
-  top:0; 
-  z-index:40; 
+  position: sticky; top:0; z-index:40; 
   backdrop-filter:blur(6px);
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
-  border-bottom:1px solid rgba(255,255,255,0.03); 
-  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.35);
+  border-bottom:1px solid rgba(255,255,255,0.03);
 }
 
 .header-inner {
@@ -103,84 +90,39 @@ body{
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 20px; /* thinner header */
-  flex-wrap: nowrap;
+  padding: 8px 20px;
 }
 
 .logo-large {
-  width: 50px;       /* smaller logo */
+  width: 50px;
   height: auto;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  background: none;
-  transition: transform 0.28s ease;
-}
-
-.logo-large:hover {
-  transform: scale(1.05);
 }
 
 .header-title {
   font-weight: 700;
   color: var(--neon-pink);
-  text-shadow: 0 0 10px rgba(255,45,227,0.14), 0 0 28px rgba(139,44,255,0.06);
-  font-size: 16px;  /* smaller font for thin header */
-  letter-spacing: 1px;
-  white-space: nowrap; /* keep on one line */
+  font-size: 16px;
 }
 
-.header-cta {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.header-subtitle {
+  font-size: 12px;
+  color: #bbb;
 }
-
-.cta-btn {
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  color: var(--muted);
-  cursor: pointer;
-  transition: all .22s ease;
-}
-
-.cta-btn:hover {
-  box-shadow: 0 0 20px rgba(0,217,255,0.12), 0 0 18px rgba(255,45,227,0.08);
-  transform: translateY(-3px);
-}
-
-
-
-/* Products Grid */
-.products-title{ text-align:center; margin:30px 0 12px; font-size:22px; color:var(--neon-purple); text-shadow:0 0 16px rgba(139,44,255,0.18); }
-.product-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:18px; align-items:stretch; }
-.product{ background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008)); border-radius:12px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.03); transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease, border-color .2s ease; box-shadow:0 0 18px rgba(0,0,0,0.6); animation: fadeInUpSoft 450ms ease both; }
-@keyframes fadeInUpSoft{ from{transform:translateY(16px);opacity:0} to{transform:translateY(0);opacity:1} }
-.product:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 12px 48px rgba(139,44,255,0.12),0 0 30px rgba(255,45,227,0.08); border-color: rgba(139,44,255,0.28); }
-.product img{ width:100%; height:140px; object-fit:cover; display:block; border-bottom:1px solid rgba(255,255,255,0.02); }
-.product .p-caption{ padding:10px; font-weight:700; color:#fff; font-size:14px; text-shadow:0 0 10px rgba(0,0,0,0.6); }
- 
 
 /* -------------------------
-   Hero Slideshow
+   HERO SLIDESHOW
 -------------------------- */
 .hero-slideshow {
   position: relative;
-  height: 70vh;   /* adjust for mobile/fullscreen */
+  height: 70vh;
   overflow: hidden;
   text-align: center;
 }
 
 .slideshow {
   position: relative;
-  width: 100%;
   height: 100%;
-  overflow: hidden;
+  width: 100%;
 }
 
 .slide {
@@ -188,62 +130,45 @@ body{
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity .4s ease;
 }
 
-.slide.active {
-  opacity: 1;
-}
+.slide.active { opacity: 1; }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills container without stretching */
+  object-fit: cover;
 }
 
-/* Slide caption */
+/* Captions */
 .slide-caption {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
+  bottom: 20px; left: 50%;
   transform: translateX(-50%);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
   background: rgba(0,0,0,0.5);
+  color: #fff;
   padding: 8px 16px;
   border-radius: 8px;
-  text-align: center;
-  max-width: 80%;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
-  z-index: 5;
+  font-weight: 700;
 }
 
-/* Navigation arrows */
+/* Arrows */
 .slide-nav {
   position: absolute;
-  top: 50%;
+  top: 50%; 
   transform: translateY(-50%);
-  font-size: 30px;
+  font-size: 32px;
   cursor: pointer;
-  user-select: none;
-  padding: 0 12px;
-  z-index: 10;
   color: #ff2de3;
-  text-shadow: 0 0 10px #8b2cff, 0 0 20px #ff2de3;
-  font-weight: bold;
-  transition: transform 0.2s ease, text-shadow 0.2s ease;
+  z-index: 20;
+  padding: 0 12px;
+  user-select: none;
 }
-
-.slide-nav:hover {
-  transform: scale(1.25);
-  text-shadow: 0 0 20px #ff2de3, 0 0 35px #8b2cff;
-}
-
 .slide-nav.left { left: 10px; }
 .slide-nav.right { right: 10px; }
 
-/* Hero text overlay */
+/* Hero Text */
 .hero {
   position: absolute;
   top: 30%;
@@ -254,199 +179,150 @@ body{
   z-index: 10;
 }
 
-.hero h1 {
-  font-size: 28px;
-  font-weight: 700;
+.hero h1 { font-size: 28px; font-weight: 700; }
+.hero p { font-size: 16px; max-width: 90%; margin: 8px auto 0; }
+
+/* Button responsive */
+@media (max-width: 640px){
+  #product-btn { animation:none; }
+  #hand-pointer { display:none; }
 }
-
-.hero p {
-  font-size: 16px;
-  max-width: 90%;
-  margin: 8px auto 0;
-}
-
-
-
-/* Footer */
-.footer{ text-align:center; padding:28px 18px; color:#bfc9cf; border-top:1px solid rgba(255,255,255,0.02); margin-top:60px; font-size:13px; }
-
-/* Responsive */
-@media (max-width:920px){ .top-card img{height:140px} .video-wrap video{height:auto} .logo-large{max-width:220px} }
-@media (max-width:640px){
-  .top-banners{gap:10px}
-  .top-card{flex:1 1 100%; min-width:0}
-  .top-card img{height:120px}
-  .product img{height:120px}
-  .logo-large{max-width:180px}
-  .header-inner{padding:10px}
-  .header-title{font-size:14px}
-  .hero h1{font-size:24px}
-  .hero p{max-width:95%}
-}
-@media (max-width:360px){
-  .container{padding:0 10px}
-  .bg-waves::before, .bg-waves::after{inset:-30%}
-}
-
-/* Extra responsive tweaks for very small screens */
-@media (max-width: 350px){
-    .header-inner { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 8px; 
-    }
-    .header-cta { 
-        margin-left: 0; 
-    }
-}
-
-@media (max-width: 640px) { 
-    #product-btn { animation: none; } 
-    #hand-pointer { display: none; } 
-}
-
-/* Optional: further shrink hero text for extremely small phones */
-@media (max-width: 320px){
-    .hero h1 { font-size: 20px; }
-    .hero p { font-size: 14px; }
-}
-
-/*mobile*/
-@media (max-width:640px) {
-  .hero-slideshow {
-    height: 60vh; /* reduce slide height */
-  }
-  .slide img {
-    object-fit: cover;  /* fills the slide nicely */
-    width: 100%;
-    height: 100%;
-  }
-  .hero {
-    top: 40%; /* bring hero text lower */
-    padding: 0 10px;
-  }
-  .hero h1 {
-    font-size: 20px;
-  }
-  .hero p {
-    font-size: 14px;
-  }
-}
-
-
 </style>
 </head>
+
 <body>
 
-<div class="bg-waves" aria-hidden="true"></div>
+<div class="bg-waves"></div>
 
-<header class="header" role="banner">
+<header class="header">
   <div class="header-inner">
-    <div class="logo-wrap">
-      <img src="assets/logo.jpg" alt="SecureTech Logo" class="logo-large">
-      <div class="title-wrap">
-        <div class="header-title">SecureTech Solutions</div>
-        <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
-      </div>
-    </div>
-    
-</header>
-<main class="container" role="main">
-
-<section class="hero-slideshow">
-  <div class="slideshow">
-    <div class="slide active">
-      <img src="assets/time.webp" alt="Time Attendance Solutions">
-      <div class="slide-caption">Time Attendance Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/biometric.webp" alt="Biometric Access Control">
-      <div class="slide-caption">Biometric Access Control</div>
-    </div>
-    <div class="slide">
-      <img src="assets/cctv.webp" alt="CCTV Systems Installation">
-      <div class="slide-caption">CCTV Systems Installation</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img2.webp" alt="Access Control Devices">
-      <div class="slide-caption">Access Control Devices</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img3.webp" alt="Door Lock Solutions">
-      <div class="slide-caption">Door Lock Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img4.webp" alt="Alarm Systems">
-      <div class="slide-caption">Alarm Systems</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img5.webp" alt="Home Security Solutions">
-      <div class="slide-caption">Home Security Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img6.webp" alt="Business Security Systems">
-      <div class="slide-caption">Business Security Systems</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img7.webp" alt="24/7 Monitoring Services">
-      <div class="slide-caption">24/7 Monitoring Services</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img8.webp" alt="Smart Access Solutions">
-      <div class="slide-caption">Smart Access Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img9.webp" alt="Installation & Maintenance">
-      <div class="slide-caption">Installation & Maintenance</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img10.webp" alt="Customer Support & Consultation">
-      <div class="slide-caption">Customer Support & Consultation</div>
+    <img src="assets/logo.jpg" class="logo-large" alt="Logo">
+    <div>
+      <div class="header-title">SecureTech Solutions</div>
+      <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
     </div>
   </div>
+</header>
 
+<main class="container">
+
+<!-- =======================
+     HERO SLIDESHOW
+======================= -->
+<section class="hero-slideshow">
+  <div class="slideshow">
+
+    <div class="slide active">
+      <img src="assets/time.webp" alt="">
+      <div class="slide-caption">Time Attendance Solutions</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/biometric.webp" alt="">
+      <div class="slide-caption">Biometric Access Control</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/cctv.webp" alt="">
+      <div class="slide-caption">CCTV Systems Installation</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img2.webp" alt="">
+      <div class="slide-caption">Access Control Devices</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img3.webp" alt="">
+      <div class="slide-caption">Door Lock Solutions</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img4.webp" alt="">
+      <div class="slide-caption">Alarm Systems</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img5.webp" alt="">
+      <div class="slide-caption">Home Security Solutions</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img6.webp" alt="">
+      <div class="slide-caption">Business Security Systems</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img7.webp" alt="">
+      <div class="slide-caption">24/7 Monitoring Services</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img8.webp" alt="">
+      <div class="slide-caption">Smart Access Solutions</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img9.webp" alt="">
+      <div class="slide-caption">Installation & Maintenance</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/img10.webp" alt="">
+      <div class="slide-caption">Customer Support & Consultation</div>
+    </div>
+
+  </div>
+
+  <!-- HERO TEXT -->
   <div class="hero">
     <h1>Professional Security Systems — Installation & Support</h1>
     <p>We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.</p>
   </div>
 
-<!-- After the hero-slideshow section -->
-<section style="text-align:center; margin:30px 0;">
-  <button id="product-btn" onclick="location.href='products.html'">
-    Click to View Services
-  </button>
-</section>
+  <!-- ARROWS -->
   <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
   <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
 
 </section>
 
-/*products button*/
 
-<section style="text-align:center; margin:30px 0;">
+<!-- =======================
+     VIEW PRODUCTS BUTTON
+======================= -->
+<section style="text-align:center; margin:45px 0;">
+  <div id="hand-pointer"></div>
+
   <button id="product-btn" onclick="location.href='products.html'">
     Click to View Services
   </button>
 </section>
 
-<div style="height:40px"></div>
+
 </main>
 
-<footer class="footer" role="contentinfo">
-  &copy; 2025 SecureTech Solutions • Contact: +254 113 301 244
+<footer class="footer" style="text-align:center; padding:28px; color:#bbb;">
+  &copy; 2025 SecureTech Solutions • +254 113 301 244
 </footer>
 
 <script>
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(prefersReduced) {
-  document.querySelectorAll('.bounce-up').forEach(n => n.style.animation = 'none');
-  document.querySelectorAll('.product').forEach(n => n.style.animation = 'none');
-}
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-function showSlide(index){ slides.forEach((s,i)=> s.classList.toggle('active', i===index)); }
-function nextSlide(){ currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
-function prevSlide(){ currentSlide = (currentSlide - 1 + slides.length) % slides.length; showSlide(currentSlide); }
+
+function showSlide(i){
+  slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+}
+
+function nextSlide(){
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide(){
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
 setInterval(nextSlide, 5000);
 </script>
 
