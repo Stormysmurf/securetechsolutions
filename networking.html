@@ -7,14 +7,54 @@
   <meta name="description" content="Networking services and cabling by SecureTech Solutions">
   <style>
     :root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
-    html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
-    .page{max-width:1100px;margin:28px auto;padding:24px}
-    header{display:flex;align-items:center;gap:12px}
-    .logo{width:46px;border-radius:6px}
-    h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-    p.lead{color:#bbb;max-width:60%}
-    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:20px}
-    .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--muted);
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 24px;
+      background-image: url('assets/it.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo { width: 46px; border-radius: 6px; }
+    h1 { color: var(--neon-pink); font-size: 22px; margin: 6px 0; }
+    p.lead { color: #bbb; max-width: 60%; }
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--neon-pink), #ff78e8);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid var(--neon-purple);
+    }
+
+    /* Mobile-friendly background */
+    @media (max-width: 640px) {
+      .page {
+        background-size: contain;
+        background-position: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -29,7 +69,7 @@
 
     <main>
       <h1>Networking</h1>
-      <p class="lead">Placeholder page for Networking services. Add details about structured cabling, switches, access points and network design.</p>
+      <p class="lead">Placeholder page for Networking services.</p>
 
       <div class="card">
         <p>Starter scaffold: Replace with full content when ready.</p>
