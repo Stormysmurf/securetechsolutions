@@ -14,44 +14,44 @@
       color: var(--muted);
       font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
     }
-    .page {
-      max-width: 1100px;
-      margin: 28px auto;
-      padding: 24px;
-      background-image: url('assets/anime.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo { width: 46px; border-radius: 6px; }
-    h1 { color: var(--neon-pink); font-size: 22px; margin: 6px 0; }
-    p.lead { color: #bbb; max-width: 60%; }
-    .card {
-      background: rgba(255,255,255,0.03);
-      padding: 18px;
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 260px;
       border-radius: 12px;
-      margin-top: 20px;
+      margin-top: 18px;
+      overflow: hidden;
     }
-    .btn {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--neon-pink), #ff78e8);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 2px solid var(--neon-purple);
+
+    .hero-container::before {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.55); /* dark overlay */
+      z-index:1;
     }
-    @media (max-width: 640px) {
-      .page {
-        background-size: contain;
-        background-position: center;
-      }
+
+    .hero {
+      width: 100%;
+      height: 100%;
+      background: url("assets/anime.webp") center/cover no-repeat;
+      position: absolute;
+      top:0; left:0;
+      z-index:0;
+    }
+
+    .page{max-width:1100px;margin:28px auto;padding:24px}
+    header{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;border-radius:6px}
+    h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
+    p.lead{color:#eee;max-width:60%}
+    .card{background:rgba(0,0,0,0.6);padding:18px;border-radius:12px;margin-top:20px;color:#eee}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
+
+    @media(max-width:600px){
+        .hero-container{height:190px}
+        p.lead{max-width:100%}
     }
   </style>
 </head>
@@ -65,18 +65,28 @@
       </div>
     </header>
 
+    <div class="hero-container">
+      <div class="hero"></div>
+    </div>
+
     <main>
       <h1>CCTV Surveillance</h1>
-      <p class="lead">Protect your home or business with our advanced CCTV solutions. Monitor, record, and secure your property with professional-grade cameras and remote access.</p>
+      <p class="lead">Monitor, record, and secure your property with professional CCTV systems. Our solutions provide reliable surveillance for homes, businesses, and industrial facilities.</p>
+
+      <h2>Our CCTV Services</h2>
+      <ul>
+        <li>IP and analog camera options for flexible setups</li>
+        <li>Networked video recording (NVR) and cloud storage</li>
+        <li>Remote monitoring via mobile and desktop devices</li>
+        <li>Professional installation and optimal camera positioning</li>
+        <li>Maintenance, upgrades, and warranty support</li>
+      </ul>
 
       <div class="card">
-        <h2>Our CCTV Services</h2>
         <ul>
-          <li>IP and analog camera options for flexible setups</li>
-          <li>Networked video recording (NVR) and cloud storage</li>
-          <li>Remote monitoring via mobile or desktop devices</li>
-          <li>Professional installation and positioning for maximum coverage</li>
-          <li>Maintenance, upgrades, and warranty support</li>
+          <li>High-definition recording</li>
+          <li>Seamless integration with access control and alarms</li>
+          <li>Emergency alerts and monitoring features</li>
         </ul>
         <p style="margin-top:12px"><a class="btn" href="index.html">Back to Home</a></p>
       </div>
