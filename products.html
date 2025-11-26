@@ -89,8 +89,6 @@ body{
 @media (max-width:640px){
   .product img{height:120px}
 }
-
-/* Header & Buttons */
 .header{
   position: sticky;
   top: 0;
@@ -143,22 +141,19 @@ body{
   align-items:center;
 }
 .cta-btn{
-  padding:12px 18px;
-  border-radius:16px;
-  font-weight:700;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:600;
   border: 1px solid var(--neon-pink);
   background: var(--neon-pink);
   color: #fff;
   cursor:pointer;
   transition: all .22s ease;
-  font-size:16px;
 }
 .cta-btn:hover{
   box-shadow: 0 0 20px var(--neon-pink), 0 0 18px rgba(255,45,227,0.08);
   transform: translateY(-3px);
 }
-
-/* Footer */
 .footer{
   text-align:center;
   padding:28px 18px;
@@ -211,7 +206,6 @@ body{
     </div>
     <div class="header-cta">
       <button class="cta-btn" onclick="location.href='index.html'">Home</button>
-      <button class="cta-btn" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Contact Us</button>
     </div>
   </div>
 </header>
@@ -226,6 +220,8 @@ body{
     <a href="#img4" class="product"><img src="assets/bullet.webp" alt="Bullet"><div class="p-caption">Outdoor Bullet Camera</div></a>
     <a href="#img5" class="product"><img src="assets/switch.webp" alt="Switch"><div class="p-caption">Switch & Cabling</div></a>
     <a href="#img6" class="product"><img src="assets/technician.webp" alt="Tech"><div class="p-caption">Our Technicians</div></a>
+
+    <!-- Additional Products -->
     <a href="#img8" class="product"><img src="assets/wireless.webp" alt="Wireless"><div class="p-caption">Wireless Device</div></a>
     <a href="#img9" class="product"><img src="assets/fisheye.webp" alt="Fisheye"><div class="p-caption">Fisheye Camera</div></a>
     <a href="#img10" class="product"><img src="assets/ptz1.webp" alt="PTZ1"><div class="p-caption">PTZ Camera Model 2</div></a>
@@ -236,7 +232,7 @@ body{
     <a href="#img15" class="product"><img src="assets/mobile.webp" alt="Mobile"><div class="p-caption">Mobile Camera</div></a>
   </section>
 
-  <!-- Lightbox Images -->
+  <!-- Lightbox Fullscreen Images -->
   <div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="assets/network.webp" alt="Network Full"></div>
   <div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="assets/ptz.webp" alt="PTZ Full"></div>
   <div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="assets/dome.webp" alt="Dome Full"></div>
@@ -252,20 +248,10 @@ body{
   <div id="img14" class="lightbox"><a href="#" class="close">&times;</a><img src="assets/bullet2.webp" alt="Bullet2 Full"></div>
   <div id="img15" class="lightbox"><a href="#" class="close">&times;</a><img src="assets/mobile.webp" alt="Mobile Full"></div>
 
-  <!-- Contact Section -->
-  <section id="contact-section" class="container" style="margin-top:60px;">
-    <h2 class="products-title">Contact Us</h2>
-    <div style="text-align:center; margin-top:20px; display:flex; flex-direction:column; gap:16px; align-items:center;">
-      <a href="tel:+254113301244" class="cta-btn" style="padding:14px 20px; font-size:16px;">Call Us: +254 113 301 244</a>
-      <a href="mailto:info@securetech71@gmail.com" class="cta-btn" style="padding:14px 20px; font-size:16px;">Email: info@securetech.co.ke</a>
-      <a href="https://wa.me/254113301244" target="_blank" class="cta-btn" style="padding:14px 20px; font-size:16px;">WhatsApp</a>
-    </div>
-  </section>
-
 </main>
 
 <footer class="footer">
-  &copy; 2025 SecureTech Solutions • Access Control • CCTV • Time Attendance
+  &copy; 2025 SecureTech Solutions • Contact: +254 113 301 244
 </footer>
 
 </body>
