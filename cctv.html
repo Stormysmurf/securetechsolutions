@@ -1,123 +1,869 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CCTV Surveillance — SecureTech Solutions</title>
-  <meta name="description" content="CCTV surveillance systems provided by SecureTech Solutions">
+  <meta name="description" content="Professional CCTV surveillance systems provided by SecureTech Solutions">
+  
   <style>
-    :root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: var(--bg);
-      color: var(--muted);
-      font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    :root{
+      --bg:#000000;
+      --neon-purple: #8b2cff;
+      --neon-pink: #ff2de3;
+      --neon-blue: #00d9ff;
+      --muted:#cfd6db;
+      --max-width:1400px;
     }
 
-    .hero-container {
-      position: relative;
-      width: 100%;
-      height: 260px;
-      border-radius: 12px;
-      margin-top: 18px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    html,body{height:100%; max-width:100vw; overflow-x:hidden;}
+
+    body{
+      background: #000;
+      color:var(--muted);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Animated Background */
+    .bg-waves {
+      position:fixed; 
+      inset:0; 
+      z-index:-3;
+      background: 
+        radial-gradient(ellipse at 15% 25%, rgba(139,44,255,0.15), transparent 40%),
+        radial-gradient(ellipse at 85% 75%, rgba(255,45,227,0.12), transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,217,255,0.08), transparent 50%),
+        linear-gradient(180deg, #000000, #0a0a0a);
+      animation: bgShift 20s ease infinite;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
       overflow: hidden;
     }
 
-    .hero-container::before {
-      content: "";
+    .particle {
       position: absolute;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.55); /* dark overlay for readable text */
-      z-index:1;
+      width: 3px;
+      height: 3px;
+      background: rgba(139,44,255,0.4);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
     }
 
-    .hero {
+    .particle:nth-child(2) { left: 20%; animation-delay: -5s; background: rgba(255,45,227,0.3); }
+    .particle:nth-child(3) { left: 40%; animation-delay: -10s; background: rgba(0,217,255,0.3); }
+    .particle:nth-child(4) { left: 60%; animation-delay: -3s; }
+    .particle:nth-child(5) { left: 80%; animation-delay: -8s; background: rgba(255,45,227,0.4); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+    }
+
+    /* Header */
+    .header { 
+      position: fixed; 
+      top:0; 
+      left: 0;
+      right: 0;
+      z-index:100; 
+      backdrop-filter:blur(12px) saturate(180%);
+      background: rgba(0,0,0,0.7);
+      border-bottom:1px solid rgba(139,44,255,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      background: rgba(0,0,0,0.9);
+      box-shadow: 0 4px 30px rgba(139,44,255,0.1);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-large {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      border: 2px solid rgba(139,44,255,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-large:hover {
+      transform: scale(1.05);
+      border-color: var(--neon-pink);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-title {
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-subtitle {
+      font-size: 13px;
+      color: #999;
+      font-weight: 500;
+    }
+
+    .header-cta {
+      background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(139,44,255,0.3);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(139,44,255,0.5);
+    }
+
+    /* Hero Section with Video */
+    .hero-section {
+      position: relative;
+      height: 75vh;
+      margin-top: 88px;
+      overflow: hidden;
+      border-radius: 24px;
+      margin-bottom: 80px;
+    }
+
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: url("assets/anime.webp") center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .hero-overlay {
       position: absolute;
-      top:0; left:0;
-      z-index:0;
+      inset: 0;
+      background: linear-gradient(
+        180deg, 
+        rgba(0,0,0,0.4) 0%, 
+        rgba(0,0,0,0.7) 50%,
+        rgba(0,0,0,0.9) 100%
+      );
+      z-index: 1;
     }
 
-    .page{max-width:1100px;margin:28px auto;padding:24px}
-    header{display:flex;align-items:center;gap:12px}
-    .logo{width:46px;border-radius:6px}
-    h1{color:var(--neon-pink);font-size:22px;margin:6px 0}
-    p.lead{color:#eee;max-width:60%}
-    .card{background:rgba(0,0,0,0.6);padding:18px;border-radius:12px;margin-top:20px;color:#eee}
-    .btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
-
-    /* WhatsApp floating button */
-    .whatsapp-float{
-      position:fixed;
-      bottom:24px;
-      right:24px;
-      width:60px;
-      height:60px;
-      background:#25D366;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      box-shadow:0 4px 6px rgba(0,0,0,0.3);
-      cursor:pointer;
-      z-index:999;
-      transition:transform 0.2s;
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      max-width: 900px;
+      padding: 0 24px;
+      width: 100%;
     }
-    .whatsapp-float:hover{transform:scale(1.1);}
-    .whatsapp-float img{width:35px;height:35px;}
 
-    @media(max-width:600px){
-        .hero-container{height:190px}
-        p.lead{max-width:100%}
+    .hero-content h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      letter-spacing: -1px;
+    }
+
+    .hero-content .highlight {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: clamp(16px, 2vw, 22px);
+      color: #d4d4d4;
+      margin-bottom: 32px;
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .hero-btn.primary {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      box-shadow: 0 8px 30px rgba(139,44,255,0.4);
+    }
+
+    .hero-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(139,44,255,0.6);
+    }
+
+    .hero-btn.secondary {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-btn.secondary:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: var(--neon-purple);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .section-header .accent {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: #999;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, rgba(139,44,255,0.08), rgba(255,45,227,0.05));
+      border: 1px solid rgba(139,44,255,0.2);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,45,227,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--neon-pink);
+      box-shadow: 0 20px 60px rgba(139,44,255,0.3);
+      background: linear-gradient(135deg, rgba(139,44,255,0.15), rgba(255,45,227,0.1));
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(139,44,255,0.3);
+    }
+
+    .feature-card h3 {
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .feature-card p {
+      color: #aaa;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .feature-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0 0;
+    }
+
+    .feature-card ul li {
+      color: #bbb;
+      font-size: 14px;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .feature-card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--neon-pink);
+      font-weight: bold;
+    }
+
+    /* Video Demo Section */
+    .video-demo-section {
+      background: linear-gradient(135deg, rgba(139,44,255,0.1), rgba(255,45,227,0.08));
+      border: 2px solid rgba(139,44,255,0.2);
+      border-radius: 24px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-demo-section::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(45deg, transparent, rgba(139,44,255,0.1), transparent);
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+
+    .video-demo-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .video-demo-section h3 {
+      font-size: clamp(24px, 3vw, 36px);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .demo-video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 2px solid rgba(139,44,255,0.3);
+    }
+
+    .demo-video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(139,44,255,0.2), rgba(255,45,227,0.15));
+      border: 2px solid rgba(139,44,255,0.3);
+      border-radius: 24px;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(45deg, transparent, rgba(139,44,255,0.1), transparent);
+      animation: rotate 4s linear infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: #bbb;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      border: none;
+      padding: 18px 48px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(255,45,227,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 40px rgba(255,45,227,0.6);
+    }
+
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 40px;
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7); }
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0,0,0,0.8);
+      border-top: 1px solid rgba(139,44,255,0.2);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--neon-pink);
+    }
+
+    .footer-contact {
+      color: #bbb;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact strong {
+      color: white;
+      font-weight: 700;
+    }
+
+    .footer-copyright {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 12px 20px;
+      }
+
+      .container {
+        padding: 0 20px 60px;
+      }
+
+      .hero-section {
+        height: 60vh;
+        margin-top: 76px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .video-demo-section,
+      .cta-section {
+        padding: 40px 24px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-large {
+        width: 44px;
+        height: 44px;
+      }
+
+      .header-title {
+        font-size: 16px;
+      }
+
+      .header-subtitle {
+        font-size: 11px;
+      }
+
+      .brand-text {
+        display: none;
+      }
     }
   </style>
 </head>
-<body>
-  <div class="page">
-    <header>
-      <img src="assets/logo.jpg" alt="Logo" class="logo">
-      <div>
-        <div style="font-weight:800;color:var(--neon-pink)">SecureTech Solutions</div>
-        <div style="font-size:12px;color:#bbb">CCTV Surveillance</div>
-      </div>
-    </header>
 
-    <div class="hero-container">
-      <div class="hero"></div>
+<body>
+
+<div class="bg-waves"></div>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo-section">
+      <img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
+      <div class="brand-text">
+        <div class="header-title">SecureTech Solutions</div>
+        <div class="header-subtitle">CCTV Surveillance Systems</div>
+      </div>
+    </div>
+    <a href="index.html" class="header-cta">← Back to Home</a>
+  </div>
+</header>
+
+<!-- Hero Section with Video Background -->
+<section class="hero-section">
+  <div class="hero-video-container">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="assets/cam.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-content">
+    <h1>
+      <span class="highlight">CCTV Surveillance</span><br>
+      Systems That Protect
+    </h1>
+    <p>
+      Monitor, record, and secure your property with professional CCTV systems. Our solutions provide 24/7 reliable surveillance for homes, businesses, and industrial facilities.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#features" class="hero-btn primary">
+        Explore Features
+      </a>
+      <a href="tel:+254113301244" class="hero-btn secondary">
+        Get a Quote
+      </a>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="section-header">
+      <h2><span class="accent">Our CCTV</span> Services</h2>
+      <p>Comprehensive surveillance solutions tailored to your security needs with cutting-edge technology and expert support.</p>
     </div>
 
-    <main>
-      <h1>CCTV Surveillance</h1>
-      <p class="lead">Monitor, record, and secure your property with professional CCTV systems. Our solutions provide reliable surveillance for homes, businesses, and industrial facilities.</p>
-
-      <h2>Our CCTV Services</h2>
-      <ul>
-        <li>IP and analog camera options for flexible setups</li>
-        <li>Networked video recording (NVR) and cloud storage</li>
-        <li>Remote monitoring via mobile and desktop devices</li>
-        <li>Professional installation and optimal camera positioning</li>
-        <li>Maintenance, upgrades, and warranty support</li>
-      </ul>
-
-      <div class="card">
+    <div class="features-grid">
+      
+      <div class="feature-card">
+        <div class="feature-icon">📹</div>
+        <h3>HD & 4K Cameras</h3>
+        <p>Crystal clear video quality with high-definition and 4K camera options for maximum detail and clarity.</p>
         <ul>
-          <li>High-definition recording</li>
-          <li>Seamless integration with access control and alarms</li>
-          <li>Emergency alerts and monitoring features</li>
+          <li>IP and analog camera options</li>
+          <li>Night vision capabilities</li>
+          <li>Weatherproof outdoor models</li>
         </ul>
-        <p style="margin-top:12px"><a class="btn" href="index.html">Back to Home</a></p>
       </div>
-    </main>
 
-    <footer style="margin-top:36px;color:#888;font-size:13px">&copy; 2025 SecureTech Solutions</footer>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>Cloud & NVR Storage</h3>
+        <p>Secure video storage with networked video recording (NVR) and cloud backup solutions.</p>
+        <ul>
+          <li>Local and cloud storage options</li>
+          <li>Automatic backup systems</li>
+          <li>Easy video retrieval</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Remote Monitoring</h3>
+        <p>Access your cameras from anywhere using mobile apps and desktop software for real-time viewing.</p>
+        <ul>
+          <li>iOS and Android apps</li>
+          <li>Live streaming capabilities</li>
+          <li>Motion detection alerts</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <h3>Professional Installation</h3>
+        <p>Expert installation with optimal camera positioning for maximum coverage and effectiveness.</p>
+        <ul>
+          <li>Site assessment and planning</li>
+          <li>Cable management</li>
+          <li>System configuration</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>System Integration</h3>
+        <p>Seamless integration with access control, alarms, and other security systems for complete protection.</p>
+        <ul>
+          <li>Access control integration</li>
+          <li>Alarm system connectivity</li>
+          <li>Centralized management</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛠️</div>
+        <h3>Maintenance & Support</h3>
+        <p>Ongoing maintenance, system upgrades, and comprehensive warranty support for peace of mind.</p>
+        <ul>
+          <li>Regular maintenance checks</li>
+          <li>24/7 technical support</li>
+          <li>Warranty coverage</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Demo Section -->
+  <section class="video-demo-section">
+    <div class="video-demo-content">
+      <h3>See Our CCTV Systems in Action</h3>
+      <p style="color: #bbb; margin-bottom: 32px; font-size: 16px;">
+        Watch how our surveillance technology works to keep your property secure 24/7
+      </p>
+      <div class="demo-video-container">
+        <video class="demo-video" controls poster="assets/anime.webp">
+          <source src="assets/cam.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Enhance Your Security?</h2>
+      <p>Get a free consultation and custom CCTV system quote. Our security experts will design the perfect surveillance solution for your property.</p>
+      <a href="tel:+254113301244" class="cta-button">
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cctv.html">CCTV Systems</a>
+      <a href="#contact">Contact</a>
+      <a href="#support">Support</a>
+    </div>
+    <div class="footer-contact">
+      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions.co.ke
+    </div>
+    <div class="footer-copyright">
+      &copy; 2025 SecureTech Solutions. All rights reserved. Professional CCTV Surveillance Systems.
+    </div>
   </div>
+</footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20CCTV%20Surveillance" target="_blank" class="whatsapp-float" title="Contact Us Today!">
-    <img src="assets/whatsapp.webp" alt="WhatsApp">
-  </a>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20CCTV%20Surveillance" target="_blank" class="whatsapp-float" title="Contact Us on WhatsApp">
+  <img src="assets/whatsapp.webp" alt="WhatsApp">
+</a>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
+
 </body>
 </html>
