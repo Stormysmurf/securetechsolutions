@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="woADHEYESMZPVh-NBOjTn_x7pHPUG1JBhLknx6MnW_4" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SecureTech Solutions</title>
+<title>SecureTech Solutions | Professional Security Systems</title>
 <meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
 
 <style>
@@ -15,73 +15,86 @@
   --neon-blue: #00d9ff;
   --muted:#cfd6db;
   --card-bg: rgba(20,20,20,0.55);
-  --glass: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.05);
   --accent: var(--neon-purple);
-  --max-width:1200px;
+  --max-width:1400px;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 html,body{height:100%; max-width:100vw; overflow-x:hidden;}
+
 body{
   background: #000;
   color:var(--muted);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  line-height:1.35;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Products Button */
-#product-btn {
-  background-color: #ff2de3;
-  border: 2px solid #8b2cff;
-  color: #fff;
-  font-weight: 700;
-  padding: 12px 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: bounce 1.2s infinite;
-}
-#product-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #ff2de3, 0 0 25px #8b2cff;
-}
-
-@keyframes bounce { 
-  0%,100% { transform: translateY(0); } 
-  50% { transform: translateY(-8px); }
-}
-
-#hand-pointer {
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
-  background: url('assets/hand.png') no-repeat center center;
-  background-size: contain;
-  animation: handWave 1.5s infinite ease-in-out;
-}
-
-@keyframes handWave { 
-  0%,100%{transform:translateX(-50%) rotate(0deg);} 
-  50%{transform:translateX(-50%) rotate(-15deg);} 
-}
-
-/* Animated Background Waves */
+/* Animated Background */
 .bg-waves {
-  position:fixed; inset:0; z-index:-3;
-  background: radial-gradient(ellipse at 20% 20%, rgba(139,44,255,0.08), transparent 10%),
-              radial-gradient(ellipse at 80% 60%, rgba(0,217,255,0.05), transparent 10%),
-              linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.92));
+  position:fixed; 
+  inset:0; 
+  z-index:-3;
+  background: 
+    radial-gradient(ellipse at 15% 25%, rgba(139,44,255,0.15), transparent 40%),
+    radial-gradient(ellipse at 85% 75%, rgba(255,45,227,0.12), transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(0,217,255,0.08), transparent 50%),
+    linear-gradient(180deg, #000000, #0a0a0a);
+  animation: bgShift 20s ease infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* Floating particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(139,44,255,0.4);
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out;
+}
+
+.particle:nth-child(2) { left: 20%; animation-delay: -5s; background: rgba(255,45,227,0.3); }
+.particle:nth-child(3) { left: 40%; animation-delay: -10s; background: rgba(0,217,255,0.3); }
+.particle:nth-child(4) { left: 60%; animation-delay: -3s; }
+.particle:nth-child(5) { left: 80%; animation-delay: -8s; background: rgba(255,45,227,0.4); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
 }
 
 /* Header */
 .header { 
-  position: sticky; top:0; z-index:40; 
-  backdrop-filter:blur(6px);
-  background: rgba(0,0,0,0.35);
-  border-bottom:1px solid rgba(255,255,255,0.03);
+  position: fixed; 
+  top:0; 
+  left: 0;
+  right: 0;
+  z-index:100; 
+  backdrop-filter:blur(12px) saturate(180%);
+  background: rgba(0,0,0,0.7);
+  border-bottom:1px solid rgba(139,44,255,0.15);
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background: rgba(0,0,0,0.9);
+  box-shadow: 0 4px 30px rgba(139,44,255,0.1);
 }
 
 .header-inner {
@@ -89,42 +102,80 @@ body{
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 20px;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .logo-large {
-  width: 50px;
-  height: auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 2px solid rgba(139,44,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.logo-large:hover {
+  transform: scale(1.05);
+  border-color: var(--neon-pink);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-title {
-  font-weight: 700;
-  color: var(--neon-pink);
-  font-size: 16px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 20px;
+  letter-spacing: -0.5px;
 }
 
 .header-subtitle {
-  font-size: 12px;
-  color: #bbb;
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
 }
 
-/* -------------------------
-   HERO SLIDESHOW
--------------------------- */
+.header-cta {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139,44,255,0.3);
+}
+
+.header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(139,44,255,0.5);
+}
+
+/* Hero Slideshow */
 .hero-slideshow {
   position: relative;
-  height: 70vh;
+  height: 85vh;
+  margin-top: 88px;
   overflow: hidden;
-  text-align: center;
-  perspective: 1200px; /* enable 3D perspective for slides */
 }
 
-.slideshow {
+.slideshow-container {
   position: relative;
   height: 100%;
   width: 100%;
-  transform-style: preserve-3d;
 }
 
 .slide {
@@ -132,103 +183,454 @@ body{
   width: 100%;
   height: 100%;
   opacity: 0;
-  backface-visibility: hidden;
-  transform-origin: center center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease, opacity .4s ease, filter .35s ease;
+  transition: opacity 1s ease-in-out;
 }
 
-.slide.active { opacity: 1; }
+.slide.active { 
+  opacity: 1; 
+  z-index: 2;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(0,0,0,0.3) 0%, 
+    rgba(0,0,0,0.6) 50%,
+    rgba(0,0,0,0.85) 100%
+  );
+  z-index: 1;
+}
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.7);
 }
 
-/* 3D slide states */
-.slide.active { transform: translateZ(0) rotateY(0); z-index:2; filter: none; opacity:1; }
-.slide:not(.active) { transform: translateZ(-220px) rotateY(18deg); opacity:0.22; z-index:1; filter: blur(1px) grayscale(.05); }
-
-/* Service buttons (vertical stack) */
-.service-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-}
-.service-btn {
-  width: 320px;
-  max-width: 90%;
-  background: linear-gradient(90deg, #ff2de3 0%, #ff78e8 60%);
-  border: 2px solid var(--neon-purple);
-  color: #fff;
-  font-weight: 800;
-  padding: 14px 20px;
-  border-radius: 14px;
-  cursor: pointer;
-  position: relative;
-  transform-origin: center;
-  transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.25s ease;
-  box-shadow: 0 6px 18px rgba(255,45,227,0.12), 0 0 30px rgba(139,44,255,0.05);
-}
-.service-btn:hover{ transform: translateY(-8px) rotateX(6deg); box-shadow: 0 18px 40px rgba(255,45,227,0.18), 0 0 60px rgba(139,44,255,0.12); }
-.service-btn:active{ transform: translateY(-2px) rotateX(2deg); }
-.service-btn .label{ letter-spacing:0.6px; }
-
-/* Services intro */
-.services-intro{max-width:900px;margin:0 auto 18px;text-align:center}
-.services-intro h2{color:#fff;font-size:20px;margin:0 0 8px;font-weight:800}
-.services-intro h2 .accent{color:var(--neon-pink)}
-.services-intro p{color:#bfc8cc;margin:0;font-size:15px;max-width:760px}
-
-
-/* Captions */
 .slide-caption {
   position: absolute;
-  bottom: 20px; left: 50%;
+  bottom: 40px; 
+  left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
   color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1px solid rgba(139,44,255,0.3);
+  z-index: 3;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  max-width: 900px;
+  padding: 0 24px;
+}
+
+.hero-content h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: -1px;
+}
+
+.hero-content .highlight {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #d4d4d4;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-btn.primary {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  box-shadow: 0 8px 30px rgba(139,44,255,0.4);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(139,44,255,0.6);
+}
+
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.hero-btn.secondary:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: var(--neon-purple);
+}
+
+/* Navigation Arrows */
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  border: 1px solid rgba(139,44,255,0.3);
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.slide-nav:hover {
+  background: rgba(139,44,255,0.3);
+  border-color: var(--neon-pink);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slide-nav.left { left: 24px; }
+.slide-nav.right { right: 24px; }
+
+/* Services Section */
+.services-section {
+  max-width: var(--max-width);
+  margin: 80px auto;
+  padding: 0 32px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.section-header .accent {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #999;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Service Cards Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  background: linear-gradient(135deg, rgba(139,44,255,0.08), rgba(255,45,227,0.05));
+  border: 1px solid rgba(139,44,255,0.2);
+  border-radius: 20px;
+  padding: 32px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,45,227,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.service-card:hover::before {
+  left: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--neon-pink);
+  box-shadow: 0 20px 60px rgba(139,44,255,0.3);
+  background: linear-gradient(135deg, rgba(139,44,255,0.15), rgba(255,45,227,0.1));
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(139,44,255,0.3);
+}
+
+.service-card h3 {
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.service-card p {
+  color: #aaa;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-link {
+  color: var(--neon-pink);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s ease;
+}
+
+.service-card:hover .service-link {
+  gap: 12px;
+}
+
+/* Main CTA Card */
+.cta-card {
+  background: linear-gradient(135deg, rgba(139,44,255,0.2), rgba(255,45,227,0.15));
+  border: 2px solid rgba(139,44,255,0.3);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(45deg, transparent, rgba(139,44,255,0.1), transparent);
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-card h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  color: white;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.cta-card p {
+  font-size: 18px;
+  color: #bbb;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  border: none;
+  padding: 18px 48px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(255,45,227,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(255,45,227,0.6);
+}
+
+/* Footer */
+.footer {
+  background: rgba(0,0,0,0.8);
+  border-top: 1px solid rgba(139,44,255,0.2);
+  padding: 40px 32px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--neon-pink);
+}
+
+.footer-contact {
+  color: #bbb;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-contact strong {
+  color: white;
   font-weight: 700;
 }
 
-/* Arrows */
-.slide-nav {
-  position: absolute;
-  top: 50%; 
-  transform: translateY(-50%);
-  font-size: 32px;
-  cursor: pointer;
-  color: #ff2de3;
-  z-index: 20;
-  padding: 0 12px;
-  user-select: none;
-}
-.slide-nav.left { left: 10px; }
-.slide-nav.right { right: 10px; }
-
-/* Hero Text */
-.hero {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-align: center;
-  z-index: 10;
+.footer-copyright {
+  color: #666;
+  font-size: 14px;
 }
 
-.hero h1 { font-size: 28px; font-weight: 700; }
-.hero p { font-size: 16px; max-width: 90%; margin: 8px auto 0; }
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 20px;
+  }
 
-/* Button responsive */
-@media (max-width: 640px){
-  #product-btn { animation:none; }
-  #hand-pointer { display:none; }
-  .service-btn { width: 92%; padding: 12px 16px; border-radius: 12px; }
+  .header-cta {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .hero-slideshow {
+    height: 70vh;
+    margin-top: 76px;
+  }
+
+  .slide-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .slide-nav.left { left: 12px; }
+  .slide-nav.right { right: 12px; }
+
+  .services-section {
+    padding: 0 20px;
+    margin: 60px auto;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 40px 24px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-large {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  .header-subtitle {
+    font-size: 11px;
+  }
+
+  .brand-text {
+    display: none;
+  }
 }
 </style>
 </head>
@@ -236,171 +638,249 @@ body{
 <body>
 
 <div class="bg-waves"></div>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
 
-<header class="header">
+<header class="header" id="header">
   <div class="header-inner">
-    <img src="assets/logo.jpg" class="logo-large" alt="Logo">
-    <div>
-      <div class="header-title">SecureTech Solutions</div>
-      <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
+    <div class="logo-section">
+      <img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
+      <div class="brand-text">
+        <div class="header-title">SecureTech Solutions</div>
+        <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
+      </div>
     </div>
+    <button class="header-cta" onclick="location.href='tel:+254113301244'">
+      📞 Contact Us
+    </button>
   </div>
 </header>
 
-<main class="container">
-
-<!-- =======================
-     HERO SLIDESHOW
-======================= -->
 <section class="hero-slideshow">
-  <div class="slideshow">
+  <div class="slideshow-container">
 
     <div class="slide active">
-      <img src="assets/time.webp" alt="">
-      <div class="slide-caption">Time Attendance Solutions</div>
+      <img src="assets/time.webp" alt="Time Attendance">
+      <div class="slide-caption">⏱️ Time Attendance Solutions</div>
     </div>
 
     <div class="slide">
-      <img src="assets/biometric.webp" alt="">
-      <div class="slide-caption">Biometric Access Control</div>
+      <img src="assets/biometric.webp" alt="Biometric Access">
+      <div class="slide-caption">🔐 Biometric Access Control</div>
     </div>
 
     <div class="slide">
-      <img src="assets/cctv.webp" alt="">
-      <div class="slide-caption">CCTV Systems Installation</div>
+      <img src="assets/cctv.webp" alt="CCTV Systems">
+      <div class="slide-caption">📹 CCTV Systems Installation</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img2.webp" alt="">
-      <div class="slide-caption">Access Control Devices</div>
+      <img src="assets/img2.webp" alt="Access Control">
+      <div class="slide-caption">🚪 Access Control Devices</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img3.webp" alt="">
-      <div class="slide-caption">Door Lock Solutions</div>
+      <img src="assets/img3.webp" alt="Door Locks">
+      <div class="slide-caption">🔒 Smart Door Lock Solutions</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img4.webp" alt="">
-      <div class="slide-caption">Alarm Systems</div>
+      <img src="assets/img4.webp" alt="Alarm Systems">
+      <div class="slide-caption">🚨 Advanced Alarm Systems</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img5.webp" alt="">
-      <div class="slide-caption">Home Security Solutions</div>
+      <img src="assets/img5.webp" alt="Home Security">
+      <div class="slide-caption">🏠 Home Security Solutions</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img6.webp" alt="">
-      <div class="slide-caption">Business Security Systems</div>
+      <img src="assets/img6.webp" alt="Business Security">
+      <div class="slide-caption">🏢 Business Security Systems</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img7.webp" alt="">
-      <div class="slide-caption">24/7 Monitoring Servicaes</div>
+      <img src="assets/img7.webp" alt="24/7 Monitoring">
+      <div class="slide-caption">👁️ 24/7 Monitoring Services</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img8.webp" alt="">
-      <div class="slide-caption">Smart Access Solutions</div>
+      <img src="assets/img8.webp" alt="Smart Access">
+      <div class="slide-caption">📱 Smart Access Solutions</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img9.webp" alt="">
-      <div class="slide-caption">Installation & Maintenance</div>
+      <img src="assets/img9.webp" alt="Installation">
+      <div class="slide-caption">🔧 Installation & Maintenance</div>
     </div>
 
     <div class="slide">
-      <img src="assets/img10.webp" alt="">
-      <div class="slide-caption">Customer Support & Consultation</div>
+      <img src="assets/img10.webp" alt="Support">
+      <div class="slide-caption">💬 Customer Support & Consultation</div>
     </div>
 
   </div>
 
-  <!-- HERO TEXT -->
-  <div class="hero">
-    <h1>Professional Security Systems — Installation & Support</h1>
-    <p>We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.</p>
+  <div class="hero-content">
+    <h1>
+      <span class="highlight">Professional Security Systems</span><br>
+      Installation & Support
+    </h1>
+    <p>
+      We supply and install cutting-edge access control, CCTV systems, and time attendance solutions tailored to homes and businesses across Kenya.
+    </p>
+    <div class="hero-cta-group">
+      <button class="hero-btn primary" onclick="scrollToServices()">
+        Explore Services
+      </button>
+      <button class="hero-btn secondary" onclick="location.href='tel:+254113301244'">
+        Get a Quote
+      </button>
+    </div>
   </div>
 
-  <!-- ARROWS -->
   <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
   <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
-
 </section>
 
-
-<!-- =======================
-     VIEW PRODUCTS BUTTON
-======================= -->
-<section style="text-align:center; margin:45px 0;">
-  <div id="hand-pointer"></div>
-  <div class="services-intro" role="region" aria-labelledby="services-heading">
-    <h2 id="services-heading"><span class="accent">Explore Our Services</span> — Choose a solution below</h2>
-    <p>Tap a service to view details, request a quote, or schedule installation. Our team supplies, installs and supports every solution.</p>
+<section class="services-section" id="services">
+  <div class="section-header">
+    <h2><span class="accent">Our Services</span> — Choose Your Solution</h2>
+    <p>Comprehensive security solutions designed for your specific needs. From installation to ongoing support, we've got you covered.</p>
   </div>
 
-  <div class="service-list" aria-label="Our services">
-    <button id="product-btn" class="service-btn" data-target="products.html" aria-label="View Products">
-      <span class="label">View Products</span>
-    </button>
-    <button class="service-btn" data-target="cctv.html" aria-label="CCTV Surveillance">
-      <span class="label">CCTV Surveillance</span>
-    </button>
+  <div class="service-grid">
+    
+    <div class="service-card" onclick="location.href='products.html'">
+      <div class="service-icon">🛍️</div>
+      <h3>Products Catalog</h3>
+      <p>Browse our full range of security products including access control systems, cameras, and biometric devices.</p>
+      <span class="service-link">View Products →</span>
+    </div>
 
-    <button class="service-btn" data-target="networking.html" aria-label="Networking">
-      <span class="label">Networking</span>
-    </button>
+    <div class="service-card" onclick="location.href='cctv.html'">
+      <div class="service-icon">📹</div>
+      <h3>CCTV Surveillance</h3>
+      <p>High-definition camera systems with remote monitoring capabilities for homes and businesses.</p>
+      <span class="service-link">Learn More →</span>
+    </div>
 
-    <button class="service-btn" data-target="automatic-gates.html" aria-label="Automatic Gates">
-      <span class="label">Automatic Gates</span>
-    </button>
+    <div class="service-card" onclick="location.href='networking.html'">
+      <div class="service-icon">🌐</div>
+      <h3>Networking Solutions</h3>
+      <p>Professional network infrastructure setup to support your security and business operations.</p>
+      <span class="service-link">Explore →</span>
+    </div>
 
-    <button class="service-btn" data-target="biometrics.html" aria-label="Biometrics">
-      <span class="label">Biometrics</span>
-    </button>
+    <div class="service-card" onclick="location.href='automatic-gates.html'">
+      <div class="service-icon">🚧</div>
+      <h3>Automatic Gates</h3>
+      <p>Automated gate systems with access control integration for enhanced security and convenience.</p>
+      <span class="service-link">Discover →</span>
+    </div>
 
-    <button class="service-btn" data-target="electric-fence.html" aria-label="Electric Fence">
-      <span class="label">Electric Fence</span>
-    </button>
+    <div class="service-card" onclick="location.href='biometrics.html'">
+      <div class="service-icon">👤</div>
+      <h3>Biometric Systems</h3>
+      <p>Fingerprint and facial recognition systems for secure access control and time attendance.</p>
+      <span class="service-link">View Options →</span>
+    </div>
+
+    <div class="service-card" onclick="location.href='electric-fence.html'">
+      <div class="service-icon">⚡</div>
+      <h3>Electric Fence</h3>
+      <p>Perimeter security solutions with advanced electric fencing systems and monitoring.</p>
+      <span class="service-link">Get Details →</span>
+    </div>
+
+  </div>
+
+  <div class="cta-card">
+    <div class="cta-content">
+      <h2>Ready to Secure Your Property?</h2>
+      <p>Get a free consultation and custom quote for your security needs. Our experts are ready to help you find the perfect solution.</p>
+      <button class="cta-button" onclick="location.href='tel:+254113301244'">
+        Schedule Consultation
+      </button>
+    </div>
   </div>
 </section>
 
-
-</main>
-
-<footer class="footer" style="text-align:center; padding:28px; color:#bbb;">
-  &copy; 2025 SecureTech Solutions • +254 113 301 244
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="products.html">Products</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#support">Support</a>
+    </div>
+    <div class="footer-contact">
+      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions.co.ke
+    </div>
+    <div class="footer-copyright">
+      &copy; 2025 SecureTech Solutions. All rights reserved. Professional Security Systems Installation & Support.
+    </div>
+  </div>
 </footer>
 
 <script>
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Slideshow
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
+let slideInterval;
 
-function showSlide(i){
-  slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
 }
 
-function nextSlide(){
+function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
 
-function prevSlide(){
+function prevSlide() {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 5000);
+function startSlideshow() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
 
-// Service button navigation
-document.querySelectorAll('.service-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const target = btn.getAttribute('data-target') || 'products.html';
-    location.href = target;
-  });
-});
+function stopSlideshow() {
+  clearInterval(slideInterval);
+}
+
+// Start slideshow
+startSlideshow();
+
+// Pause on hover
+document.querySelector('.hero-slideshow').addEventListener('mouseenter', stopSlideshow);
+document.querySelector('.hero-slideshow').addEventListener('mouseleave', startSlideshow);
+
+// Smooth scroll to services
+function scrollToServices() {
+  document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+}
 </script>
 
 </body>
-</html>
+</html>q
