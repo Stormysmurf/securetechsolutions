@@ -7,6 +7,9 @@
 <title>SecureTech Solutions</title>
 <meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
 
+<!-- MATERIAL ICONS -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
 <style>
 :root{
   --bg:#000000;
@@ -26,6 +29,13 @@ body{
   color:var(--muted);
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   line-height:1.35;
+}
+
+/* Icon for buttons */
+.icon {
+  font-size: 22px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 /* Products Button */
@@ -117,7 +127,7 @@ body{
   height: 70vh;
   overflow: hidden;
   text-align: center;
-  perspective: 1200px; /* enable 3D perspective for slides */
+  perspective: 1200px;
 }
 
 .slideshow {
@@ -147,10 +157,10 @@ body{
 }
 
 /* 3D slide states */
-.slide.active { transform: translateZ(0) rotateY(0); z-index:2; filter: none; opacity:1; }
-.slide:not(.active) { transform: translateZ(-220px) rotateY(18deg); opacity:0.22; z-index:1; filter: blur(1px) grayscale(.05); }
+.slide.active { transform: translateZ(0) rotateY(0); z-index:2; opacity:1; }
+.slide:not(.active) { transform: translateZ(-220px) rotateY(18deg); opacity:0.22; }
 
-/* Service buttons (vertical stack) */
+/* Service buttons */
 .service-list {
   display: flex;
   flex-direction: column;
@@ -167,14 +177,13 @@ body{
   padding: 14px 20px;
   border-radius: 14px;
   cursor: pointer;
-  position: relative;
-  transform-origin: center;
-  transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.25s ease;
-  box-shadow: 0 6px 18px rgba(255,45,227,0.12), 0 0 30px rgba(139,44,255,0.05);
+  transition: transform 0.35s, box-shadow 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.service-btn:hover{ transform: translateY(-8px) rotateX(6deg); box-shadow: 0 18px 40px rgba(255,45,227,0.18), 0 0 60px rgba(139,44,255,0.12); }
-.service-btn:active{ transform: translateY(-2px) rotateX(2deg); }
-.service-btn .label{ letter-spacing:0.6px; }
+
+.service-btn .label { letter-spacing:0.6px; }
 
 /* Services intro */
 .services-intro{max-width:900px;margin:0 auto 18px;text-align:center}
@@ -182,49 +191,6 @@ body{
 .services-intro h2 .accent{color:var(--neon-pink)}
 .services-intro p{color:#bfc8cc;margin:0;font-size:15px;max-width:760px}
 
-
-/* Captions */
-.slide-caption {
-  position: absolute;
-  bottom: 20px; left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-/* Arrows */
-.slide-nav {
-  position: absolute;
-  top: 50%; 
-  transform: translateY(-50%);
-  font-size: 32px;
-  cursor: pointer;
-  color: #ff2de3;
-  z-index: 20;
-  padding: 0 12px;
-  user-select: none;
-}
-.slide-nav.left { left: 10px; }
-.slide-nav.right { right: 10px; }
-
-/* Hero Text */
-.hero {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-align: center;
-  z-index: 10;
-}
-
-.hero h1 { font-size: 28px; font-weight: 700; }
-.hero p { font-size: 16px; max-width: 90%; margin: 8px auto 0; }
-
-/* Button responsive */
 @media (max-width: 640px){
   #product-btn { animation:none; }
   #hand-pointer { display:none; }
@@ -249,123 +215,48 @@ body{
 
 <main class="container">
 
-<!-- =======================
-     HERO SLIDESHOW
-======================= -->
-<section class="hero-slideshow">
-  <div class="slideshow">
-
-    <div class="slide active">
-      <img src="assets/time.webp" alt="">
-      <div class="slide-caption">Time Attendance Solutions</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/biometric.webp" alt="">
-      <div class="slide-caption">Biometric Access Control</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/cctv.webp" alt="">
-      <div class="slide-caption">CCTV Systems Installation</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img2.webp" alt="">
-      <div class="slide-caption">Access Control Devices</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img3.webp" alt="">
-      <div class="slide-caption">Door Lock Solutions</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img4.webp" alt="">
-      <div class="slide-caption">Alarm Systems</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img5.webp" alt="">
-      <div class="slide-caption">Home Security Solutions</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img6.webp" alt="">
-      <div class="slide-caption">Business Security Systems</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img7.webp" alt="">
-      <div class="slide-caption">24/7 Monitoring Servicaes</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img8.webp" alt="">
-      <div class="slide-caption">Smart Access Solutions</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img9.webp" alt="">
-      <div class="slide-caption">Installation & Maintenance</div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/img10.webp" alt="">
-      <div class="slide-caption">Customer Support & Consultation</div>
-    </div>
-
-  </div>
-
-  <!-- HERO TEXT -->
-  <div class="hero">
-    <h1>Professional Security Systems — Installation & Support</h1>
-    <p>We supply and install access control, CCTV systems, and time attendance solutions tailored to homes and businesses.</p>
-  </div>
-
-  <!-- ARROWS -->
-  <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
-  <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
-
-</section>
-
-
-<!-- =======================
-     VIEW PRODUCTS BUTTON
-======================= -->
 <section style="text-align:center; margin:45px 0;">
   <div id="hand-pointer"></div>
-  <div class="services-intro" role="region" aria-labelledby="services-heading">
+
+  <div class="services-intro">
     <h2 id="services-heading"><span class="accent">Explore Our Services</span> — Choose a solution below</h2>
-    <p>Tap a service to view details, request a quote, or schedule installation. Our team supplies, installs and supports every solution.</p>
+    <p>Tap a service to view details, request a quote, or schedule installation.</p>
   </div>
 
-  <div class="service-list" aria-label="Our services">
-    <button id="product-btn" class="service-btn" data-target="products.html" aria-label="View Products">
+  <div class="service-list">
+
+    <button id="product-btn" class="service-btn" data-target="products.html">
+      <span class="material-icons-round icon">shopping_cart</span>
       <span class="label">View Products</span>
     </button>
-    <button class="service-btn" data-target="cctv.html" aria-label="CCTV Surveillance">
+
+    <button class="service-btn" data-target="cctv.html">
+      <span class="material-icons-round icon">videocam</span>
       <span class="label">CCTV Surveillance</span>
     </button>
 
-    <button class="service-btn" data-target="networking.html" aria-label="Networking">
+    <button class="service-btn" data-target="networking.html">
+      <span class="material-icons-round icon">router</span>
       <span class="label">Networking</span>
     </button>
 
-    <button class="service-btn" data-target="automatic-gates.html" aria-label="Automatic Gates">
+    <button class="service-btn" data-target="automatic-gates.html">
+      <span class="material-icons-round icon">garage</span>
       <span class="label">Automatic Gates</span>
     </button>
 
-    <button class="service-btn" data-target="biometrics.html" aria-label="Biometrics">
+    <button class="service-btn" data-target="biometrics.html">
+      <span class="material-icons-round icon">fingerprint</span>
       <span class="label">Biometrics</span>
     </button>
 
-    <button class="service-btn" data-target="electric-fence.html" aria-label="Electric Fence">
+    <button class="service-btn" data-target="electric-fence.html">
+      <span class="material-icons-round icon">security</span>
       <span class="label">Electric Fence</span>
     </button>
+
   </div>
 </section>
-
 
 </main>
 
@@ -393,7 +284,6 @@ function prevSlide(){
 
 setInterval(nextSlide, 5000);
 
-// Service button navigation
 document.querySelectorAll('.service-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const target = btn.getAttribute('data-target') || 'products.html';
