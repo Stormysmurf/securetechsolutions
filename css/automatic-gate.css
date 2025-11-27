@@ -28,16 +28,13 @@
     padding: 0 32px;
 }
 
-/* Section Background Styles */
+/* Section Background Styles - FIXED */
 .gate-section {
     position: relative;
     padding: 60px 40px;
     margin: 40px 0;
     border-radius: 20px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .gate-section::before {
@@ -49,6 +46,7 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 1;
+    border-radius: 20px;
 }
 
 .gate-section .section-header,
@@ -57,20 +55,20 @@
     z-index: 2;
 }
 
-/* Individual Background Classes with Image + Gradient Overlay */
-.sliding-gate-bg {
+/* Individual Background Classes with Image + Gradient Overlay - FIXED */
+.sliding-gate-bg::before {
     background: linear-gradient(135deg, rgba(139, 44, 255, 0.1), rgba(0, 217, 255, 0.1)), url('../assets/slidinggate.webp') center/cover;
 }
 
-.swing-gate-bg {
+.swing-gate-bg::before {
     background: linear-gradient(135deg, rgba(255, 45, 227, 0.1), rgba(139, 44, 255, 0.1)), url('../assets/swinggate.webp') center/cover;
 }
 
-.remote-control-bg {
+.remote-control-bg::before {
     background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 45, 227, 0.1)), url('../assets/remotecontrol.webp') center/cover;
 }
 
-.safety-features-bg {
+.safety-features-bg::before {
     background: linear-gradient(135deg, rgba(139, 44, 255, 0.1), rgba(0, 217, 255, 0.1)), url('../assets/safetyfeatures.webp') center/cover;
 }
 
@@ -86,7 +84,7 @@
         padding: 40px 20px;
         margin: 30px 0;
     }
-    
+
     .hero-section {
         padding: 0 20px;
         margin-top: 70px;
