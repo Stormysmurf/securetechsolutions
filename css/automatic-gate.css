@@ -28,23 +28,29 @@
     padding: 0 32px;
 }
 
-/* Section Background Styles - FIXED */
+/* Section Background Styles - ONLY for specific sections */
 .gate-section {
     position: relative;
     padding: 60px 40px;
     margin: 40px 0;
     border-radius: 20px;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.gate-section::before {
+/* Only apply dark overlay to sections that have backgrounds */
+.sliding-gate-bg::before,
+.swing-gate-bg::before,
+.remote-control-bg::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
     border-radius: 20px;
 }
@@ -55,21 +61,23 @@
     z-index: 2;
 }
 
-/* Individual Background Classes with Image + Gradient Overlay - FIXED */
-.sliding-gate-bg::before {
-    background: linear-gradient(135deg, rgba(139, 44, 255, 0.1), rgba(0, 217, 255, 0.1)), url('../assets/slidinggate.webp') center/cover;
+/* Individual Background Classes - ONLY for the 3 sections you want */
+.sliding-gate-bg {
+    background: linear-gradient(135deg, rgba(139, 44, 255, 0.2), rgba(0, 217, 255, 0.2)), url('../assets/slidinggate.webp') center/cover;
 }
 
-.swing-gate-bg::before {
-    background: linear-gradient(135deg, rgba(255, 45, 227, 0.1), rgba(139, 44, 255, 0.1)), url('../assets/swinggate.webp') center/cover;
+.swing-gate-bg {
+    background: linear-gradient(135deg, rgba(255, 45, 227, 0.2), rgba(139, 44, 255, 0.2)), url('../assets/swinggate.webp') center/cover;
 }
 
-.remote-control-bg::before {
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 45, 227, 0.1)), url('../assets/remotecontrol.webp') center/cover;
+.remote-control-bg {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 45, 227, 0.2)), url('../assets/remotecontrol.webp') center/cover;
 }
 
-.safety-features-bg::before {
-    background: linear-gradient(135deg, rgba(139, 44, 255, 0.1), rgba(0, 217, 255, 0.1)), url('../assets/safetyfeatures.webp') center/cover;
+/* Safety Features section - NO background */
+.safety-features-bg {
+    /* No background image - just regular styling */
+    background: var(--card-bg); /* or whatever your normal card background is */
 }
 
 /* Responsive adjustments */
