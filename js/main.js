@@ -49,3 +49,28 @@ function scrollToServices() {
   document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
 }
 
+// WhatsApp Floating Lottie
+(function() {
+  // Create container dynamically
+  const whatsappContainer = document.createElement('div');
+  whatsappContainer.id = 'whatsapp-lottie';
+  whatsappContainer.title = 'Chat with us on WhatsApp';
+  document.body.appendChild(whatsappContainer);
+
+  // Load Lottie animation
+  const whatsappAnim = lottie.loadAnimation({
+    container: whatsappContainer,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/whatsapp.json'
+  });
+
+  // Clickable action
+  whatsappContainer.addEventListener('click', () => {
+    window.open(
+      'https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20security%20solutions',
+      '_blank'
+    );
+  });
+})();
