@@ -576,6 +576,8 @@ body{
   }
 }
 </style>
+  <!-- Lottie Web (for animated WhatsApp icon) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
 </head>
 
 <body>
@@ -868,7 +870,11 @@ body{
       &copy; 2025 SecureTech Solutions. All rights reserved. Professional Security Systems Installation & Support.
     </div>
   </div>
-</footer>
+ </footer>
+
+<!-- WhatsApp Lottie container (shared loader in js/main.js will use this) -->
+<div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
+
 <script>
 window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
@@ -887,6 +893,9 @@ filterBtns.forEach(btn => {
   });
 });
 </script>
+
+<!-- Shared JS -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
