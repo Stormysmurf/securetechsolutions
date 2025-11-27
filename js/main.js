@@ -184,5 +184,5 @@ lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'assets/animations/phone.json' // adjust to your path
+  path: 'assets/phone.json' // adjust to your path
 });
