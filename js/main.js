@@ -177,3 +177,12 @@ if(!slides || slides.length === 0){
   function startSlideshow(){}
   function stopSlideshow(){}
 }
+
+// Tiny Lottie Phone Animation
+lottie.loadAnimation({
+  container: document.getElementById('phone-animation'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'assets/animations/phone.json' // adjust to your path
+});
