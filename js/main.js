@@ -49,20 +49,3 @@ function scrollToServices() {
   document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
 }
 
-// WhatsApp Lottie Icon
-if (document.getElementById('whatsapp-lottie')) {
-  var whatsappAnim = lottie.loadAnimation({
-    container: document.getElementById('whatsapp-lottie'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'assets/whatsapp.json'
-  });
-
-  document.getElementById('whatsapp-lottie').onclick = function() {
-    window.open(
-      'https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20security%20solutions',
-      '_blank'
-    );
-  };
-}
