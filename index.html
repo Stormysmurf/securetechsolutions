@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,14 +88,14 @@ body{
   right: 0;
   z-index:100; 
   backdrop-filter:blur(12px) saturate(180%);
-  background: rgba(0,0,0,0.7);
-  border-bottom:1px solid rgba(139,44,255,0.15);
+  background: rgba(0,0,0,0.85);
+  border-bottom:1px solid rgba(139,44,255,0.2);
   transition: all 0.3s ease;
 }
 
 .header.scrolled {
-  background: rgba(0,0,0,0.9);
-  box-shadow: 0 4px 30px rgba(139,44,255,0.1);
+  background: rgba(0,0,0,0.95);
+  box-shadow: 0 4px 30px rgba(139,44,255,0.2);
 }
 
 .header-inner {
@@ -103,25 +104,25 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 12px 32px;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .logo-large {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  border: 2px solid rgba(139,44,255,0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid rgba(139,44,255,0.4);
   transition: transform 0.3s ease;
 }
 
 .logo-large:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
   border-color: var(--neon-pink);
 }
 
@@ -136,24 +137,26 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 20px;
-  letter-spacing: -0.5px;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
 }
 
 .header-subtitle {
-  font-size: 13px;
+  font-size: 11px;
   color: #999;
   font-weight: 500;
+  margin-top: 2px;
 }
 
 .header-cta {
   background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
   color: white;
   border: none;
-  padding: 12px 28px;
-  border-radius: 10px;
+  padding: 10px 24px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(139,44,255,0.3);
@@ -167,8 +170,8 @@ body{
 /* Hero Slideshow */
 .hero-slideshow {
   position: relative;
-  height: 85vh;
-  margin-top: 88px;
+  height: 70vh;
+  margin-top: 74px;
   overflow: hidden;
 }
 
@@ -197,9 +200,9 @@ body{
   inset: 0;
   background: linear-gradient(
     180deg, 
-    rgba(0,0,0,0.3) 0%, 
-    rgba(0,0,0,0.6) 50%,
-    rgba(0,0,0,0.85) 100%
+    rgba(0,0,0,0.4) 0%, 
+    rgba(0,0,0,0.7) 60%,
+    rgba(0,0,0,0.9) 100%
   );
   z-index: 1;
 }
@@ -208,75 +211,78 @@ body{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7);
+  filter: brightness(0.65);
 }
 
 .slide-caption {
   position: absolute;
-  bottom: 40px; 
+  bottom: 30px; 
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.8);
   backdrop-filter: blur(10px);
   color: #fff;
-  padding: 14px 32px;
+  padding: 10px 24px;
   border-radius: 50px;
   font-weight: 700;
-  font-size: 15px;
-  border: 1px solid rgba(139,44,255,0.3);
+  font-size: 13px;
+  border: 1px solid rgba(139,44,255,0.4);
   z-index: 3;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
-/* Hero Content */
+/* Hero Content - SIMPLIFIED */
 .hero-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 10;
-  max-width: 900px;
+  max-width: 800px;
   padding: 0 24px;
 }
 
 .hero-content h1 {
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(28px, 4.5vw, 46px);
   font-weight: 900;
   color: #fff;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  letter-spacing: -1px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  letter-spacing: -0.8px;
 }
 
 .hero-content .highlight {
-  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-content p {
-  font-size: clamp(16px, 2vw, 20px);
-  color: #d4d4d4;
-  margin-bottom: 32px;
-  line-height: 1.6;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: #d8d8d8;
+  margin-bottom: 28px;
+  line-height: 1.5;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-cta-group {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .hero-btn {
-  padding: 16px 40px;
-  border-radius: 12px;
+  padding: 14px 36px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
@@ -287,23 +293,23 @@ body{
 .hero-btn.primary {
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   color: white;
-  box-shadow: 0 8px 30px rgba(139,44,255,0.4);
+  box-shadow: 0 6px 25px rgba(139,44,255,0.35);
 }
 
 .hero-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(139,44,255,0.6);
+  box-shadow: 0 10px 35px rgba(139,44,255,0.55);
 }
 
 .hero-btn.secondary {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
   color: white;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.25);
 }
 
 .hero-btn.secondary:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.22);
   border-color: var(--neon-purple);
 }
 
@@ -312,49 +318,49 @@ body{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
   backdrop-filter: blur(10px);
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
-  border: 1px solid rgba(139,44,255,0.3);
+  border: 1px solid rgba(139,44,255,0.35);
   transition: all 0.3s ease;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .slide-nav:hover {
-  background: rgba(139,44,255,0.3);
+  background: rgba(139,44,255,0.4);
   border-color: var(--neon-pink);
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.12);
 }
 
-.slide-nav.left { left: 24px; }
-.slide-nav.right { right: 24px; }
+.slide-nav.left { left: 20px; }
+.slide-nav.right { right: 20px; }
 
 /* Services Section */
 .services-section {
   max-width: var(--max-width);
-  margin: 80px auto;
+  margin: 70px auto;
   padding: 0 32px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .section-header h2 {
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 900;
   color: white;
-  margin-bottom: 16px;
-  letter-spacing: -1px;
+  margin-bottom: 14px;
+  letter-spacing: -0.8px;
 }
 
 .section-header .accent {
@@ -365,30 +371,31 @@ body{
 }
 
 .section-header p {
-  font-size: 18px;
-  color: #999;
-  max-width: 700px;
+  font-size: 16px;
+  color: #aaa;
+  max-width: 650px;
   margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* Service Cards Grid */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
   margin-bottom: 40px;
 }
 
 .service-card {
   background: linear-gradient(135deg, rgba(139,44,255,0.08), rgba(255,45,227,0.05));
   border: 1px solid rgba(139,44,255,0.2);
-  border-radius: 20px;
-  padding: 32px;
-  cursor: pointer;
+  border-radius: 18px;
+  padding: 28px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -414,57 +421,66 @@ body{
 }
 
 .service-icon {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 20px rgba(139,44,255,0.3);
+  font-size: 28px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(139,44,255,0.3);
 }
 
 .service-card h3 {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  letter-spacing: -0.4px;
 }
 
 .service-card p {
   color: #aaa;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.service-link {
-  color: var(--neon-pink);
-  font-weight: 700;
   font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: gap 0.3s ease;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
-.service-card:hover .service-link {
-  gap: 12px;
+.service-btn {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139,44,255,0.3);
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(139,44,255,0.5);
 }
 
 /* Main CTA Card */
 .cta-card {
   background: linear-gradient(135deg, rgba(139,44,255,0.2), rgba(255,45,227,0.15));
   border: 2px solid rgba(139,44,255,0.3);
-  border-radius: 24px;
-  padding: 60px 40px;
+  border-radius: 22px;
+  padding: 50px 35px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .cta-card::before {
@@ -485,29 +501,31 @@ body{
 }
 
 .cta-card h2 {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(24px, 3.5vw, 38px);
   color: white;
   font-weight: 900;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  letter-spacing: -0.6px;
 }
 
 .cta-card p {
-  font-size: 18px;
+  font-size: 16px;
   color: #bbb;
-  margin-bottom: 32px;
-  max-width: 600px;
+  margin-bottom: 28px;
+  max-width: 550px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .cta-button {
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   color: white;
   border: none;
-  padding: 18px 48px;
-  border-radius: 12px;
+  padding: 16px 42px;
+  border-radius: 10px;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 8px 30px rgba(255,45,227,0.4);
@@ -520,13 +538,49 @@ body{
   box-shadow: 0 12px 40px rgba(255,45,227,0.6);
 }
 
+/* WhatsApp Float Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+  animation: pulse 2.5s infinite;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.65);
+}
+
+.whatsapp-float img {
+  width: 38px;
+  height: 38px;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45); }
+  50% { box-shadow: 0 8px 45px rgba(37, 211, 102, 0.75); }
+}
+
 /* Footer */
 .footer {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   border-top: 1px solid rgba(139,44,255,0.2);
-  padding: 40px 32px;
+  padding: 35px 32px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .footer-content {
@@ -537,8 +591,8 @@ body{
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 32px;
-  margin-bottom: 24px;
+  gap: 28px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
@@ -546,6 +600,7 @@ body{
   color: #999;
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
   transition: color 0.3s ease;
 }
 
@@ -555,8 +610,8 @@ body{
 
 .footer-contact {
   color: #bbb;
-  font-size: 16px;
-  margin-bottom: 16px;
+  font-size: 15px;
+  margin-bottom: 14px;
 }
 
 .footer-contact strong {
@@ -566,28 +621,33 @@ body{
 
 .footer-copyright {
   color: #666;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .header-inner {
-    padding: 12px 20px;
+    padding: 10px 18px;
   }
 
   .header-cta {
-    padding: 10px 20px;
-    font-size: 13px;
+    padding: 8px 18px;
+    font-size: 12px;
+  }
+
+  .logo-large {
+    width: 42px;
+    height: 42px;
   }
 
   .hero-slideshow {
-    height: 70vh;
-    margin-top: 76px;
+    height: 60vh;
+    margin-top: 64px;
   }
 
   .slide-nav {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     font-size: 16px;
   }
 
@@ -595,41 +655,49 @@ body{
   .slide-nav.right { right: 12px; }
 
   .services-section {
-    padding: 0 20px;
-    margin: 60px auto;
+    padding: 0 18px;
+    margin: 50px auto;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .cta-card {
-    padding: 40px 24px;
+    padding: 35px 20px;
   }
 
   .footer-links {
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .whatsapp-float {
+    width: 58px;
+    height: 58px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float img {
+    width: 33px;
+    height: 33px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-large {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   .header-title {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .header-subtitle {
-    font-size: 11px;
-  }
-
-  .brand-text {
-    display: none;
+    font-size: 10px;
   }
 }
 </style>
@@ -728,11 +796,10 @@ body{
 
   <div class="hero-content">
     <h1>
-      <span class="highlight">Professional Security Systems</span><br>
-      Installation & Support
+      <span class="highlight">Professional Security</span> Systems
     </h1>
     <p>
-      We supply and install cutting-edge access control, CCTV systems, and time attendance solutions tailored to homes and businesses across Kenya.
+      We supply and install cutting-edge access control, CCTV, and time attendance solutions for homes and businesses across Kenya.
     </p>
     <div class="hero-cta-group">
       <button class="hero-btn primary" onclick="scrollToServices()">
@@ -755,47 +822,47 @@ body{
   </div>
 
   <div class="service-grid">
-    
-    <div class="service-card" onclick="location.href='products.html'">
+
+    <div class="service-card">
       <div class="service-icon">🛍️</div>
       <h3>Products Catalog</h3>
       <p>Browse our full range of security products including access control systems, cameras, and biometric devices.</p>
-      <span class="service-link">View Products →</span>
+      <button class="service-btn" onclick="location.href='products.html'">View Products</button>
     </div>
 
-    <div class="service-card" onclick="location.href='cctv.html'">
+    <div class="service-card">
       <div class="service-icon">📹</div>
       <h3>CCTV Surveillance</h3>
       <p>High-definition camera systems with remote monitoring capabilities for homes and businesses.</p>
-      <span class="service-link">Learn More →</span>
+      <button class="service-btn" onclick="location.href='cctv.html'">Learn More</button>
     </div>
 
-    <div class="service-card" onclick="location.href='networking.html'">
+    <div class="service-card">
       <div class="service-icon">🌐</div>
       <h3>Networking Solutions</h3>
       <p>Professional network infrastructure setup to support your security and business operations.</p>
-      <span class="service-link">Explore →</span>
+      <button class="service-btn" onclick="location.href='networking.html'">Explore Now</button>
     </div>
 
-    <div class="service-card" onclick="location.href='automatic-gates.html'">
+    <div class="service-card">
       <div class="service-icon">🚧</div>
       <h3>Automatic Gates</h3>
       <p>Automated gate systems with access control integration for enhanced security and convenience.</p>
-      <span class="service-link">Discover →</span>
+      <button class="service-btn" onclick="location.href='automatic-gates.html'">Discover More</button>
     </div>
 
-    <div class="service-card" onclick="location.href='biometrics.html'">
+    <div class="service-card">
       <div class="service-icon">👤</div>
       <h3>Biometric Systems</h3>
       <p>Fingerprint and facial recognition systems for secure access control and time attendance.</p>
-      <span class="service-link">View Options →</span>
+      <button class="service-btn" onclick="location.href='biometrics.html'">View Options</button>
     </div>
 
-    <div class="service-card" onclick="location.href='electric-fence.html'">
+    <div class="service-card">
       <div class="service-icon">⚡</div>
       <h3>Electric Fence</h3>
       <p>Perimeter security solutions with advanced electric fencing systems and monitoring.</p>
-      <span class="service-link">Get Details →</span>
+      <button class="service-btn" onclick="location.href='electric-fence.html'">Get Details</button>
     </div>
 
   </div>
@@ -821,7 +888,7 @@ body{
       <a href="#support">Support</a>
     </div>
     <div class="footer-contact">
-      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions71@gmail.com
+      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> securetechsolutions71@gmail.com
     </div>
     <div class="footer-copyright">
       &copy; 2025 SecureTech Solutions. All rights reserved. Professional Security Systems Installation & Support.
@@ -829,9 +896,15 @@ body{
   </div>
 </footer>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20security%20solutions" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+  <img src="assets/whatsapp.webp" alt="WhatsApp">
+</a>
+
 <script>
 // Header scroll effect
 window.addEventListener('scroll', () => {
+
   const header = document.getElementById('header');
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
@@ -884,3 +957,4 @@ function scrollToServices() {
 
 </body>
 </html>
+
