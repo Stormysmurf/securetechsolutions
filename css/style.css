@@ -546,13 +546,7 @@ body{
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Make icon white */
-#whatsapp-lottie img,
-#whatsapp-lottie svg {
-  filter: brightness(0) invert(1); /* turns icon white */
-  width: 50%;   /* adjust size inside button */
-  height: 50%;
-}
+
 
 /* Hover effect for WhatsApp button */
 #whatsapp-lottie:hover {
