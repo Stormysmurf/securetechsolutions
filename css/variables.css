@@ -1,0 +1,13 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+  --bg: #000000;
+  --neon-purple: #8b2cff;
+  --neon-pink: #ff2de3;
+  --neon-blue: #00d9ff;
+  --muted: #cfd6db;
+  --card-bg: rgba(20, 20, 20, 0.55);
+  --glass: rgba(255, 255, 255, 0.05);
+  --accent: var(--neon-purple);
+  --max-width: 1400px;
+  --transition: all 0.3s ease;
+}
