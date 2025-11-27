@@ -4,9 +4,12 @@
   function onScrollHeader(){
     const header = document.getElementById('header');
     if(!header) return;
-    if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+    if(window.scrollY > 50) header.classList.add('scrolled'); 
+    else header.classList.remove('scrolled');
   }
+  
   window.addEventListener('scroll', onScrollHeader);
+  
   document.addEventListener('DOMContentLoaded', ()=>{
     onScrollHeader();
 
@@ -14,13 +17,30 @@
     const slides = document.querySelectorAll('.slide');
     if(slides && slides.length){
       let current = 0;
-      function show(i){ slides.forEach((s,idx)=> s.classList.toggle('active', idx===i)); }
-      function next(){ current = (current+1)%slides.length; show(current); }
+      
+      function show(i){ 
+        slides.forEach((s,idx)=> s.classList.toggle('active', idx===i)); 
+      }
+      
+      function next(){ 
+        current = (current+1)%slides.length; 
+        show(current); 
+      }
+      
       // if nav exists, wire it
       const left = document.querySelector('.slide-nav.left');
       const right = document.querySelector('.slide-nav.right');
-      if(left) left.addEventListener('click', ()=>{ current = (current-1+slides.length)%slides.length; show(current); });
-      if(right) right.addEventListener('click', ()=>{ current = (current+1)%slides.length; show(current); });
+      
+      if(left) left.addEventListener('click', ()=>{ 
+        current = (current-1+slides.length)%slides.length; 
+        show(current); 
+      });
+      
+      if(right) right.addEventListener('click', ()=>{ 
+        current = (current+1)%slides.length; 
+        show(current); 
+      });
+      
       show(current);
       setInterval(next, 5000);
     }
@@ -43,7 +63,10 @@
       function renderFallbackInside(){
         if(!container) return;
         container.innerHTML = '';
-        const a = document.createElement('a'); a.href = waLink; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        const a = document.createElement('a'); 
+        a.href = waLink; 
+        a.target = '_blank'; 
+        a.rel = 'noopener noreferrer';
         a.className = 'whatsapp-fallback';
 
         // Try common filenames the user may have provided
@@ -58,12 +81,26 @@
         function tryLoadImage(list, idx){
           if(idx >= list.length){
             // last resort: use built-in webp path (may 404 but keeps structure)
-            const img = document.createElement('img'); img.src = 'assets/whatsapp.webp'; img.alt = 'WhatsApp'; img.style.width='60px'; img.style.height='60px'; img.style.borderRadius='50%';
-            a.appendChild(img); container.appendChild(a); return;
+            const img = document.createElement('img'); 
+            img.src = 'assets/whatsapp.webp'; 
+            img.alt = 'WhatsApp'; 
+            img.style.width='60px'; 
+            img.style.height='60px'; 
+            img.style.borderRadius='50%';
+            a.appendChild(img); 
+            container.appendChild(a); 
+            return;
           }
           const path = list[idx];
           const img = new Image();
-          img.onload = function(){ img.alt='WhatsApp'; img.style.width='60px'; img.style.height='60px'; img.style.borderRadius='50%'; a.appendChild(img); container.appendChild(a); };
+          img.onload = function(){ 
+            img.alt='WhatsApp'; 
+            img.style.width='60px'; 
+            img.style.height='60px'; 
+            img.style.borderRadius='50%'; 
+            a.appendChild(img); 
+            container.appendChild(a); 
+          };
           img.onerror = function(){ tryLoadImage(list, idx+1); };
           img.src = path;
         }
@@ -90,13 +127,23 @@
             try{
               container.innerHTML = '';
               // Keep a reference to the animation to avoid it being GC'd
-              const anim = lottie.loadAnimation({container:container,renderer:'svg',loop:true,autoplay:true,path:jsonPath});
+              const anim = lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: jsonPath
+              });
               window._whatsappLottie = anim;
               console.info('WhatsApp Lottie loaded', jsonPath);
               container.style.cursor='pointer';
               container.addEventListener('click', ()=> window.open(waLink,'_blank'));
               return;
-            }catch(e){ console.warn('Lottie load failed', e); renderFallbackInside(); return; }
+            }catch(e){ 
+              console.warn('Lottie load failed', e); 
+              renderFallbackInside(); 
+              return; 
+            }
           }
           if(Date.now() - start < timeout){
             setTimeout(waitForLottie, 100);
@@ -107,68 +154,137 @@
         })();
       }).catch(err=>{ renderFallbackInside(); });
     })();
+
+    // Tiny Lottie Phone Animation
+    (function(){
+      const phoneContainer = document.getElementById('phone-animation');
+      if(!phoneContainer) {
+        console.warn('Phone animation container not found');
+        return;
+      }
+      
+      const phoneJsonPath = 'assets/phone.json';
+      
+      // Check if JSON exists and Lottie is available
+      fetch(phoneJsonPath, {method: 'HEAD'}).then(res => {
+        if(!res.ok){
+          console.warn('Phone animation JSON not found:', phoneJsonPath);
+          // Optional: Add a fallback phone icon
+          phoneContainer.innerHTML = '📞';
+          phoneContainer.style.fontSize = '24px';
+          phoneContainer.style.textAlign = 'center';
+          phoneContainer.style.lineHeight = '32px';
+          return;
+        }
+        
+        if(window.lottie){
+          try{
+            const phoneAnim = lottie.loadAnimation({
+              container: phoneContainer,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: phoneJsonPath
+            });
+            console.info('Phone Lottie loaded successfully');
+            
+            // Optional: Make phone animation clickable
+            phoneContainer.style.cursor = 'pointer';
+            phoneContainer.addEventListener('click', () => {
+              window.location.href = 'tel:+254113301244';
+            });
+          }catch(e){
+            console.warn('Phone Lottie load failed:', e);
+            // Fallback to emoji
+            phoneContainer.innerHTML = '📞';
+            phoneContainer.style.fontSize = '24px';
+            phoneContainer.style.textAlign = 'center';
+            phoneContainer.style.lineHeight = '32px';
+          }
+        } else {
+          console.warn('Lottie library not available for phone animation');
+          // Fallback to emoji
+          phoneContainer.innerHTML = '📞';
+          phoneContainer.style.fontSize = '24px';
+          phoneContainer.style.textAlign = 'center';
+          phoneContainer.style.lineHeight = '32px';
+        }
+      }).catch(err => {
+        console.warn('Could not check phone animation JSON:', err);
+        // Fallback to emoji
+        phoneContainer.innerHTML = '📞';
+        phoneContainer.style.fontSize = '24px';
+        phoneContainer.style.textAlign = 'center';
+        phoneContainer.style.lineHeight = '32px';
+      });
+    })();
+
   });
 })();
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
 
-// Slideshow
+// Additional slideshow controls (kept for compatibility)
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 let slideInterval;
 
 function showSlide(index) {
+  if (!slides || slides.length === 0) return;
+  
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
   });
 }
 
 function nextSlide() {
+  if (!slides || slides.length === 0) return;
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
 }
 
 function prevSlide() {
+  if (!slides || slides.length === 0) return;
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
 }
 
 function startSlideshow() {
+  if (!slides || slides.length === 0) return;
   slideInterval = setInterval(nextSlide, 3500);
 }
 
 function stopSlideshow() {
-  clearInterval(slideInterval);
+  if (slideInterval) {
+    clearInterval(slideInterval);
+  }
 }
 
 // Start slideshow
-startSlideshow();
+if (document.querySelectorAll('.slide').length > 0) {
+  startSlideshow();
+}
 
-// Pause on hover
-document.querySelector('.hero-slideshow').addEventListener('mouseenter', stopSlideshow);
-document.querySelector('.hero-slideshow').addEventListener('mouseleave', startSlideshow);
+// Safe slideshow start/stop helpers
+function safeQuery(selector){ 
+  try{ return document.querySelector(selector); }
+  catch(e){ return null; } 
+}
+
+const heroSlideshowEl = safeQuery('.hero-slideshow');
+if(heroSlideshowEl){
+  try{ 
+    heroSlideshowEl.addEventListener('mouseenter', stopSlideshow); 
+  }catch(e){}
+  try{ 
+    heroSlideshowEl.addEventListener('mouseleave', startSlideshow); 
+  }catch(e){}
+}
 
 // Smooth scroll to services
 function scrollToServices() {
-  document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Make JS safer: guard missing elements and keep a single WhatsApp Lottie loader
-// (A DOMContentLoaded-based loader above handles creating or using `#whatsapp-lottie`.)
-
-// Safe slideshow start/stop helpers
-function safeQuery(selector){ try{ return document.querySelector(selector); }catch(e){ return null; } }
-const heroSlideshowEl = safeQuery('.hero-slideshow');
-if(heroSlideshowEl){
-  try{ heroSlideshowEl.addEventListener('mouseenter', stopSlideshow); }catch(e){}
-  try{ heroSlideshowEl.addEventListener('mouseleave', startSlideshow); }catch(e){}
+  const servicesSection = document.getElementById('services');
+  if (servicesSection) {
+    servicesSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 // Ensure slideshow functions only run when slides are present
@@ -176,13 +292,7 @@ if(!slides || slides.length === 0){
   // prevent errors if there are no slides
   function startSlideshow(){}
   function stopSlideshow(){}
+  function nextSlide(){}
+  function prevSlide(){}
+  function showSlide(){}
 }
-
-// Tiny Lottie Phone Animation
-lottie.loadAnimation({
-  container: document.getElementById('phone-animation'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'assets/phone.json' // adjust to your path
-});
