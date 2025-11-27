@@ -537,6 +537,21 @@ body{
   cursor: pointer;
   z-index: 9999;
   transition: transform 0.3s ease;
+
+  background-color: #25D366; /* WhatsApp green */
+  border-radius: 50%;        /* makes it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Make icon white */
+#whatsapp-lottie img,
+#whatsapp-lottie svg {
+  filter: brightness(0) invert(1); /* turns icon white */
+  width: 50%;   /* adjust size inside button */
+  height: 50%;
 }
 
 /* Hover effect for WhatsApp button */
