@@ -5,105 +5,83 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Automatic Gates — SecureTech Solutions</title>
 	<meta name="description" content="Automatic gates installation and servicing by SecureTech Solutions">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
 	<style>
-		:root{ --bg:#000; --neon-pink:#ff2de3; --neon-purple:#8b2cff; --muted:#cfd6db; }
-		html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
-
-		.hero{
-			width:100%;
-			height:260px;
-			background:url("assets/gate.webp") center/cover no-repeat;
-			border-radius:12px;
-			margin-top:18px;
-		}
-
-		.page{max-width:1100px;margin:28px auto;padding:24px}
-		header{display:flex;align-items:center;gap:12px}
-		.logo{width:46px;border-radius:6px}
-		h1{color:var(--neon-pink);font-size:24px;margin:14px 0}
-		p.lead{color:#ddd;max-width:750px;font-size:15px;line-height:1.5}
-
-		.card{background:rgba(255,255,255,0.04);padding:18px;border-radius:12px;margin-top:24px}
-		.btn{display:inline-block;background:linear-gradient(90deg,var(--neon-pink),#ff78e8);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--neon-purple)}
-
-		/* WhatsApp floating button */
-		.whatsapp-float{
-			position:fixed;
-			bottom:24px;
-			right:24px;
-			width:60px;
-			height:60px;
-			background:#25D366;
-			border-radius:50%;
-			display:flex;
-			justify-content:center;
-			align-items:center;
-			box-shadow:0 4px 6px rgba(0,0,0,0.3);
-			cursor:pointer;
-			z-index:999;
-			transition:transform 0.2s;
-		}
-		.whatsapp-float:hover{transform:scale(1.1);}
-		.whatsapp-float img{width:35px;height:35px;}
-
-		/* mobile friendliness */
-		@media(max-width:600px){
-			.hero{height:190px}
-			p.lead{max-width:100%}
-		}
+		/* Page-specific small overrides */
+		.hero{width:100%;height:260px;background:url('assets/gate.webp') center/cover no-repeat;border-radius:12px;margin-top:18px}
+		@media(max-width:600px){.hero{height:190px}}
 	</style>
 </head>
 <body>
-	<div class="page">
-		<header>
-			<img src="assets/logo.jpg" alt="Logo" class="logo">
-			<div>
-				<div style="font-weight:800;color:var(--neon-pink)">SecureTech Solutions</div>
-				<div style="font-size:12px;color:#bbb">Automatic Gates</div>
-			</div>
-		</header>
-
-		<div class="hero"></div>
-
-		<main>
-			<h1>Automatic Gates</h1>
-			<p class="lead">
-				We supply and install high-performance automatic gate systems designed for homes, apartments,
-				business premises, and industrial facilities. Our solutions focus on reliability, durability, and
-				smooth operation — ensuring fast entry and maximum security day and night.
-			</p>
-
-			<div class="card">
-				<h2 style="margin:0 0 10px 0;color:var(--neon-pink);font-size:18px">What You Get</h2>
-				<ul>
-					<li>Heavy-duty sliding & swing gate motors</li>
-					<li>Remote keyfob control + backup manual release</li>
-					<li>Smooth opening/closing with obstruction sensing</li>
-					<li>Steel racks, limit switches, and safety photocells</li>
-					<li>Professional installation & wiring</li>
-					<li>Semi-annual maintenance service</li>
-				</ul>
-
-				<h2 style="margin:18px 0 10px 0;color:var(--neon-pink);font-size:18px">Why Choose Us</h2>
-				<ul>
-					<li>Fast installation with clean workmanship</li>
-					<li>Reliable motors suitable for Kenyan climate</li>
-					<li>1-year service warranty</li>
-					<li>Affordable spare parts availability</li>
-				</ul>
-
-				<p style="margin-top:20px">
-					<a class="btn" href="index.html">Back to Home</a>
-				</p>
-			</div>
-		</main>
-
-		<footer style="margin-top:36px;color:#888;font-size:13px">&copy; 2025 SecureTech Solutions</footer>
+	<div class="bg-waves"></div>
+	<div class="particles">
+		<div class="particle"></div>
+		<div class="particle"></div>
+		<div class="particle"></div>
+		<div class="particle"></div>
+		<div class="particle"></div>
 	</div>
 
-	<!-- WhatsApp Floating Button -->
-	<a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20Automatic%20Gates" target="_blank" class="whatsapp-float" title="Contact Us Today!">
-		<img src="assets/whatsapp.webp" alt="WhatsApp">
-	</a>
+	<header class="header" id="header">
+		<div class="header-inner">
+			<div class="logo-section">
+				<img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
+				<div class="brand-text">
+					<div class="header-title">SecureTech Solutions</div>
+					<div class="header-subtitle">Automatic Gates</div>
+				</div>
+			</div>
+			<a href="index.html" class="header-cta">← Back to Home</a>
+		</div>
+	</header>
+
+	<section class="hero-section">
+		<div class="hero" role="img" aria-label="Automatic Gates"></div>
+	</section>
+
+	<main class="container">
+		<div class="section-header">
+			<h1>Automatic Gates</h1>
+			<p class="lead">We supply and install high-performance automatic gate systems designed for homes, apartments, business premises, and industrial facilities.</p>
+		</div>
+
+		<div class="card">
+			<h2 style="color:var(--neon-pink)">What You Get</h2>
+			<ul>
+				<li>Heavy-duty sliding & swing gate motors</li>
+				<li>Remote keyfob control + backup manual release</li>
+				<li>Smooth opening/closing with obstruction sensing</li>
+				<li>Steel racks, limit switches, and safety photocells</li>
+				<li>Professional installation & wiring</li>
+				<li>Semi-annual maintenance service</li>
+			</ul>
+
+			<h2 style="color:var(--neon-pink)">Why Choose Us</h2>
+			<ul>
+				<li>Fast installation with clean workmanship</li>
+				<li>Reliable motors suitable for Kenyan climate</li>
+				<li>1-year service warranty</li>
+				<li>Affordable spare parts availability</li>
+			</ul>
+
+			<p style="margin-top:20px"><a class="btn" href="index.html">Back to Home</a></p>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-content">
+			<div class="footer-links">
+				<a href="index.html">Home</a>
+				<a href="products.html">Products</a>
+				<a href="automatic-gates.html">Automatic Gates</a>
+				<a href="#contact">Contact</a>
+			</div>
+			<div class="footer-contact"><strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions.co.ke</div>
+		</div>
+	</footer>
+
+	<div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
+	<script src="js/main.js"></script>
 </body>
 </html>
