@@ -10,6 +10,21 @@
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
 
+<!-- Lottie Web -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+
+<style>
+/* Floating WhatsApp Button */
+#whatsapp-lottie {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 9999;
+}
+</style>
 </head>
 <body>
 
@@ -174,10 +189,24 @@
   </div>
 </footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20security%20solutions" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
-  <img src="assets/whatsapp.webp" alt="WhatsApp">
-</a>
+<!-- WhatsApp Floating Lottie -->
+<div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
+
+<script>
+  // Load Lottie animation
+  var whatsappAnim = lottie.loadAnimation({
+    container: document.getElementById('whatsapp-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/whatsapp.json'
+  });
+
+  // Make clickable to open WhatsApp chat
+  document.getElementById('whatsapp-lottie').onclick = function() {
+    window.open('https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20security%20solutions', '_blank');
+  };
+</script>
 
 <!-- JS -->
 <script src="js/main.js"></script>
