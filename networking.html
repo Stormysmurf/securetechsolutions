@@ -5,36 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Networking — SecureTech Solutions</title>
   <meta name="description" content="Professional networking solutions and structured cabling services by SecureTech Solutions">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js" integrity="sha512-jhn7Qvg0C4MRXf3xgXEf7XGs8UGw4ITEzLHrPCUL1p2A/hxLaLYu1yy3Rc6iqnqXE/P1L0xvgJe+TqOKL9Xb/Q==" crossorigin="anonymous"></script>
-  <style>
-    .hero-container {
-      position: relative;
-      width: 100%;
-      height: 260px;
-      border-radius: 12px;
-      margin-top: 18px;
-      overflow: hidden;
-    }
-    .hero-container::before {
-      content: "";
-      position: absolute;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.55);
-      z-index:1;
-    }
-    .hero {
-      width: 100%;
-      height: 100%;
-      background: url("assets/it.webp") center/cover no-repeat;
-      position: absolute;
-      top:0; left:0;
-      z-index:0;
-    }
-    @media(max-width:600px){
-      .hero-container{height:190px}
-    }
-  </style>
 </head>
 <body>
   <div class="bg-waves"></div>
@@ -65,12 +41,35 @@
     </div>
 
     <div class="section-header">
-      <h1>Networking Services</h1>
+      <h1>Networking <span class="accent">Services</span></h1>
       <p class="lead">We provide professional networking solutions for homes, offices, and commercial spaces. From structured cabling to wireless optimization, our experts ensure seamless connectivity and reliable performance.</p>
     </div>
 
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3>Structured Cabling</h3>
+        <p>Professional Cat6, Cat6a cable installation with proper termination and cable management for reliable wired networks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>Wireless Networks</h3>
+        <p>Wi-Fi site surveys, access point placement, and optimization for seamless wireless coverage throughout your space.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Network Setup</h3>
+        <p>Switches, routers, VLAN configuration, and network segmentation for secure and scalable business networks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Network Security</h3>
+        <p>Firewall configuration, network monitoring, and security protocols to protect your digital infrastructure.</p>
+      </div>
+    </div>
+
     <div class="card">
-      <h2>Our Networking Solutions Include</h2>
+      <h2 style="color:var(--neon-pink)">Complete Networking Solutions</h2>
       <ul>
         <li>Structured cabling (Cat6, Cat6a) for wired networks</li>
         <li>Wireless site surveys and access point placement</li>
@@ -80,8 +79,27 @@
         <li>Ongoing support and maintenance services</li>
         <li>Network monitoring and optimization</li>
         <li>Cable management and professional installation</li>
+        <li>Internet connectivity setup and optimization</li>
+        <li>VoIP phone system integration</li>
+        <li>Network troubleshooting and diagnostics</li>
+        <li>Future-proof infrastructure planning</li>
       </ul>
-      <p style="margin-top:20px"><a class="btn" href="index.html">Back to Home</a></p>
+
+      <div style="margin-top:30px; text-align:center">
+        <a class="btn" href="index.html">Back to Home</a>
+        <a class="btn" href="tel:+254113301244" style="margin-left:15px">Call Now</a>
+      </div>
+    </div>
+
+    <div class="cta-electric">
+      <div class="cta-electric-content">
+        <h2>Need Professional Networking?</h2>
+        <p>Get a free network assessment and custom solution for your home or business connectivity needs.</p>
+        <div class="cta-buttons">
+          <a href="tel:+254113301244" class="cta-btn primary">Call +254 113 301 244</a>
+          <a href="index.html" class="cta-btn secondary">Back to Home</a>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -91,9 +109,14 @@
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="networking.html">Networking</a>
+        <a href="cctv.html">CCTV</a>
+        <a href="automatic-gates.html">Automatic Gates</a>
+        <a href="electric-fence.html">Electric Fence</a>
+        <a href="biometrics.html">Biometrics</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-contact"><strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions.co.ke</div>
+      <div class="footer-copyright">© 2024 SecureTech Solutions. All rights reserved.</div>
     </div>
   </footer>
 
