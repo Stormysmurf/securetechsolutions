@@ -7,9 +7,9 @@
     if(window.scrollY > 50) header.classList.add('scrolled'); 
     else header.classList.remove('scrolled');
   }
-  
+
   window.addEventListener('scroll', onScrollHeader);
-  
+
   document.addEventListener('DOMContentLoaded', ()=>{
     onScrollHeader();
 
@@ -17,30 +17,30 @@
     const slides = document.querySelectorAll('.slide');
     if(slides && slides.length){
       let current = 0;
-      
+
       function show(i){ 
         slides.forEach((s,idx)=> s.classList.toggle('active', idx===i)); 
       }
-      
+
       function next(){ 
         current = (current+1)%slides.length; 
         show(current); 
       }
-      
+
       // if nav exists, wire it
       const left = document.querySelector('.slide-nav.left');
       const right = document.querySelector('.slide-nav.right');
-      
+
       if(left) left.addEventListener('click', ()=>{ 
         current = (current-1+slides.length)%slides.length; 
         show(current); 
       });
-      
+
       if(right) right.addEventListener('click', ()=>{ 
         current = (current+1)%slides.length; 
         show(current); 
       });
-      
+
       show(current);
       setInterval(next, 5000);
     }
@@ -162,9 +162,9 @@
         console.warn('Phone animation container not found');
         return;
       }
-      
+
       const phoneJsonPath = 'assets/phone.json';
-      
+
       // Wait for Lottie to be available, then try to load phone animation
       (function waitForLottiePhone(){
         if(window.lottie){
@@ -177,7 +177,7 @@
               path: phoneJsonPath
             });
             console.info('Phone Lottie loaded successfully');
-            
+
             // Make phone animation clickable
             phoneContainer.style.cursor = 'pointer';
             phoneContainer.addEventListener('click', () => {
@@ -205,60 +205,27 @@
       })();
     })();
 
-    // Biometric fingerprint Lottie background for home biometric card
+    // Biometric video handling - ensure it plays correctly
     (function(){
-      const bioContainer = document.getElementById('biometric-lottie');
-      if(!bioContainer){ console.info('Biometric lottie container not present'); return; }
+      const biometricVideo = document.querySelector('.biometric-video-bg');
+      if(!biometricVideo) {
+        console.info('Biometric video not present');
+        return;
+      }
 
-      const bioJsonPath = encodeURI('assets/Fingerprint biometric scan.json');
+      // Ensure video plays and loops properly
+      biometricVideo.addEventListener('loadeddata', function() {
+        console.info('Biometric video loaded successfully');
+      });
 
-      (function waitForLottieBio(){
-        if(window.lottie){
-          try{
-            const anim = lottie.loadAnimation({
-              container: bioContainer,
-              renderer: 'svg',
-              loop: true,
-              autoplay: true,
-              path: bioJsonPath
-            });
-            // make sure it's non-interactive and sits behind content
-            bioContainer.style.pointerEvents = 'none';
-            bioContainer.style.opacity = bioContainer.style.opacity || '0.95';
-            window._biometricLottie = anim;
-            console.info('Biometric Lottie loaded', bioJsonPath);
-          }catch(e){
-            console.warn('Biometric Lottie load failed:', e);
-            // Fallback: show an inline fingerprint SVG (instead of emoji)
-            try{
-              bioContainer.innerHTML = `<!-- fingerprint fallback -->
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v1a1 1 0 0 1-2 0V9a9 9 0 1 1 18 0v1a1 1 0 0 1-2 0V9a7 7 0 0 0-7-7z" opacity="0.9"/>
-                  <path fill="currentColor" d="M12 6a5 5 0 0 0-5 5v1a3 3 0 0 1-6 0v-1a9 9 0 1 1 18 0v1a3 3 0 0 1-6 0v-1a5 5 0 0 0-5-5z" opacity="0.7"/>
-                </svg>`;
-              const svg = bioContainer.querySelector('svg');
-              if(svg){ svg.style.width='48px'; svg.style.height='48px'; svg.style.color='#ffffff'; svg.style.opacity='0.95'; }
-            }catch(inner){
-              bioContainer.innerHTML = '';
-            }
-          }
-        } else if(window._lottieWaitCount < 50){
-          window._lottieWaitCount = (window._lottieWaitCount || 0) + 1;
-          setTimeout(waitForLottieBio, 100);
-        } else {
-          console.warn('Lottie library not available for biometric animation');
-          // fallback: small svg icon
-          try{
-            bioContainer.innerHTML = `<!-- fingerprint fallback -->
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v1a1 1 0 0 1-2 0V9a9 9 0 1 1 18 0v1a1 1 0 0 1-2 0V9a7 7 0 0 0-7-7z" opacity="0.9"/>
-                <path fill="currentColor" d="M12 6a5 5 0 0 0-5 5v1a3 3 0 0 1-6 0v-1a9 9 0 1 1 18 0v1a3 3 0 0 1-6 0v-1a5 5 0 0 0-5-5z" opacity="0.7"/>
-              </svg>`;
-            const svg = bioContainer.querySelector('svg');
-            if(svg){ svg.style.width='48px'; svg.style.height='48px'; svg.style.color='#ffffff'; svg.style.opacity='0.95'; }
-          }catch(e){ /* ignore */ }
-        }
-      })();
+      biometricVideo.addEventListener('error', function() {
+        console.warn('Biometric video failed to load');
+      });
+
+      // Try to play the video (some browsers require this)
+      biometricVideo.play().catch(function(error) {
+        console.warn('Video autoplay failed:', error);
+      });
     })();
 
   });
@@ -271,7 +238,7 @@ let slideInterval;
 
 function showSlide(index) {
   if (!slides || slides.length === 0) return;
-  
+
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
   });
