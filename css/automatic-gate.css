@@ -1,0 +1,317 @@
+/* Page-specific styles for automatic-gates.html */
+.sliding-hero {
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/slidinggate.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.sliding-card {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 28px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  backdrop-filter: blur(6px) saturate(120%);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+.card-ribbon {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card-image {
+  height: 280px;
+  background: url('../assets/slidinggate.webp') center/cover no-repeat;
+  border-radius: 8px;
+  box-shadow: inset 0 -30px 60px rgba(0,0,0,0.2);
+}
+
+.card-body h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.card-body p {
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.card-actions .btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(90deg,#059669,#10b981);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sliding-info {
+  max-width: 1100px;
+  margin: -36px auto 0 auto;
+  padding: 18px 20px 36px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 12px 12px 8px 8px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.18);
+  position: relative;
+  z-index: 3; /* sit above the following bg-section */
+}
+
+.sliding-info .section-header h2 {
+  margin-bottom: 8px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.sliding-info .section-header { margin-top: 4px; }
+.sliding-info .section-header h2 { margin-bottom: 6px; }
+
+
+.feature-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(8,12,20,0.06);
+}
+
+.feature-icon { font-size: 28px; margin-bottom: 8px; }
+
+@media (max-width: 920px) {
+  .sliding-card { grid-template-columns: 1fr; }
+  .card-image { height: 220px; }
+}
+
+@media (max-width: 920px) {
+  .sliding-info { margin-top: -20px; padding: 14px; }
+}
+
+@media (max-width: 520px) {
+  .sliding-info { margin-top: -10px; padding: 12px; }
+}
+
+/* Full-width background detail sections that come after each hero/info */
+.bg-section {
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  color: #fff;
+  position: relative;
+  margin-top: 18px;
+  z-index: 0;
+}
+
+.bg-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 1;
+}
+
+.bg-section .bg-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  text-align: left;
+}
+
+.bg-section h3 { margin: 0 0 8px; font-size: 1.35rem; }
+.bg-section p { margin: 0; opacity: 0.95; line-height: 1.6; }
+
+.sliding-bg-full { background: url('../assets/slidinggate.webp') center/cover no-repeat; }
+.swing-bg-full { background: url('../assets/swinggate.webp') center/cover no-repeat; }
+.remote-bg-full { background: url('../assets/remotecontrol.webp') center/cover no-repeat; }
+
+/* card-image backgrounds for each hero/card variant */
+.sliding-hero .card-image { background-image: url('../assets/slidinggate.webp'); }
+.swing-hero .card-image { background-image: url('../assets/swinggate.webp'); }
+.remote-hero .card-image { background-image: url('../assets/remotecontrol.webp'); }
+
+@media (max-width: 720px) {
+  .bg-section { padding: 28px 14px; min-height: 220px; }
+  .bg-section h3 { font-size: 1.15rem; }
+}
+
+@media (max-width: 520px) {
+  .sliding-hero { padding: 24px 12px; min-height: 360px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .sliding-card { padding: 14px; gap: 12px; }
+}
+
+/* Swing gate uses the same card layout but a different background image */
+.swing-hero {
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/swinggate.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+@media (max-width: 920px) {
+  .sliding-card, .swing-card { grid-template-columns: 1fr; }
+  .card-image { height: 220px; }
+}
+
+@media (max-width: 520px) {
+  .swing-hero { padding: 24px 12px; min-height: 360px; }
+}
+
+/* Remote control hero uses the same card layout and its own background */
+.remote-hero {
+  width: 100%;
+  min-height: 420px;
+  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/remotecontrol.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+@media (max-width: 520px) {
+  .remote-hero { padding: 24px 12px; min-height: 360px; }
+}
+/* Automatic Gates page specific styles */
+.sliding-gate-bg {
+  --hero-height: 64vh;
+}
+
+.sliding-hero {
+  width: 100%;
+  min-height: var(--hero-height);
+  background-image: url('../assets/slidinggate.webp');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.sliding-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5));
+  z-index: 1;
+}
+
+.sliding-card {
+  position: relative;
+  z-index: 2;
+  width: min(920px, 94%);
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 28px;
+  background: rgba(8,8,10,0.45);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px) saturate(140%);
+  align-items: center;
+}
+
+.card-ribbon {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  background: linear-gradient(90deg,#ff2de3,#8b2cff);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 18px rgba(139,44,255,0.18);
+}
+
+.card-image {
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+  background-image: url('../assets/slidinggate.webp');
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.35);
+}
+
+.card-body h3 {
+  color: #fff;
+  font-size: 28px;
+  margin: 0 0 8px 0;
+}
+
+.card-body p {
+  color: #d6d6d6;
+  margin-bottom: 14px;
+}
+
+.card-actions .btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(90deg,#ff2de3,#8b2cff);
+  box-shadow: 0 10px 30px rgba(139,44,255,0.25);
+}
+
+.sliding-info {
+  margin-top: 12px;
+}
+
+.sliding-info .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+}
+
+.sliding-info .feature-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(139,44,255,0.06);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+@media (max-width: 920px) {
+  .sliding-card { grid-template-columns: 1fr; }
+  .card-image { height: 200px; }
+}
+
+@media (max-width: 520px) {
+  .sliding-hero { min-height: 48vh; }
+  .card-image { height: 160px; }
+  .card-body h3 { font-size: 22px; }
+}
