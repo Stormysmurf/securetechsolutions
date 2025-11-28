@@ -224,7 +224,7 @@
             });
             // make sure it's non-interactive and sits behind content
             bioContainer.style.pointerEvents = 'none';
-            bioContainer.style.opacity = bioContainer.style.opacity || '0.12';
+            bioContainer.style.opacity = bioContainer.style.opacity || '0.95';
             window._biometricLottie = anim;
             console.info('Biometric Lottie loaded', bioJsonPath);
           }catch(e){
