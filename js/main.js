@@ -165,18 +165,8 @@
       
       const phoneJsonPath = 'assets/phone.json';
       
-      // Check if JSON exists and Lottie is available
-      fetch(phoneJsonPath, {method: 'HEAD'}).then(res => {
-        if(!res.ok){
-          console.warn('Phone animation JSON not found:', phoneJsonPath);
-          // Optional: Add a fallback phone icon
-          phoneContainer.innerHTML = '📞';
-          phoneContainer.style.fontSize = '24px';
-          phoneContainer.style.textAlign = 'center';
-          phoneContainer.style.lineHeight = '32px';
-          return;
-        }
-        
+      // Wait for Lottie to be available, then try to load phone animation
+      (function waitForLottiePhone(){
         if(window.lottie){
           try{
             const phoneAnim = lottie.loadAnimation({
@@ -188,7 +178,7 @@
             });
             console.info('Phone Lottie loaded successfully');
             
-            // Optional: Make phone animation clickable
+            // Make phone animation clickable
             phoneContainer.style.cursor = 'pointer';
             phoneContainer.addEventListener('click', () => {
               window.location.href = 'tel:+254113301244';
@@ -201,6 +191,9 @@
             phoneContainer.style.textAlign = 'center';
             phoneContainer.style.lineHeight = '32px';
           }
+        } else if(window._lottieWaitCount < 50){
+          window._lottieWaitCount = (window._lottieWaitCount || 0) + 1;
+          setTimeout(waitForLottiePhone, 100);
         } else {
           console.warn('Lottie library not available for phone animation');
           // Fallback to emoji
@@ -209,14 +202,63 @@
           phoneContainer.style.textAlign = 'center';
           phoneContainer.style.lineHeight = '32px';
         }
-      }).catch(err => {
-        console.warn('Could not check phone animation JSON:', err);
-        // Fallback to emoji
-        phoneContainer.innerHTML = '📞';
-        phoneContainer.style.fontSize = '24px';
-        phoneContainer.style.textAlign = 'center';
-        phoneContainer.style.lineHeight = '32px';
-      });
+      })();
+    })();
+
+    // Biometric fingerprint Lottie background for home biometric card
+    (function(){
+      const bioContainer = document.getElementById('biometric-lottie');
+      if(!bioContainer){ console.info('Biometric lottie container not present'); return; }
+
+      const bioJsonPath = encodeURI('assets/Fingerprint biometric scan.json');
+
+      (function waitForLottieBio(){
+        if(window.lottie){
+          try{
+            const anim = lottie.loadAnimation({
+              container: bioContainer,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: bioJsonPath
+            });
+            // make sure it's non-interactive and sits behind content
+            bioContainer.style.pointerEvents = 'none';
+            bioContainer.style.opacity = bioContainer.style.opacity || '0.12';
+            window._biometricLottie = anim;
+            console.info('Biometric Lottie loaded', bioJsonPath);
+          }catch(e){
+            console.warn('Biometric Lottie load failed:', e);
+            // Fallback: show an inline fingerprint SVG (instead of emoji)
+            try{
+              bioContainer.innerHTML = `<!-- fingerprint fallback -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v1a1 1 0 0 1-2 0V9a9 9 0 1 1 18 0v1a1 1 0 0 1-2 0V9a7 7 0 0 0-7-7z" opacity="0.9"/>
+                  <path fill="currentColor" d="M12 6a5 5 0 0 0-5 5v1a3 3 0 0 1-6 0v-1a9 9 0 1 1 18 0v1a3 3 0 0 1-6 0v-1a5 5 0 0 0-5-5z" opacity="0.7"/>
+                </svg>`;
+              const svg = bioContainer.querySelector('svg');
+              if(svg){ svg.style.width='48px'; svg.style.height='48px'; svg.style.color='#ffffff'; svg.style.opacity='0.95'; }
+            }catch(inner){
+              bioContainer.innerHTML = '';
+            }
+          }
+        } else if(window._lottieWaitCount < 50){
+          window._lottieWaitCount = (window._lottieWaitCount || 0) + 1;
+          setTimeout(waitForLottieBio, 100);
+        } else {
+          console.warn('Lottie library not available for biometric animation');
+          // fallback: small svg icon
+          try{
+            bioContainer.innerHTML = `<!-- fingerprint fallback -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v1a1 1 0 0 1-2 0V9a9 9 0 1 1 18 0v1a1 1 0 0 1-2 0V9a7 7 0 0 0-7-7z" opacity="0.9"/>
+                <path fill="currentColor" d="M12 6a5 5 0 0 0-5 5v1a3 3 0 0 1-6 0v-1a9 9 0 1 1 18 0v1a3 3 0 0 1-6 0v-1a5 5 0 0 0-5-5z" opacity="0.7"/>
+              </svg>`;
+            const svg = bioContainer.querySelector('svg');
+            if(svg){ svg.style.width='48px'; svg.style.height='48px'; svg.style.color='#ffffff'; svg.style.opacity='0.95'; }
+          }catch(e){ /* ignore */ }
+        }
+      })();
     })();
 
   });
