@@ -1,42 +1,5 @@
 /* Home page specific styles (new additions) */
-.service-card.biometric-card { position: relative; overflow: visible; }
-.service-card.biometric-card .service-icon {
-  position: relative;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.08);
-  z-index: 2;
-  overflow: hidden;
-}
 
-#biometric-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 1;
-  pointer-events: none;
-}
-.service-card.biometric-card > .service-icon,
-.service-card.biometric-card > h3,
-.service-card.biometric-card > p,
-.service-card.biometric-card > .service-btn {
-  position: relative; /* bring content above the lottie */
-  z-index: 2;
-}
-
-/* Ensure svg inside lottie scales to cover */
-.biometric-lottie svg { width: 100%; height: 100%; display: block; }
-
-@media (max-width: 720px) {
-  .service-card.biometric-card .biometric-lottie { opacity: 0.09; }
-  .biometric-lottie svg { width: 140%; height: 140%; }
-}
 /* ===== HERO SLIDESHOW ===== */
 .hero-slideshow {
   position: relative;
@@ -158,4 +121,60 @@
 
 .hero-btn.secondary:hover {
   transform: translateY(-3px);
+}
+
+/* Biometric card with Lottie background */
+.service-card.biometric-card { 
+  position: relative; 
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.biometric-lottie-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.biometric-lottie-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.service-card.biometric-card > .service-icon,
+.service-card.biometric-card > h3,
+.service-card.biometric-card > p,
+.service-card.biometric-card > .service-btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove the old video styles */
+.service-card.biometric-card .service-icon {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  background: transparent;
+  z-index: 2;
+  overflow: visible;
+}
+
+#biometric-video {
+  display: none; /* Hide the old video */
+}
+
+/* Ensure svg inside lottie scales to cover */
+.biometric-lottie-bg svg { width: 100%; height: 100%; display: block; }
+
+@media (max-width: 720px) {
+  .service-card.biometric-card .biometric-lottie-bg { opacity: 0.09; }
+  .biometric-lottie-bg svg { width: 140%; height: 140%; }
 }
