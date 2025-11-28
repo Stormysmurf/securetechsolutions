@@ -1,317 +1,560 @@
-/* Page-specific styles for automatic-gates.html */
-.sliding-hero {
-  width: 100%;
-  min-height: 420px;
-  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/slidinggate.webp') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+/* ===================================
+   AUTOMATIC GATES PAGE STYLES
+   =================================== */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(139, 44, 255, 0.1), rgba(255, 45, 227, 0.1));
+    margin-bottom: 60px;
+    overflow: hidden;
 }
 
-.sliding-card {
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 28px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-  backdrop-filter: blur(6px) saturate(120%);
-  position: relative;
-  overflow: hidden;
-  align-items: center;
+.hero {
+    position: absolute;
+    inset: 0;
+    background: url('../assets/automatic-gate-hero.jpg') center/cover no-repeat;
+    opacity: 0.2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content .accent {
+    background: linear-gradient(90deg, #ff2de3, #8b2cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content .lead {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Gate Type Section Container */
+.gate-type-section {
+    margin-bottom: 80px;
+}
+
+/* Gate Hero (Card with Image) */
+.gate-hero {
+    width: 100%;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.gate-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+.sliding-hero {
+    background: url('../assets/slidinggate.webp') center/cover no-repeat;
+}
+
+.swing-hero {
+    background: url('../assets/swinggate.webp') center/cover no-repeat;
+}
+
+.remote-hero {
+    background: url('../assets/remotecontrol.webp') center/cover no-repeat;
+}
+
+/* Gate Card - Removed blur, made transparent */
+.gate-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    background: transparent;
+    border-radius: 16px;
+    padding: 30px;
 }
 
 .card-ribbon {
-  position: absolute;
-  left: 18px;
-  top: 16px;
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(90deg, #ff2de3, #8b2cff);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(139, 44, 255, 0.5);
+    z-index: 10;
 }
 
-.card-image {
-  height: 280px;
-  background: url('../assets/slidinggate.webp') center/cover no-repeat;
-  border-radius: 8px;
-  box-shadow: inset 0 -30px 60px rgba(0,0,0,0.2);
+.gate-card-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+    align-items: center;
 }
 
-.card-body h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.5rem;
-  color: #fff;
+.gate-card-image {
+    width: 100%;
+    height: 280px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.card-body p {
-  color: rgba(255,255,255,0.85);
-  line-height: 1.5;
-  margin-bottom: 14px;
+.gate-card-content h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-.card-actions .btn {
-  display: inline-block;
-  padding: 10px 16px;
-  background: linear-gradient(90deg,#059669,#10b981);
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
+.gate-card-content p {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
 }
 
-.sliding-info {
-  max-width: 1100px;
-  margin: -36px auto 0 auto;
-  padding: 18px 20px 36px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border-radius: 12px 12px 8px 8px;
-  box-shadow: 0 12px 30px rgba(2,6,23,0.18);
-  position: relative;
-  z-index: 3; /* sit above the following bg-section */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.sliding-info .section-header h2 {
-  margin-bottom: 8px;
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #ff2de3, #8b2cff);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(139, 44, 255, 0.5);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 44, 255, 0.7);
+}
+
+.btn-secondary {
+    background: rgba(139, 44, 255, 0.3);
+    color: #fff;
+    border: 2px solid rgba(139, 44, 255, 0.6);
+}
+
+.btn-secondary:hover {
+    background: rgba(139, 44, 255, 0.5);
+    border-color: rgba(139, 44, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Gate Features Section */
+.gate-features {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
 }
-
-.sliding-info .section-header { margin-top: 4px; }
-.sliding-info .section-header h2 { margin-bottom: 6px; }
-
 
 .feature-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(8,12,20,0.06);
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(139, 44, 255, 0.3);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.feature-icon { font-size: 28px; margin-bottom: 8px; }
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 44, 255, 0.3);
+    border-color: rgba(139, 44, 255, 0.5);
+    background: rgba(15, 15, 20, 0.9);
+}
 
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Gate Detail Description */
+.gate-detail {
+    background: rgba(10, 10, 15, 0.8);
+    border-left: 4px solid #8b2cff;
+    padding: 24px 28px;
+    border-radius: 8px;
+}
+
+.gate-detail h3 {
+    color: #ff2de3;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.gate-detail p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Safety Section */
+.safety-section {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Info Section (What You Get & Why Choose Us) */
+.info-section {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(139, 44, 255, 0.3);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.info-card h2 {
+    color: #ff2de3;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(139, 44, 255, 0.4);
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 12px 0;
+    padding-left: 28px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.info-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ff2de3;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* CTA Section */
+.cta-section {
+    max-width: 1100px;
+    margin: 80px auto 60px;
+    padding: 0 20px;
+}
+
+.cta-content {
+    background: rgba(10, 10, 15, 0.85);
+    border: 2px solid rgba(139, 44, 255, 0.4);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 16px;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+    background: linear-gradient(90deg, #ff2de3, #8b2cff);
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(139, 44, 255, 0.5);
+}
+
+.btn-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 44, 255, 0.7);
+}
+
+.btn-cta-secondary {
+    background: rgba(139, 44, 255, 0.3);
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    border: 2px solid rgba(139, 44, 255, 0.6);
+}
+
+.btn-cta-secondary:hover {
+    background: rgba(139, 44, 255, 0.5);
+    border-color: rgba(139, 44, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablets and below */
 @media (max-width: 920px) {
-  .sliding-card { grid-template-columns: 1fr; }
-  .card-image { height: 220px; }
+    .gate-card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gate-card-image {
+        height: 240px;
+    }
+    
+    .card-ribbon {
+        top: 15px;
+        left: 15px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .gate-hero {
+        min-height: 380px;
+        padding: 30px 15px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    
+    .gate-type-section {
+        margin-bottom: 60px;
+    }
 }
 
-@media (max-width: 920px) {
-  .sliding-info { margin-top: -20px; padding: 14px; }
+/* Mobile devices */
+@media (max-width: 640px) {
+    .hero-section {
+        min-height: 40vh;
+        margin-bottom: 40px;
+    }
+    
+    .hero-content {
+        padding: 30px 15px;
+    }
+    
+    .gate-hero {
+        min-height: 320px;
+        padding: 20px 12px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+    }
+    
+    .gate-card {
+        padding: 20px;
+    }
+    
+    .card-ribbon {
+        top: 12px;
+        left: 12px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .gate-card-image {
+        height: 200px;
+    }
+    
+    .gate-card-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .gate-card-content p {
+        font-size: 0.95rem;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+    
+    .card-actions .btn {
+        width: 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .gate-detail {
+        padding: 20px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .info-card {
+        padding: 24px;
+    }
+    
+    .cta-content {
+        padding: 35px 25px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-cta-primary,
+    .btn-cta-secondary {
+        width: 100%;
+        padding: 14px 24px;
+    }
+    
+    .gate-type-section {
+        margin-bottom: 50px;
+    }
 }
 
-@media (max-width: 520px) {
-  .sliding-info { margin-top: -10px; padding: 12px; }
+/* Extra small devices */
+@media (max-width: 480px) {
+    .gate-card-image {
+        height: 180px;
+    }
+    
+    .feature-icon {
+        font-size: 2rem;
+    }
+    
+    .info-card ul li {
+        padding: 10px 0;
+        padding-left: 24px;
+        font-size: 0.95rem;
+    }
 }
 
-/* Full-width background detail sections that come after each hero/info */
-.bg-section {
-  width: 100%;
-  min-height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 36px 20px;
-  color: #fff;
-  position: relative;
-  margin-top: 18px;
-  z-index: 0;
+/* Phone Animation Container */
+#phone-animation {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #8b2cff, #ff2de3);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(139, 44, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.bg-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  z-index: 1;
+#phone-animation:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(139, 44, 255, 0.5);
 }
 
-.bg-section .bg-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  text-align: left;
-}
-
-.bg-section h3 { margin: 0 0 8px; font-size: 1.35rem; }
-.bg-section p { margin: 0; opacity: 0.95; line-height: 1.6; }
-
-.sliding-bg-full { background: url('../assets/slidinggate.webp') center/cover no-repeat; }
-.swing-bg-full { background: url('../assets/swinggate.webp') center/cover no-repeat; }
-.remote-bg-full { background: url('../assets/remotecontrol.webp') center/cover no-repeat; }
-
-/* card-image backgrounds for each hero/card variant */
-.sliding-hero .card-image { background-image: url('../assets/slidinggate.webp'); }
-.swing-hero .card-image { background-image: url('../assets/swinggate.webp'); }
-.remote-hero .card-image { background-image: url('../assets/remotecontrol.webp'); }
-
-@media (max-width: 720px) {
-  .bg-section { padding: 28px 14px; min-height: 220px; }
-  .bg-section h3 { font-size: 1.15rem; }
-}
-
-@media (max-width: 520px) {
-  .sliding-hero { padding: 24px 12px; min-height: 360px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .sliding-card { padding: 14px; gap: 12px; }
-}
-
-/* Swing gate uses the same card layout but a different background image */
-.swing-hero {
-  width: 100%;
-  min-height: 420px;
-  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/swinggate.webp') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-@media (max-width: 920px) {
-  .sliding-card, .swing-card { grid-template-columns: 1fr; }
-  .card-image { height: 220px; }
-}
-
-@media (max-width: 520px) {
-  .swing-hero { padding: 24px 12px; min-height: 360px; }
-}
-
-/* Remote control hero uses the same card layout and its own background */
-.remote-hero {
-  width: 100%;
-  min-height: 420px;
-  background: linear-gradient(rgba(10,10,12,0.45), rgba(10,10,12,0.25)), url('../assets/remotecontrol.webp') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-@media (max-width: 520px) {
-  .remote-hero { padding: 24px 12px; min-height: 360px; }
-}
-/* Automatic Gates page specific styles */
-.sliding-gate-bg {
-  --hero-height: 64vh;
-}
-
-.sliding-hero {
-  width: 100%;
-  min-height: var(--hero-height);
-  background-image: url('../assets/slidinggate.webp');
-  background-size: cover;
-  background-position: center center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
-
-.sliding-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5));
-  z-index: 1;
-}
-
-.sliding-card {
-  position: relative;
-  z-index: 2;
-  width: min(920px, 94%);
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 28px;
-  background: rgba(8,8,10,0.45);
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px) saturate(140%);
-  align-items: center;
-}
-
-.card-ribbon {
-  position: absolute;
-  top: 14px;
-  left: 18px;
-  background: linear-gradient(90deg,#ff2de3,#8b2cff);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  box-shadow: 0 6px 18px rgba(139,44,255,0.18);
-}
-
-.card-image {
-  width: 100%;
-  height: 260px;
-  border-radius: 10px;
-  background-image: url('../assets/slidinggate.webp');
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.35);
-}
-
-.card-body h3 {
-  color: #fff;
-  font-size: 28px;
-  margin: 0 0 8px 0;
-}
-
-.card-body p {
-  color: #d6d6d6;
-  margin-bottom: 14px;
-}
-
-.card-actions .btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 800;
-  color: white;
-  background: linear-gradient(90deg,#ff2de3,#8b2cff);
-  box-shadow: 0 10px 30px rgba(139,44,255,0.25);
-}
-
-.sliding-info {
-  margin-top: 12px;
-}
-
-.sliding-info .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 18px;
-}
-
-.sliding-info .feature-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(139,44,255,0.06);
-  padding: 18px;
-  border-radius: 12px;
-}
-
-@media (max-width: 920px) {
-  .sliding-card { grid-template-columns: 1fr; }
-  .card-image { height: 200px; }
-}
-
-@media (max-width: 520px) {
-  .sliding-hero { min-height: 48vh; }
-  .card-image { height: 160px; }
-  .card-body h3 { font-size: 22px; }
+#phone-animation svg {
+    width: 100%;
+    height: 100%;
 }
