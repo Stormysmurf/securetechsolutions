@@ -289,6 +289,41 @@
   z-index: 2;
 }
 
+/* ===== CCTV CARD - SAME ANIMATION FUNCTIONALITY AS BIOMETRIC ===== */
+.service-card.cctv-card { 
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background animation container - SAME positioning as biometric */
+#cctv-lottie {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content stays on top - SAME z-index as biometric */
+.service-card.cctv-card > .service-icon,
+.service-card.cctv-card > h3,
+.service-card.cctv-card > p,
+.service-card.cctv-card > .service-btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reduce animation opacity on small screens - SAME as biometric */
+@media(max-width: 480px){
+  .service-card.cctv-card #cctv-lottie {
+    opacity: 0.2;
+  }
+}
+
 /* ===== CTA CARD ===== */
 .cta-card {
   margin-top: 60px;
