@@ -101,7 +101,7 @@
     return;
   }
 
-  console.log('🚀 Loading fn.json for biometric-lottie-1...');
+  console.log('🚀 Loading face.json for biometric-lottie-1...');
 
   fetch('assets/face.json')
     .then(response => {
