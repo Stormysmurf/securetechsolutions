@@ -92,44 +92,43 @@
     })();
 
     // face recognition card BIOMETRIC ANIMATIONS
-(function(){
-  // Your specific biometric-lottie-1
-  const container = document.getElementById('biometric-lottie-1');
+    (function(){
+      const container = document.getElementById('biometric-lottie-1');
 
-  if(!container) {
-    console.log('ℹ️ biometric-lottie-1 container not found');
-    return;
-  }
-
-  console.log('🚀 Loading face.json for biometric-lottie-1...');
-
-  fetch('assets/face.json')
-    .then(response => {
-      console.log('📡 Response status for face.json:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: fn.json not found`);
+      if(!container) {
+        console.log('ℹ️ biometric-lottie-1 container not found');
+        return;
       }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ face.json loaded successfully for biometric-lottie-1');
 
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
-      });
+      console.log('🚀 Loading face.json for biometric-lottie-1...');
 
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ face.json animation rendered successfully for biometric-lottie-1!');
-      });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load fn.json for biometric-lottie-1:', error);
-    });
-})();
+      fetch('assets/face.json')
+        .then(response => {
+          console.log('📡 Response status for face.json:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: face.json not found`);
+          }
+          return response.json();
+        })
+        .then(animationData => {
+          console.log('✅ face.json loaded successfully for biometric-lottie-1');
+
+          const anim = lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: animationData
+          });
+
+          anim.addEventListener('DOMLoaded', () => {
+            console.log('✅ face.json animation rendered successfully for biometric-lottie-1!');
+          });
+        })
+        .catch(error => {
+          console.error('❌ Failed to load face.json for biometric-lottie-1:', error);
+        });
+    })();
 
     // CCTV Lottie animation
     (function(){
@@ -174,7 +173,6 @@
 
 // face recognition card BIOMETRIC ANIMATIONS main page
 (function(){
-  // Your specific biometric-lottie
   const container = document.getElementById('biometric-lottie');
 
   if(!container) {
@@ -214,9 +212,8 @@
 
 // fingerprint card BIOMETRIC ANIMATIONS
 (function(){
-  // Your specific biometric-lottie-fn
   const container = document.getElementById('biometric-lottie-fn');
-  
+
   if(!container) {
     console.log('ℹ️ biometric-lottie-fn container not found');
     return;
@@ -252,45 +249,8 @@
     });
 })();
 
-// networking card BIOMETRIC ANIMATIONS
+// networking card ANIMATIONS
 (function(){
-  // Your specific biometric-lottie-2
-  const container = document.getElementById('biometric-lottie-2');
-
-  if(!container) {
-    console.log('ℹ️ biometric-lottie-2 container not found');
-    return;
-  }
-
-  console.log('🚀 Loading net.json for biometric-lottie-2...');
-
-  fetch('assets/net.json')
-    .then(response => {
-      console.log('📡 Response status for net.json:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: net.json not found`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ net.json loaded successfully for biometric-lottie-2');
-
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
-      });
-
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ net.json animation rendered successfully for biometric-lottie-2!');
-      });
-    })
-
-// networking card BIOMETRIC ANIMATIONS
-(function(){
-  // Your specific net-lottie
   const container = document.getElementById('net-lottie');
 
   if(!container) {
@@ -327,10 +287,7 @@
       console.error('❌ Failed to load net.json for net-lottie:', error);
     });
 })();
-    .catch(error => {
-      console.error('❌ Failed to load net.json for biometric-lottie-2:', error);
-    });
-})();
+
 // Slideshow helpers
 let currentSlide=0;
 const slides=document.querySelectorAll('.slide');
