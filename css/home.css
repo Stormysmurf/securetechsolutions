@@ -107,7 +107,6 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Hero Button Group */
 .hero-cta-group {
   display: flex;
   gap: 15px;
@@ -262,14 +261,14 @@
   box-shadow: 0 6px 20px rgba(255, 45, 227, 0.5);
 }
 
-/* ===== BIOMETRIC CARD WITH LOTTIE JSON BACKGROUND ===== */
+/* ===== BIOMETRIC CARD - EXACT SAME AS TEST FILE ===== */
 .service-card.biometric-card { 
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-/* The background animation container */
+/* Background animation container - EXACT positioning from test */
 #biometric-lottie {
   position: absolute;
   top: 0;
@@ -281,7 +280,7 @@
   z-index: 1;
 }
 
-/* Ensure all content stays on top of the animation */
+/* Content stays on top - EXACT z-index from test */
 .service-card.biometric-card > .service-icon,
 .service-card.biometric-card > h3,
 .service-card.biometric-card > p,
@@ -412,7 +411,7 @@
     font-size: 14px;
   }
 
-  /* Reduce biometric animation opacity on small screens for better readability */
+  /* Reduce biometric animation opacity on small screens - SAME AS TEST */
   .service-card.biometric-card #biometric-lottie {
     opacity: 0.1;
   }
