@@ -252,6 +252,45 @@
     });
 })();
 
+// networking card BIOMETRIC ANIMATIONS
+(function(){
+  // Your specific biometric-lottie-2
+  const container = document.getElementById('biometric-lottie-2');
+
+  if(!container) {
+    console.log('ℹ️ biometric-lottie-2 container not found');
+    return;
+  }
+
+  console.log('🚀 Loading net.json for biometric-lottie-2...');
+
+  fetch('assets/net.json')
+    .then(response => {
+      console.log('📡 Response status for net.json:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: net.json not found`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ net.json loaded successfully for biometric-lottie-2');
+
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+      });
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ net.json animation rendered successfully for biometric-lottie-2!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load net.json for biometric-lottie-2:', error);
+    });
+})();
 // Slideshow helpers
 let currentSlide=0;
 const slides=document.querySelectorAll('.slide');
