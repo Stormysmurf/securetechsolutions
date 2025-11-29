@@ -1,200 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="woADHEYESMZPVh-NBOjTn_x7pHPUG1JBhLknx6MnW_4" />
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SecureTech Solutions | Professional Security Systems</title>
-<meta name="description" content="SecureTech Solutions — access control, CCTV installation and time attendance systems for homes and businesses.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a2e;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
 
-<!-- CSS -->
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/home.css">
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-<!-- Bodymovin/Lottie Web FULL VERSION - UPDATED -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        h1 {
+            color: #ff2de3;
+            margin-bottom: 30px;
+        }
+
+        /* Test Card 1: Full Size Animation */
+        .test-card-1 {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff2de3;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        #lottie-test-1 {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        /* Test Card 2: Background Animation (like your biometric card) */
+        .test-card-2 {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #8b2cff;
+            border-radius: 16px;
+            padding: 40px;
+            min-height: 300px;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        #lottie-test-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .test-card-2 .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .test-card-2 h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .test-card-2 p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .test-card-2 .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        /* Status Messages */
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .status.loading {
+            background: rgba(255, 200, 0, 0.2);
+            border: 1px solid #ffc800;
+            color: #ffc800;
+        }
+
+        .status.success {
+            background: rgba(0, 255, 100, 0.2);
+            border: 1px solid #00ff64;
+            color: #00ff64;
+        }
+
+        .status.error {
+            background: rgba(255, 0, 50, 0.2);
+            border: 1px solid #ff0032;
+            color: #ff0032;
+        }
+
+        .console-log {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .console-log div {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #666;
+            padding-left: 10px;
+        }
+
+        .console-log .log-error {
+            border-left-color: #ff0032;
+            color: #ff6b8a;
+        }
+
+        .console-log .log-success {
+            border-left-color: #00ff64;
+            color: #5fffb8;
+        }
+
+        .console-log .log-info {
+            border-left-color: #00b8ff;
+            color: #7dd3ff;
+        }
+    </style>
 </head>
 <body>
+    <div class="test-container">
+        <h1>🔬 Lottie Animation Test</h1>
 
-<div class="bg-waves"></div>
-<div class="particles">
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-</div>
+        <!-- Test 1: Full Size Animation -->
+        <div class="test-card-1">
+            <h2>Test 1: Full Size Animation</h2>
+            <p>Animation should appear in the box below:</p>
+            <div id="lottie-test-1"></div>
+            <div id="status-1" class="status loading">⏳ Loading...</div>
+        </div>
 
-<header class="header" id="header">
-  <div class="header-inner">
-    <div class="logo-section">
-      <img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
-      <div class="brand-text">
-        <div class="header-title">SecureTech Solutions</div>
-        <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
-      </div>
-    </div>
-    <button class="header-cta" onclick="location.href='tel:+254113301244'">
-      📞 Contact Us
-    </button>
-  </div>
-</header>
+        <!-- Test 2: Background Animation -->
+        <div class="test-card-2">
+            <div id="lottie-test-2"></div>
+            <div class="content">
+                <div class="icon">🔐</div>
+                <h2>Test 2: Background Animation</h2>
+                <p>Animation should play as subtle background behind this text. This is how it looks on your biometric card.</p>
+            </div>
+        </div>
+        <div id="status-2" class="status loading">⏳ Loading background animation...</div>
 
-<section class="hero-slideshow">
-  <div class="slideshow-container">
-    <div class="slide active">
-      <img src="assets/time.webp" alt="Time Attendance" loading="lazy">
-      <div class="slide-caption">⏱️ Time Attendance Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/biometric.webp" alt="Biometric Access" loading="lazy">
-      <div class="slide-caption">🔐 Biometric Access Control</div>
-    </div>
-    <div class="slide">
-      <img src="assets/cctv.webp" alt="CCTV Systems" loading="lazy">
-      <div class="slide-caption">📹 CCTV Systems Installation</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img2.webp" alt="Access Control" loading="lazy">
-      <div class="slide-caption">🚪 Access Control Devices</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img3.webp" alt="Door Locks" loading="lazy">
-      <div class="slide-caption">🔒 Smart Door Lock Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img4.webp" alt="Alarm Systems" loading="lazy">
-      <div class="slide-caption">🚨 Advanced Alarm Systems</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img5.webp" alt="Home Security" loading="lazy">
-      <div class="slide-caption">🏠 Home Security Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img6.webp" alt="Business Security" loading="lazy">
-      <div class="slide-caption">🏢 Business Security Systems</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img7.webp" alt="24/7 Monitoring" loading="lazy">
-      <div class="slide-caption">👁️ 24/7 Monitoring Services</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img8.webp" alt="Smart Access" loading="lazy">
-      <div class="slide-caption">📱 Smart Access Solutions</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img9.webp" alt="Installation" loading="lazy">
-      <div class="slide-caption">🔧 Installation & Maintenance</div>
-    </div>
-    <div class="slide">
-      <img src="assets/img10.webp" alt="Support" loading="lazy">
-      <div class="slide-caption">💬 Customer Support & Consultation</div>
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <h1><span class="highlight">Professional Security</span> Systems</h1>
-    <p>We supply and install cutting-edge access control, CCTV, and time attendance solutions for homes and businesses across Kenya.</p>
-    <div class="hero-cta-group">
-      <button class="hero-btn primary" onclick="scrollToServices()">Explore Services</button>
-      <button class="hero-btn secondary" onclick="location.href='tel:+254113301244'">Get a Quote</button>
-    </div>
-  </div>
-
-  <span class="slide-nav left" onclick="prevSlide()">&#10094;</span>
-  <span class="slide-nav right" onclick="nextSlide()">&#10095;</span>
-</section>
-
-<section class="services-section" id="services">
-  <div class="section-header">
-    <h2><span class="accent">Our Services</span> — Choose Your Solution</h2>
-    <p>Comprehensive security solutions designed for your specific needs. From installation to ongoing support, we've got you covered.</p>
-  </div>
-
-  <div class="service-grid">
-    <div class="service-card">
-      <div class="service-icon">📹</div>
-      <h3>CCTV Surveillance</h3>
-      <p>High-definition camera systems with remote monitoring capabilities for homes and businesses.</p>
-      <button class="service-btn" onclick="location.href='cctv.html'">More</button>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🌐</div>
-      <h3>Networking Solutions</h3>
-      <p>Professional network infrastructure setup to support your security and business operations.</p>
-      <button class="service-btn" onclick="location.href='networking.html'">Explore Now</button>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🚧</div>
-      <h3>Automatic Gates</h3>
-      <p>Automated gate systems with access control integration for enhanced security and convenience.</p>
-      <button class="service-btn" onclick="location.href='automatic-gates.html'">Discover</button>
+        <!-- Console Log Output -->
+        <div class="console-log" id="console-output">
+            <strong>📋 Console Log:</strong>
+        </div>
     </div>
 
-    <!-- Biometric card with Lottie JSON background -->
-    <div class="service-card biometric-card">
-      <!-- Empty div where JavaScript will load face.json animation -->
-      <div id="biometric-lottie"></div>
-      
-      <!-- Card content sits on top of animation -->
-      <div class="service-icon">🔐</div>
-      <h3>Biometric Systems</h3>
-      <p>Fingerprint and facial recognition systems for secure access control and time attendance.</p>
-      <button class="service-btn" onclick="location.href='biometrics.html'">View</button>
-    </div>
+    <!-- Bodymovin/Lottie Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" 
+            integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer"></script>
 
-    <div class="service-card">
-      <div class="service-icon">⚡</div>
-      <h3>Electric Fence</h3>
-      <p>Perimeter security solutions with advanced electric fencing systems and monitoring.</p>
-      <button class="service-btn" onclick="location.href='electric-fence.html'">Next</button>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛒</div>
-      <h3>Products Catalog</h3>
-      <p>Browse our full range of security products including access control systems, cameras, and biometric devices.</p>
-      <button class="service-btn" onclick="location.href='products.html'">View Products</button>
-    </div>
-  </div>
+    <script>
+        // Custom console logging to display on page
+        const consoleOutput = document.getElementById('console-output');
+        
+        function addLog(message, type = 'info') {
+            const logDiv = document.createElement('div');
+            logDiv.className = `log-${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.textContent = `[${timestamp}] ${message}`;
+            consoleOutput.appendChild(logDiv);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            console.log(message);
+        }
 
-  <div class="cta-card">
-    <div class="cta-content">
-      <h2>Ready to Secure Your Property?</h2>
-      <p>Get a free consultation and custom quote for your security needs. Our experts are ready to help you find the perfect solution.</p>
-      <button class="cta-button" onclick="location.href='tel:+254113301244'">Click to Inquire</button>
+        // Check if lottie loaded
+        if (typeof lottie === 'undefined') {
+            addLog('❌ ERROR: Lottie library not loaded!', 'error');
+            document.getElementById('status-1').className = 'status error';
+            document.getElementById('status-1').textContent = '❌ Lottie library failed to load';
+            document.getElementById('status-2').className = 'status error';
+            document.getElementById('status-2').textContent = '❌ Lottie library failed to load';
+        } else {
+            addLog('✅ Lottie library loaded successfully', 'success');
 
-      <!-- Tiny Lottie Phone Animation -->
-      <div id="phone-animation" style="width:32px; height:32px; margin:10px auto 0;"></div>
-      <p style="text-align:center; margin-top:5px; font-size:14px; color:#FFFFFF;">+254 113 301 244</p>
-    </div>
-  </div>
-</section>
+            // TEST 1: Full Size Animation
+            const container1 = document.getElementById('lottie-test-1');
+            const status1 = document.getElementById('status-1');
 
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="products.html">Products</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
-      <a href="#support">Support</a>
-    </div>
-    <div class="footer-contact">
-      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions.co.ke
-    </div>
-    <div class="footer-copyright">
-      © 2024 SecureTech Solutions. All rights reserved. Professional Security Systems Installation & Support.
-    </div>
-  </div>
-</footer>
+            addLog('🔄 Attempting to load face.json for Test 1...', 'info');
 
-<!-- WhatsApp Floating Button -->
-<div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
+            fetch('assets/face.json')
+                .then(response => {
+                    addLog(`📡 Response status: ${response.status}`, 'info');
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: File not found`);
+                    }
+                    return response.json();
+                })
+                .then(animationData => {
+                    addLog('✅ face.json loaded successfully', 'success');
+                    addLog(`📊 Animation data: ${Object.keys(animationData).length} properties found`, 'info');
+                    
+                    const anim1 = lottie.loadAnimation({
+                        container: container1,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: animationData
+                    });
 
-<!-- JS -->
-<script src="js/main.js"></script>
+                    anim1.addEventListener('DOMLoaded', () => {
+                        addLog('✅ TEST 1 PASSED: Animation rendered!', 'success');
+                        status1.className = 'status success';
+                        status1.textContent = '✅ Animation loaded successfully!';
+                    });
+
+                    anim1.addEventListener('data_failed', () => {
+                        addLog('❌ TEST 1 FAILED: Animation data failed', 'error');
+                        status1.className = 'status error';
+                        status1.textContent = '❌ Animation data invalid';
+                    });
+                })
+                .catch(error => {
+                    addLog(`❌ TEST 1 FAILED: ${error.message}`, 'error');
+                    status1.className = 'status error';
+                    status1.textContent = `❌ ${error.message}`;
+                });
+
+            // TEST 2: Background Animation
+            const container2 = document.getElementById('lottie-test-2');
+            const status2 = document.getElementById('status-2');
+
+            addLog('🔄 Attempting to load face.json for Test 2...', 'info');
+
+            fetch('assets/face.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: File not found`);
+                    }
+                    return response.json();
+                })
+                .then(animationData => {
+                    const anim2 = lottie.loadAnimation({
+                        container: container2,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: animationData
+                    });
+
+                    anim2.addEventListener('DOMLoaded', () => {
+                        addLog('✅ TEST 2 PASSED: Background animation rendered!', 'success');
+                        status2.className = 'status success';
+                        status2.textContent = '✅ Background animation working!';
+                    });
+
+                    anim2.addEventListener('data_failed', () => {
+                        addLog('❌ TEST 2 FAILED: Background animation data failed', 'error');
+                        status2.className = 'status error';
+                        status2.textContent = '❌ Background animation data invalid';
+                    });
+                })
+                .catch(error => {
+                    addLog(`❌ TEST 2 FAILED: ${error.message}`, 'error');
+                    status2.className = 'status error';
+                    status2.textContent = `❌ ${error.message}`;
+                });
+        }
+    </script>
 </body>
 </html>
