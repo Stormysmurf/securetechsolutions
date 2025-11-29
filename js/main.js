@@ -93,26 +93,26 @@
 
     // face recognition card BIOMETRIC ANIMATIONS
 (function(){
-  // Your specific biometric-lottie-fn
+  // Your specific biometric-lottie-1
   const container = document.getElementById('biometric-lottie-1');
 
   if(!container) {
-    console.log('ℹ️ biometric-lottie-fn container not found');
+    console.log('ℹ️ biometric-lottie-1 container not found');
     return;
   }
 
-  console.log('🚀 Loading fn.json for biometric-lottie-fn...');
+  console.log('🚀 Loading fn.json for biometric-lottie-1...');
 
-  fetch('assets/fn.json')
+  fetch('assets/face.json')
     .then(response => {
-      console.log('📡 Response status for fn.json:', response.status);
+      console.log('📡 Response status for face.json:', response.status);
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: fn.json not found`);
       }
       return response.json();
     })
     .then(animationData => {
-      console.log('✅ fn.json loaded successfully for biometric-lottie-fn');
+      console.log('✅ face.json loaded successfully for biometric-lottie-1');
 
       const anim = lottie.loadAnimation({
         container: container,
@@ -123,11 +123,11 @@
       });
 
       anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ fn.json animation rendered successfully for biometric-lottie-fn!');
+        console.log('✅ face.json animation rendered successfully for biometric-lottie-1!');
       });
     })
     .catch(error => {
-      console.error('❌ Failed to load fn.json for biometric-lottie-fn:', error);
+      console.error('❌ Failed to load fn.json for biometric-lottie-1:', error);
     });
 })();
 
