@@ -91,21 +91,22 @@
       }
     })();
 
-    // Biometric Lottie
+    // Biometric dotLottie - now handled by <dotlottie-player> component in HTML
+    // No JavaScript needed as the player handles it automatically
     (function(){
-      const container = document.getElementById('biometric-lottie');
-      if(!container || !window.lottie) return;
-      try{
-        lottie.loadAnimation({
-          container: container,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: 'assets/face.lottie'
+      const player = document.querySelector('#biometric-lottie');
+      if(player){
+        console.info('Biometric dotLottie player found and will auto-load');
+        
+        // Optional: Add error handler
+        player.addEventListener('error', (e) => {
+          console.warn('Failed to load biometric animation:', e);
         });
-        console.info('Biometric Lottie loaded successfully');
-      }catch(e){
-        console.warn('Failed to load Biometric Lottie:', e);
+        
+        // Optional: Confirm when loaded
+        player.addEventListener('ready', () => {
+          console.info('Biometric dotLottie loaded successfully');
+        });
       }
     })();
 
