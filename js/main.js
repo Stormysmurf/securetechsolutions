@@ -150,3 +150,60 @@ function startSlideshow(){ if(!slides || slides.length===0) return; slideInterva
 function stopSlideshow(){ if(slideInterval){ clearInterval(slideInterval); } }
 if(document.querySelectorAll('.slide').length>0) startSlideshow();
 function scrollToServices(){ const s=document.getElementById('services'); if(s) s.scrollIntoView({behavior:'smooth'});}
+
+// Alternative method - loads JSON content directly instead of using path
+(function(){
+  const container = document.getElementById('biometric-lottie');
+  
+  if(!container) {
+    console.error('❌ Container #biometric-lottie not found');
+    return;
+  }
+  
+  if(!window.lottie) {
+    console.error('❌ Lottie library not loaded');
+    return;
+  }
+
+  const biometricJsonPath = 'assets/face.json';
+  
+  console.log('🔄 Attempting to load:', biometricJsonPath);
+  
+  // Fetch and parse JSON directly
+  fetch(biometricJsonPath)
+    .then(response => {
+      console.log('📡 Response status:', response.status);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: File not found at ${biometricJsonPath}`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ JSON loaded successfully:', animationData);
+      
+      // Load using animationData instead of path
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData  // ← Using parsed JSON directly
+      });
+      
+      console.log('✅ Animation loaded successfully');
+      
+      // Listen for errors
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ Animation DOM loaded');
+      });
+      
+      anim.addEventListener('data_failed', () => {
+        console.error('❌ Animation data failed to load');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load biometric animation:', error);
+      console.error('Tried path:', biometricJsonPath);
+    });
+})();
