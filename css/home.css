@@ -275,7 +275,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4; /* Fixed: changed from 50 to 0.4 for proper opacity */
+  opacity: 0.6; /* Fixed: changed from 50 to 0.4 for proper opacity */
   pointer-events: none;
   z-index: 1;
 }
