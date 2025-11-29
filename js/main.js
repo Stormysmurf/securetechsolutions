@@ -91,44 +91,52 @@
       }
     })();
 
-    // Biometric Lottie JSON Background - UPDATED FOR face.json
+    // Biometric Lottie - EXACT SAME METHOD AS TEST FILE
     (function(){
       const container = document.getElementById('biometric-lottie');
       
-      // Check if container exists and lottie library is loaded
       if(!container) {
-        console.warn('Biometric container #biometric-lottie not found');
+        console.error('❌ Biometric container not found');
         return;
       }
       
-      if(!window.lottie) {
-        console.warn('Lottie library not loaded');
+      if(typeof lottie === 'undefined') {
+        console.error('❌ Lottie library not loaded');
         return;
       }
 
-      const biometricJsonPath = 'assets/face.json';
-      
-      // Optional: Check if file exists before loading
-      fetch(biometricJsonPath, {method: 'HEAD'})
-        .then(res => {
-          if(!res.ok) {
-            console.warn('face.json not found at:', biometricJsonPath);
-            return;
+      console.log('✅ Starting biometric animation load...');
+
+      fetch('assets/face.json')
+        .then(response => {
+          console.log('📡 Response status:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: File not found`);
           }
+          return response.json();
+        })
+        .then(animationData => {
+          console.log('✅ face.json loaded successfully');
+          console.log('📊 Animation data:', Object.keys(animationData).length, 'properties');
           
-          // Load the animation
-          lottie.loadAnimation({
+          const anim = lottie.loadAnimation({
             container: container,
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: biometricJsonPath
+            animationData: animationData
           });
-          
-          console.info('Biometric Lottie (face.json) loaded successfully');
+
+          anim.addEventListener('DOMLoaded', () => {
+            console.log('✅ Biometric animation rendered successfully!');
+          });
+
+          anim.addEventListener('data_failed', () => {
+            console.error('❌ Biometric animation data failed');
+          });
         })
-        .catch(err => {
-          console.warn('Failed to load biometric animation:', err);
+        .catch(error => {
+          console.error('❌ Failed to load biometric animation:', error.message);
         });
     })();
 
@@ -150,60 +158,3 @@ function startSlideshow(){ if(!slides || slides.length===0) return; slideInterva
 function stopSlideshow(){ if(slideInterval){ clearInterval(slideInterval); } }
 if(document.querySelectorAll('.slide').length>0) startSlideshow();
 function scrollToServices(){ const s=document.getElementById('services'); if(s) s.scrollIntoView({behavior:'smooth'});}
-
-// Alternative method - loads JSON content directly instead of using path
-(function(){
-  const container = document.getElementById('biometric-lottie');
-  
-  if(!container) {
-    console.error('❌ Container #biometric-lottie not found');
-    return;
-  }
-  
-  if(!window.lottie) {
-    console.error('❌ Lottie library not loaded');
-    return;
-  }
-
-  const biometricJsonPath = 'assets/face.json';
-  
-  console.log('🔄 Attempting to load:', biometricJsonPath);
-  
-  // Fetch and parse JSON directly
-  fetch(biometricJsonPath)
-    .then(response => {
-      console.log('📡 Response status:', response.status);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: File not found at ${biometricJsonPath}`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ JSON loaded successfully:', animationData);
-      
-      // Load using animationData instead of path
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData  // ← Using parsed JSON directly
-      });
-      
-      console.log('✅ Animation loaded successfully');
-      
-      // Listen for errors
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ Animation DOM loaded');
-      });
-      
-      anim.addEventListener('data_failed', () => {
-        console.error('❌ Animation data failed to load');
-      });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load biometric animation:', error);
-      console.error('Tried path:', biometricJsonPath);
-    });
-})();
