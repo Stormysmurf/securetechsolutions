@@ -133,22 +133,22 @@
       <p>Automated gate systems with access control integration for enhanced security and convenience.</p>
       <button class="service-btn" onclick="location.href='automatic-gates.html'">Discover</button>
     </div>
+
+    <!-- Biometric card with Lottie background -->
     <div class="service-card biometric-card">
-      <video class="biometric-video-bg" autoplay muted loop playsinline>
-        <source src="assets/Finger print biometric scan.webm" type="video/webm">
-      </video>
+      <div id="biometric-lottie" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;"></div>
       <div class="service-icon">🔐</div>
       <h3>Biometric Systems</h3>
       <p>Fingerprint and facial recognition systems for secure access control and time attendance.</p>
       <button class="service-btn" onclick="location.href='biometrics.html'">View</button>
     </div>
+
     <div class="service-card">
       <div class="service-icon">⚡</div>
       <h3>Electric Fence</h3>
       <p>Perimeter security solutions with advanced electric fencing systems and monitoring.</p>
       <button class="service-btn" onclick="location.href='electric-fence.html'">Next</button>
     </div>
-    <!-- Products Catalog moved to last -->
     <div class="service-card">
       <div class="service-icon">🛒</div>
       <h3>Products Catalog</h3>
@@ -163,10 +163,9 @@
       <p>Get a free consultation and custom quote for your security needs. Our experts are ready to help you find the perfect solution.</p>
       <button class="cta-button" onclick="location.href='tel:+254113301244'">Click to Inquire</button>
 
-<!-- Tiny Lottie Phone Animation -->
-<div id="phone-animation" style="width:32px; height:32px; margin:10px auto 0;"></div>
-<p style="text-align:center; margin-top:5px; font-size:14px; color:#FFFFFF;">+254 113 301 244</p>
-
+      <!-- Tiny Lottie Phone Animation -->
+      <div id="phone-animation" style="width:32px; height:32px; margin:10px auto 0;"></div>
+      <p style="text-align:center; margin-top:5px; font-size:14px; color:#FFFFFF;">+254 113 301 244</p>
     </div>
   </div>
 </section>
@@ -194,6 +193,5 @@
 
 <!-- JS -->
 <script src="js/main.js"></script>
-
 </body>
 </html>
