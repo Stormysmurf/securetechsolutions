@@ -185,6 +185,46 @@
   });
 })();
 
+// fingerprint card BIOMETRIC ANIMATIONS
+(function(){
+  // Your specific biometric-lottie-fn
+  const container = document.getElementById('biometric-lottie-fn');
+  
+  if(!container) {
+    console.log('ℹ️ biometric-lottie-fn container not found');
+    return;
+  }
+
+  console.log('🚀 Loading fn.json for biometric-lottie-fn...');
+
+  fetch('assets/fn.json')
+    .then(response => {
+      console.log('📡 Response status for fn.json:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: fn.json not found`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ fn.json loaded successfully for biometric-lottie-fn');
+
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+      });
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ fn.json animation rendered successfully for biometric-lottie-fn!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load fn.json for biometric-lottie-fn:', error);
+    });
+})();
+
 // Slideshow helpers
 let currentSlide=0;
 const slides=document.querySelectorAll('.slide');
