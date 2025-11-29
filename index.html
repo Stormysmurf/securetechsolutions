@@ -14,8 +14,11 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/home.css">
 
-<!-- Lottie Web -->
+<!-- Lottie Web for JSON files -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js" integrity="sha512-jhn7Qvg0C4MRXf3xgXEf7XGs8UGw4ITEzLHrPCUL1p2A/hxLaLYu1yy3Rc6iqnqXE/P1L0xvgJe+TqOKL9Xb/Q==" crossorigin="anonymous"></script>
+
+<!-- dotLottie Player for .lottie files -->
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
 
@@ -134,9 +137,17 @@
       <button class="service-btn" onclick="location.href='automatic-gates.html'">Discover</button>
     </div>
 
-    <!-- Biometric card with Lottie background -->
+    <!-- Biometric card with dotLottie background -->
     <div class="service-card biometric-card">
-      <div id="biometric-lottie" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;"></div>
+      <dotlottie-player 
+        id="biometric-lottie"
+        src="assets/face.lottie"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; opacity:0.15; pointer-events:none;">
+      </dotlottie-player>
       <div class="service-icon">🔐</div>
       <h3>Biometric Systems</h3>
       <p>Fingerprint and facial recognition systems for secure access control and time attendance.</p>
