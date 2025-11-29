@@ -1,0 +1,27 @@
+/* Animation container for feature cards */
+#biometric-lottie-fp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content z-index for feature cards */
+.feature-card.biometric-card > .feature-icon,
+.feature-card.biometric-card > h3,
+.feature-card.biometric-card > p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile adjustments for both */
+@media(max-width: 480px){
+  .service-card.biometric-card #biometric-lottie,
+  .feature-card.biometric-card #biometric-lottie-1 {
+    opacity: 0.4;
+  }
+}
