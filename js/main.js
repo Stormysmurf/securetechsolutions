@@ -172,6 +172,46 @@
   });
 })();
 
+// face recognition card BIOMETRIC ANIMATIONS main page
+(function(){
+  // Your specific biometric-lottie
+  const container = document.getElementById('biometric-lottie');
+
+  if(!container) {
+    console.log('ℹ️ biometric-lottie container not found');
+    return;
+  }
+
+  console.log('🚀 Loading face.json for biometric-lottie...');
+
+  fetch('assets/face.json')
+    .then(response => {
+      console.log('📡 Response status for face.json:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: face.json not found`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ face.json loaded successfully for biometric-lottie');
+
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+      });
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ face.json animation rendered successfully for biometric-lottie!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load face.json for biometric-lottie:', error);
+    });
+})();
+
 // fingerprint card BIOMETRIC ANIMATIONS
 (function(){
   // Your specific biometric-lottie-fn
