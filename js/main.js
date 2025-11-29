@@ -91,34 +91,80 @@
       }
     })();
 
-    // Biometric Lottie - EXACT SAME METHOD AS TEST FILE
+    // AUTO-DETECT ALL BIOMETRIC ANIMATIONS
     (function(){
-      const container = document.getElementById('biometric-lottie');
+      // Find ALL elements with IDs that start with "biometric-lottie"
+      const allContainers = document.querySelectorAll('[id^="biometric-lottie"]');
       
-      if(!container) {
-        console.error('❌ Biometric container not found');
+      console.log(`🎯 Found ${allContainers.length} biometric animation containers`);
+      
+      if(allContainers.length === 0) {
+        console.log('ℹ️ No biometric animation containers found');
         return;
       }
-      
+
       if(typeof lottie === 'undefined') {
         console.error('❌ Lottie library not loaded');
         return;
       }
 
-      console.log('✅ Starting biometric animation load...');
+      allContainers.forEach(container => {
+        console.log(`🚀 Loading biometric animation for #${container.id}...`);
 
-      fetch('assets/face.json')
+        fetch('assets/face.json')
+          .then(response => {
+            console.log(`📡 Response status for ${container.id}:`, response.status);
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: face.json not found`);
+            }
+            return response.json();
+          })
+          .then(animationData => {
+            console.log(`✅ face.json loaded successfully for #${container.id}`);
+
+            const anim = lottie.loadAnimation({
+              container: container,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              animationData: animationData
+            });
+
+            anim.addEventListener('DOMLoaded', () => {
+              console.log(`✅ Biometric animation rendered successfully for #${container.id}!`);
+            });
+
+            anim.addEventListener('data_failed', () => {
+              console.error(`❌ Biometric animation data failed for #${container.id}`);
+            });
+          })
+          .catch(error => {
+            console.error(`❌ Failed to load biometric animation for #${container.id}:`, error.message);
+          });
+      });
+    })();
+
+    // CCTV Lottie animation
+    (function(){
+      const container = document.getElementById('cctv-lottie');
+
+      if(!container) {
+        return;
+      }
+
+      console.log('🚀 Starting CCTV animation load...');
+
+      fetch('assets/cctv.json')
         .then(response => {
-          console.log('📡 Response status:', response.status);
+          console.log('📡 CCTV Response status:', response.status);
           if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: File not found`);
+            throw new Error(`HTTP ${response.status}: cctv.json not found`);
           }
           return response.json();
         })
         .then(animationData => {
-          console.log('✅ face.json loaded successfully');
-          console.log('📊 Animation data:', Object.keys(animationData).length, 'properties');
-          
+          console.log('✅ cctv.json loaded successfully');
+
           const anim = lottie.loadAnimation({
             container: container,
             renderer: 'svg',
@@ -128,57 +174,15 @@
           });
 
           anim.addEventListener('DOMLoaded', () => {
-            console.log('✅ Biometric animation rendered successfully!');
-          });
-
-          anim.addEventListener('data_failed', () => {
-            console.error('❌ Biometric animation data failed');
+            console.log('✅ CCTV animation rendered successfully!');
           });
         })
         .catch(error => {
-          console.error('❌ Failed to load biometric animation:', error.message);
+          console.error('❌ Failed to load CCTV animation:', error.message);
         });
     })();
 
   });
-})();
-
-// Initialize CCTV Lottie animation
-(function(){
-  const container = document.getElementById('cctv-lottie');
-
-  if(!container) {
-    return;
-  }
-
-  console.log('🚀 Starting CCTV animation load...');
-
-  fetch('assets/cctv.json') // You'll need to create/download a CCTV animation JSON
-    .then(response => {
-      console.log('📡 CCTV Response status:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: cctv.json not found`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ cctv.json loaded successfully');
-
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
-      });
-
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ CCTV animation rendered successfully!');
-      });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load CCTV animation:', error.message);
-    });
 })();
 
 // Slideshow helpers
