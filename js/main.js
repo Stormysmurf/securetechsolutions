@@ -91,23 +91,45 @@
       }
     })();
 
-    // Biometric dotLottie - now handled by <dotlottie-player> component in HTML
-    // No JavaScript needed as the player handles it automatically
+    // Biometric Lottie JSON Background - UPDATED FOR face.json
     (function(){
-      const player = document.querySelector('#biometric-lottie');
-      if(player){
-        console.info('Biometric dotLottie player found and will auto-load');
-        
-        // Optional: Add error handler
-        player.addEventListener('error', (e) => {
-          console.warn('Failed to load biometric animation:', e);
-        });
-        
-        // Optional: Confirm when loaded
-        player.addEventListener('ready', () => {
-          console.info('Biometric dotLottie loaded successfully');
-        });
+      const container = document.getElementById('biometric-lottie');
+      
+      // Check if container exists and lottie library is loaded
+      if(!container) {
+        console.warn('Biometric container #biometric-lottie not found');
+        return;
       }
+      
+      if(!window.lottie) {
+        console.warn('Lottie library not loaded');
+        return;
+      }
+
+      const biometricJsonPath = 'assets/face.json';
+      
+      // Optional: Check if file exists before loading
+      fetch(biometricJsonPath, {method: 'HEAD'})
+        .then(res => {
+          if(!res.ok) {
+            console.warn('face.json not found at:', biometricJsonPath);
+            return;
+          }
+          
+          // Load the animation
+          lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: biometricJsonPath
+          });
+          
+          console.info('Biometric Lottie (face.json) loaded successfully');
+        })
+        .catch(err => {
+          console.warn('Failed to load biometric animation:', err);
+        });
     })();
 
   });
