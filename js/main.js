@@ -287,6 +287,46 @@
         console.log('✅ net.json animation rendered successfully for biometric-lottie-2!');
       });
     })
+
+// networking card BIOMETRIC ANIMATIONS
+(function(){
+  // Your specific net-lottie
+  const container = document.getElementById('net-lottie');
+
+  if(!container) {
+    console.log('ℹ️ net-lottie container not found');
+    return;
+  }
+
+  console.log('🚀 Loading net.json for net-lottie...');
+
+  fetch('assets/net.json')
+    .then(response => {
+      console.log('📡 Response status for net.json:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: net.json not found`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ net.json loaded successfully for net-lottie');
+
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+      });
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ net.json animation rendered successfully for net-lottie!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load net.json for net-lottie:', error);
+    });
+})();
     .catch(error => {
       console.error('❌ Failed to load net.json for biometric-lottie-2:', error);
     });
