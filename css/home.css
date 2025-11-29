@@ -107,6 +107,26 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Hero Button Group */
+.hero-cta-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .hero-btn.primary {
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   color: white;
@@ -119,21 +139,64 @@
   box-shadow: 0 8px 30px rgba(255, 45, 227, 0.6);
 }
 
+.hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
 .hero-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-3px);
+}
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.section-header .accent {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* ===== SERVICES GRID ===== */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
   margin-top: 40px;
 }
 
 .service-card {
   position: relative;
-  padding: 20px;
+  padding: 30px 24px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -142,34 +205,71 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(139, 44, 255, 0.3);
+  border-color: rgba(139, 44, 255, 0.5);
 }
 
 .service-card .service-icon {
-  font-size: 48px;
-  margin-bottom: 12px;
-}
-
-/* ===== BIOMETRIC CARD WITH LOTTIE ===== */
-.service-card.biometric-card { 
-  position: relative; 
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.service-card.biometric-card > .service-icon,
-.service-card.biometric-card > h3,
-.service-card.biometric-card > p,
-.service-card.biometric-card > .service-btn {
+  font-size: 52px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 2;
 }
 
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.service-btn {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 45, 227, 0.5);
+}
+
+/* ===== BIOMETRIC CARD WITH LOTTIE JSON BACKGROUND ===== */
+.service-card.biometric-card { 
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The background animation container */
 #biometric-lottie {
   position: absolute;
   top: 0;
@@ -178,52 +278,141 @@
   height: 100%;
   opacity: 0.15;
   pointer-events: none;
-  object-fit: cover;
   z-index: 1;
+}
+
+/* Ensure all content stays on top of the animation */
+.service-card.biometric-card > .service-icon,
+.service-card.biometric-card > h3,
+.service-card.biometric-card > p,
+.service-card.biometric-card > .service-btn {
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== CTA CARD ===== */
 .cta-card {
   margin-top: 60px;
-  padding: 40px 20px;
-  border-radius: 16px;
+  padding: 50px 30px;
+  border-radius: 20px;
   background: linear-gradient(135deg, rgba(139,44,255,0.25), rgba(255,45,227,0.25));
   text-align: center;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 40px rgba(139, 44, 255, 0.2);
 }
 
-.cta-card h2 {
-  font-size: clamp(24px,4vw,36px);
-  font-weight: 700;
+.cta-content h2 {
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 800;
   margin-bottom: 20px;
   color: white;
 }
 
-.cta-card p {
-  font-size: 16px;
-  color: #eee;
-  margin-bottom: 20px;
+.cta-content p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cta-card .cta-button {
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
+.cta-button {
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
   color: white;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 25px rgba(255, 45, 227, 0.4);
 }
 
-.cta-card .cta-button:hover {
+.cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(255,45,227,0.6);
+  box-shadow: 0 10px 40px rgba(255, 45, 227, 0.6);
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width: 720px){
+/* ===== RESPONSIVE DESIGN ===== */
+@media(max-width: 768px){
+  .hero-slideshow {
+    margin-top: 70px;
+  }
+
+  .slideshow-container {
+    height: 60vh;
+  }
+
+  .hero-content {
+    padding: 0 15px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .slide-nav {
+    padding: 12px 16px;
+    font-size: 20px;
+  }
+
+  .slide-nav.left { left: 10px; }
+  .slide-nav.right { right: 10px; }
+
+  .services-section {
+    padding: 60px 15px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 40px 20px;
+  }
+}
+
+@media(max-width: 480px){
+  .slideshow-container {
+    height: 50vh;
+  }
+
+  .slide-caption {
+    bottom: 15px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .service-card {
+    padding: 24px 20px;
+  }
+
+  .service-card .service-icon {
+    font-size: 44px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+
+  /* Reduce biometric animation opacity on small screens for better readability */
   .service-card.biometric-card #biometric-lottie {
     opacity: 0.1;
   }
