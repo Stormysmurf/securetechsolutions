@@ -91,58 +91,45 @@
       }
     })();
 
-    // AUTO-DETECT ALL BIOMETRIC ANIMATIONS
-    (function(){
-      // Find ALL elements with IDs that start with "biometric-lottie"
-      const allContainers = document.querySelectorAll('[id^="biometric-lottie"]');
-      
-      console.log(`🎯 Found ${allContainers.length} biometric animation containers`);
-      
-      if(allContainers.length === 0) {
-        console.log('ℹ️ No biometric animation containers found');
-        return;
+    // face recognition card BIOMETRIC ANIMATIONS
+(function(){
+  // Your specific biometric-lottie-fn
+  const container = document.getElementById('biometric-lottie-1');
+
+  if(!container) {
+    console.log('ℹ️ biometric-lottie-fn container not found');
+    return;
+  }
+
+  console.log('🚀 Loading fn.json for biometric-lottie-fn...');
+
+  fetch('assets/fn.json')
+    .then(response => {
+      console.log('📡 Response status for fn.json:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: fn.json not found`);
       }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ fn.json loaded successfully for biometric-lottie-fn');
 
-      if(typeof lottie === 'undefined') {
-        console.error('❌ Lottie library not loaded');
-        return;
-      }
-
-      allContainers.forEach(container => {
-        console.log(`🚀 Loading biometric animation for #${container.id}...`);
-
-        fetch('assets/face.json')
-          .then(response => {
-            console.log(`📡 Response status for ${container.id}:`, response.status);
-            if (!response.ok) {
-              throw new Error(`HTTP ${response.status}: face.json not found`);
-            }
-            return response.json();
-          })
-          .then(animationData => {
-            console.log(`✅ face.json loaded successfully for #${container.id}`);
-
-            const anim = lottie.loadAnimation({
-              container: container,
-              renderer: 'svg',
-              loop: true,
-              autoplay: true,
-              animationData: animationData
-            });
-
-            anim.addEventListener('DOMLoaded', () => {
-              console.log(`✅ Biometric animation rendered successfully for #${container.id}!`);
-            });
-
-            anim.addEventListener('data_failed', () => {
-              console.error(`❌ Biometric animation data failed for #${container.id}`);
-            });
-          })
-          .catch(error => {
-            console.error(`❌ Failed to load biometric animation for #${container.id}:`, error.message);
-          });
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
       });
-    })();
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ fn.json animation rendered successfully for biometric-lottie-fn!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load fn.json for biometric-lottie-fn:', error);
+    });
+})();
 
     // CCTV Lottie animation
     (function(){
