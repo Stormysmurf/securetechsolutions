@@ -143,6 +143,44 @@
   });
 })();
 
+// Initialize CCTV Lottie animation
+(function(){
+  const container = document.getElementById('cctv-lottie');
+
+  if(!container) {
+    return;
+  }
+
+  console.log('🚀 Starting CCTV animation load...');
+
+  fetch('assets/cctv.json') // You'll need to create/download a CCTV animation JSON
+    .then(response => {
+      console.log('📡 CCTV Response status:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: cctv.json not found`);
+      }
+      return response.json();
+    })
+    .then(animationData => {
+      console.log('✅ cctv.json loaded successfully');
+
+      const anim = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData
+      });
+
+      anim.addEventListener('DOMLoaded', () => {
+        console.log('✅ CCTV animation rendered successfully!');
+      });
+    })
+    .catch(error => {
+      console.error('❌ Failed to load CCTV animation:', error.message);
+    });
+})();
+
 // Slideshow helpers
 let currentSlide=0;
 const slides=document.querySelectorAll('.slide');
