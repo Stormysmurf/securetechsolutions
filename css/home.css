@@ -504,7 +504,7 @@
 /* Mobile */
 @media(max-width: 768px) {
   .service-grid {
-    gap: 32px !important;
+    gap: 16px !important;
     grid-template-columns: 1fr;
   }
 
