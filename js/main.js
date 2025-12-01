@@ -46,6 +46,114 @@
       });
     });
 
+// ===== NEON CARDS INTERACTIVITY =====
+(function initNeonCards() {
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  if (!serviceCards.length) return;
+  
+  console.log(`🎨 Enhancing ${serviceCards.length} service cards with neon effects`);
+  
+  // Add CSS animations for neon effects
+  if (!document.querySelector('#neon-cards-styles')) {
+    const style = document.createElement('style');
+    style.id = 'neon-cards-styles';
+    style.textContent = `
+      .card-ripple-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 16px;
+        pointer-events: none;
+        z-index: 1;
+      }
+      
+      .card-ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,20,147,0.6) 0%, rgba(138,43,226,0.4) 70%, transparent 100%);
+        transform: translate(-50%, -50%);
+        animation: rippleExpand 0.8s ease-out;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+      }
+      
+      @keyframes rippleExpand {
+        to {
+          width: 300px;
+          height: 300px;
+          opacity: 0;
+        }
+      }
+      
+      .card-pulse {
+        animation: cardPulse 0.6s ease;
+      }
+      
+      @keyframes cardPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Initialize each card
+  serviceCards.forEach((card, index) => {
+    // Add data attribute for identification
+    card.setAttribute('data-card-index', index);
+    
+    // Add ripple effect container
+    const rippleContainer = document.createElement('div');
+    rippleContainer.className = 'card-ripple-container';
+    card.appendChild(rippleContainer);
+    
+    // Add click effect
+    card.addEventListener('click', function(e) {
+      if (e.target.classList.contains('service-btn')) return;
+      
+      // Create ripple effect
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const ripple = document.createElement('div');
+      ripple.className = 'card-ripple';
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      rippleContainer.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 1000);
+      
+      // Pulse animation
+      card.classList.add('card-pulse');
+      setTimeout(() => card.classList.remove('card-pulse'), 600);
+      
+      // Click the button inside the card
+      const button = card.querySelector('.service-btn');
+      if (button) {
+        setTimeout(() => button.click(), 300);
+      }
+    });
+    
+    // Add keyboard navigation
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+  
+  console.log('✅ Neon card enhancements applied');
+})();
+
     // WhatsApp Lottie
     (function(){
       const container = document.getElementById('whatsapp-lottie');
