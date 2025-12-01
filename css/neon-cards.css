@@ -1,4 +1,4 @@
-/* NEON CARDS ENHANCEMENTS - Add this to your home.css */
+/* NEON CARDS ENHANCEMENTS - Uses your existing variables */
 
 /* ===== ENHANCED SERVICE CARDS ===== */
 .services-section .service-grid {
@@ -10,9 +10,10 @@
     overflow: hidden !important;
     padding: 30px 24px !important;
     margin: 8px !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    transition: var(--transition) !important;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: rgba(20, 20, 40, 0.7) !important;
+    background: var(--card-bg) !important;
     backdrop-filter: blur(12px) !important;
     isolation: isolate;
 }
@@ -26,11 +27,11 @@
     right: -2px;
     bottom: -2px;
     background: linear-gradient(45deg, 
-        #ff00ff, 
-        #ff1493, 
-        #8a2be2, 
-        #4b0082, 
-        #ff00ff);
+        var(--neon-pink), 
+        #ff2de3,
+        var(--neon-purple), 
+        #8b2cff,
+        var(--neon-pink));
     background-size: 400% 400%;
     border-radius: 18px;
     z-index: -1;
@@ -80,10 +81,10 @@
 /* Enhanced hover effects */
 .service-card:hover {
     transform: translateY(-10px) scale(1.02) !important;
-    box-shadow: 0 15px 50px rgba(255, 20, 147, 0.4),
-                0 0 40px rgba(138, 43, 226, 0.3),
+    box-shadow: 0 15px 50px rgba(255, 45, 227, 0.4),
+                0 0 40px rgba(139, 44, 255, 0.3),
                 0 0 60px rgba(75, 0, 130, 0.2) !important;
-    border-color: rgba(255, 20, 147, 0.5) !important;
+    border-color: rgba(255, 45, 227, 0.5) !important;
 }
 
 /* Card hero text styling */
@@ -116,12 +117,12 @@
     margin-bottom: 20px !important;
     position: relative;
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .service-card:hover .service-icon {
     transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(255, 20, 147, 0.7);
+    text-shadow: 0 0 20px rgba(255, 45, 227, 0.7);
 }
 
 /* Enhanced button styling */
@@ -135,8 +136,8 @@
     border-radius: 10px !important;
     background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple)) !important;
     border: none !important;
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4) !important;
-    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(255, 45, 227, 0.4) !important;
+    transition: var(--transition) !important;
 }
 
 .service-btn::before {
@@ -156,7 +157,7 @@
 
 .service-btn:hover {
     transform: translateY(-3px) !important;
-    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.6) !important;
+    box-shadow: 0 10px 30px rgba(255, 45, 227, 0.6) !important;
 }
 
 /* Enhanced card description */
@@ -171,8 +172,8 @@
 
 /* Special styling for biometric card */
 .service-card.biometric-card:hover {
-    box-shadow: 0 15px 50px rgba(255, 20, 147, 0.5),
-                0 0 50px rgba(138, 43, 226, 0.4),
+    box-shadow: 0 15px 50px rgba(255, 45, 227, 0.5),
+                0 0 50px rgba(139, 44, 255, 0.4),
                 0 0 70px rgba(75, 0, 130, 0.3) !important;
 }
 
@@ -180,15 +181,15 @@
 .service-card:nth-child(5):hover {
     box-shadow: 0 15px 50px rgba(255, 140, 0, 0.4),
                 0 0 40px rgba(255, 69, 0, 0.3),
-                0 0 60px rgba(255, 20, 147, 0.2) !important;
+                0 0 60px rgba(255, 45, 227, 0.2) !important;
 }
 
 .service-card:nth-child(5)::before {
     background: linear-gradient(45deg, 
         #ff8c00, 
         #ff4500, 
-        #ff1493, 
-        #8a2be2, 
+        var(--neon-pink), 
+        var(--neon-purple), 
         #ff8c00) !important;
 }
 
@@ -196,15 +197,15 @@
 .service-card.cctv-card:hover {
     box-shadow: 0 15px 50px rgba(0, 191, 255, 0.4),
                 0 0 40px rgba(30, 144, 255, 0.3),
-                0 0 60px rgba(138, 43, 226, 0.2) !important;
+                0 0 60px rgba(139, 44, 255, 0.2) !important;
 }
 
 .service-card.cctv-card::before {
     background: linear-gradient(45deg, 
         #00bfff, 
         #1e90ff, 
-        #8a2be2, 
-        #ff1493, 
+        var(--neon-purple), 
+        var(--neon-pink), 
         #00bfff) !important;
 }
 
@@ -219,20 +220,20 @@
     .services-section .service-grid {
         gap: 24px !important;
     }
-    
+
     .service-card {
         padding: 25px 20px !important;
         margin: 6px !important;
     }
-    
+
     .service-card:hover {
         transform: translateY(-8px) scale(1.01) !important;
     }
-    
+
     .service-card h3 {
         font-size: 20px !important;
     }
-    
+
     .service-card .service-icon {
         font-size: 48px !important;
     }
@@ -242,28 +243,28 @@
     .services-section .service-grid {
         gap: 20px !important;
     }
-    
+
     .service-card {
         padding: 22px 18px !important;
         margin: 4px !important;
     }
-    
+
     .service-card::before {
         display: none; /* Hide complex border effect on very small screens */
     }
-    
+
     .service-card:hover {
         transform: translateY(-5px) !important;
     }
-    
+
     .service-card h3 {
         font-size: 18px !important;
     }
-    
+
     .service-card .service-icon {
         font-size: 42px !important;
     }
-    
+
     .service-btn {
         padding: 10px 22px !important;
         font-size: 14px !important;
