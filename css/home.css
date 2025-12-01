@@ -1,6 +1,6 @@
-/* Home page specific styles */
+/* ===== COMBINED SERVICE CARDS WITH ALL ENHANCEMENTS ===== */
 
-/* ===== HERO SLIDESHOW ===== */
+/* ===== HERO SECTION ===== */
 .hero-slideshow {
   position: relative;
   width: 100%;
@@ -59,7 +59,7 @@
   cursor: pointer;
   border-radius: 4px;
   font-size: 24px;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   z-index: 10;
   user-select: none;
   backdrop-filter: blur(10px);
@@ -72,7 +72,7 @@
 .slide-nav.left { left: 20px; }
 .slide-nav.right { right: 20px; }
 
-/* ===== HERO CONTENT ===== */
+/* HERO CONTENT */
 .hero-content {
   position: absolute;
   top: 50%;
@@ -185,187 +185,216 @@
   line-height: 1.6;
 }
 
-/* ===== SERVICES GRID ===== */
+/* ===== ENHANCED SERVICE GRID ===== */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 48px !important; /* INCREASED spacing */
   margin-top: 40px;
+  padding: 20px 0 !important; /* Added padding */
 }
 
+/* ===== ENHANCED SERVICE CARD ===== */
 .service-card {
   position: relative;
-  padding: 30px 24px;
+  overflow: hidden !important;
+  padding: 35px 28px !important; /* Increased padding */
+  margin: 12px !important; /* Added margin */
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
+  background: var(--card-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  isolation: isolate !important;
+  min-height: 320px !important; /* Added minimum height */
+  justify-content: space-between !important;
 }
 
+/* Make cards wider apart on desktop */
+@media(min-width: 1024px) {
+  .service-card {
+    margin: 16px !important; /* Even more space on desktop */
+  }
+}
+
+/* NEON BORDER EFFECT - Pink-Purple Strip */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+      var(--neon-pink), 
+      #ff2de3,
+      var(--neon-purple), 
+      #8b2cff,
+      var(--neon-pink));
+  background-size: 400% 400%;
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: neonBorderGlow 3s linear infinite;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Animation for the neon border */
+@keyframes neonBorderGlow {
+  0% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg);
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+      filter: hue-rotate(360deg);
+  }
+}
+
+/* Inner border to create a "strip" effect */
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: rgba(20, 20, 40, 0.95);
+  border-radius: 14px;
+  z-index: -1;
+}
+
+/* Card content stays above borders */
+.service-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced hover effects */
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(139, 44, 255, 0.3);
-  border-color: rgba(139, 44, 255, 0.5);
+  transform: translateY(-12px) scale(1.03) !important; /* Increased lift */
+  box-shadow: 0 20px 60px rgba(255, 45, 227, 0.5),
+              0 0 50px rgba(139, 44, 255, 0.4),
+              0 0 80px rgba(75, 0, 130, 0.3) !important; /* Stronger shadow */
+  border-color: rgba(255, 45, 227, 0.7) !important; /* Brighter border */
 }
 
-.service-card .service-icon {
-  font-size: 52px;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 2;
-}
-
+/* Card title styling */
 .service-card h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: white;
   position: relative;
+  font-size: 24px !important; /* Slightly larger */
+  font-weight: 800 !important;
+  margin-bottom: 20px !important; /* More space below title */
+  color: white !important;
+  text-align: center !important;
+  padding: 0 10px;
+}
+
+/* Add a subtle glow line under title */
+.service-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; /* Moved further down */
+  left: 20%; /* Wider line */
+  width: 60%; /* Longer line */
+  height: 4px; /* Thicker line */
+  background: linear-gradient(90deg, transparent, var(--neon-pink), var(--neon-purple), transparent);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Enhanced service icon */
+.service-card .service-icon {
+  font-size: 64px !important; /* Larger icon */
+  margin-bottom: 25px !important; /* More space below icon */
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s ease;
   z-index: 2;
 }
 
+.service-card:hover .service-icon {
+  transform: scale(1.15); /* Larger scale on hover */
+  text-shadow: 0 0 30px rgba(255, 45, 227, 0.9); /* Stronger glow */
+}
+
+/* Enhanced card description */
 .service-card p {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 17px !important; /* Slightly larger text */
+  line-height: 1.8 !important; /* More line height */
+  margin-bottom: 30px !important; /* More space above button */
+  color: rgba(255, 255, 255, 0.95) !important; /* Brighter text */
+  padding: 0 15px; /* More padding */
   flex-grow: 1;
   position: relative;
   z-index: 2;
 }
 
+/* ===== ENHANCED SERVICE BUTTON ===== */
 .service-btn {
-  padding: 10px 24px;
-  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   position: relative;
+  overflow: hidden;
   z-index: 2;
+  padding: 14px 32px !important; /* Larger button */
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  border-radius: 12px !important; /* More rounded */
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple)) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important; /* Added border */
+  box-shadow: 0 8px 25px rgba(255, 45, 227, 0.5) !important; /* Stronger shadow */
+  transition: all 0.4s ease !important;
+  margin-top: auto !important; /* Push button to bottom */
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.service-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.7s ease;
+}
+
+.service-btn:hover::before {
+  left: 100%;
 }
 
 .service-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(255, 45, 227, 0.5);
+  transform: translateY(-5px) scale(1.05) !important; /* More lift */
+  box-shadow: 0 15px 40px rgba(255, 45, 227, 0.7) !important; /* Stronger hover shadow */
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* ===== BIOMETRIC CARD - EXACT SAME AS TEST FILE ===== */
-.service-card.biometric-card { 
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* Background animation container - EXACT positioning from test */
-#biometric-lottie {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6; /* Fixed: changed from 50 to 0.4 for proper opacity */
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Content stays on top - EXACT z-index from test */
-.service-card.biometric-card > .service-icon,
-.service-card.biometric-card > h3,
-.service-card.biometric-card > p,
-.service-card.biometric-card > .service-btn {
-  position: relative;
-  z-index: 2;
-}
-
-/* ===== BIOMETRIC ANIMATION FOR FEATURE CARDS ===== */
+/* ===== ANIMATION CARDS ===== */
+/* BIOMETRIC CARD */
+.service-card.biometric-card, 
 .feature-card.biometric-card { 
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-/* Animation container for feature cards */
-#biometric-lottie-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Content z-index for feature cards */
-.feature-card.biometric-card > .feature-icon,
-.feature-card.biometric-card > h3,
-.feature-card.biometric-card > p {
-  position: relative;
-  z-index: 2;
-}
-
-/* Mobile adjustments for both */
-@media(max-width: 480px){
-  .service-card.biometric-card #biometric-lottie,
-  .feature-card.biometric-card #biometric-lottie-1 {
-    opacity: 0.4;
-  }
-}
-/* ===== CCTV CARD - SAME ANIMATION FUNCTIONALITY AS BIOMETRIC ===== */
-.service-card.cctv-card { 
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* Background animation container - SAME positioning as biometric */
-#cctv-lottie {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Content stays on top - SAME z-index as biometric */
-.service-card.cctv-card > .service-icon,
-.service-card.cctv-card > h3,
-.service-card.cctv-card > p,
-.service-card.cctv-card > .service-btn {
-  position: relative;
-  z-index: 2;
-}
-
-/* Reduce animation opacity on small screens - SAME as biometric */
-@media(max-width: 480px){
-  .service-card.cctv-card #cctv-lottie {
-    opacity: 0.6;
-  }
-}
-
-/* ===== NETWORKING CARD - SAME ANIMATION FUNCTIONALITY AS BIOMETRIC ===== */
-.service-card.net-card { 
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* Background animation container - SAME positioning as biometric */
+/* Background animation containers */
+#biometric-lottie,
+#biometric-lottie-1,
+#cctv-lottie,
 #net-lottie {
   position: absolute;
   top: 0;
@@ -377,20 +406,27 @@
   z-index: 1;
 }
 
-/* Content stays on top - SAME z-index as biometric */
-.service-card.net-card > .service-icon,
-.service-card.net-card > h3,
-.service-card.net-card > p,
-.service-card.net-card > .service-btn {
+/* CCTV CARD */
+.service-card.cctv-card { 
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-/* Reduce animation opacity on small screens - SAME as biometric */
-@media(max-width: 480px){
-  .service-card.net-card #net-lottie {
-    opacity: 0.6;
-  }
+/* NETWORKING CARD */
+.service-card.net-card { 
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Content stays on top for all animated cards */
+.service-card.biometric-card > *,
+.feature-card.biometric-card > *,
+.service-card.cctv-card > *,
+.service-card.net-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== CTA CARD ===== */
@@ -443,7 +479,19 @@
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-@media(max-width: 768px){
+
+/* Tablet */
+@media(max-width: 1024px) {
+  .service-grid {
+    gap: 36px !important;
+  }
+
+  .service-card {
+    padding: 30px 24px !important;
+    margin: 10px !important;
+    min-height: 300px;
+  }
+  
   .hero-slideshow {
     margin-top: 70px;
   }
@@ -451,7 +499,33 @@
   .slideshow-container {
     height: 60vh;
   }
+}
 
+/* Mobile */
+@media(max-width: 768px) {
+  .service-grid {
+    gap: 32px !important;
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 28px 22px !important;
+    margin: 8px !important;
+    min-height: 280px;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+  }
+
+  .service-card h3 {
+    font-size: 22px !important;
+  }
+
+  .service-card .service-icon {
+    font-size: 56px !important;
+  }
+  
   .hero-content {
     padding: 0 15px;
   }
@@ -478,17 +552,51 @@
     padding: 60px 15px;
   }
 
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
   .cta-card {
     padding: 40px 20px;
   }
 }
 
-@media(max-width: 480px){
+/* Small Mobile */
+@media(max-width: 480px) {
+  .service-grid {
+    gap: 28px !important;
+  }
+
+  .service-card {
+    padding: 25px 20px !important;
+    margin: 6px !important;
+    min-height: 260px;
+  }
+
+  .service-card::before {
+    display: none; /* Hide complex border effect on very small screens */
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px) !important;
+  }
+
+  .service-card h3 {
+    font-size: 20px !important;
+  }
+
+  .service-card h3::after {
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+  }
+
+  .service-card .service-icon {
+    font-size: 48px !important;
+  }
+
+  .service-btn {
+    padding: 12px 26px !important;
+    font-size: 15px !important;
+  }
+  
   .slideshow-container {
     height: 50vh;
   }
@@ -499,24 +607,11 @@
     font-size: 14px;
   }
 
-  .service-card {
-    padding: 24px 20px;
-  }
-
-  .service-card .service-icon {
-    font-size: 44px;
-  }
-
-  .service-card h3 {
-    font-size: 20px;
-  }
-
-  .service-card p {
-    font-size: 14px;
-  }
-
-  /* Reduce biometric animation opacity on small screens - SAME AS TEST */
-  .service-card.biometric-card #biometric-lottie {
+  /* Reduce animation opacity on small screens */
+  #biometric-lottie,
+  #biometric-lottie-1,
+  #cctv-lottie,
+  #net-lottie {
     opacity: 0.6;
   }
 }
