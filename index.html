@@ -27,6 +27,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
+
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -35,14 +36,14 @@
     <nav class="nav" id="nav">
         <div class="container nav__container">
             <!-- Logo -->
-           <a href="index.html" class="nav__logo">
-    <img src="assets/logo.jpg" 
-         alt="SecureTech Solutions Logo" 
-         class="nav__logo-image"
-         width="40" 
-         height="40">
-    <span class="nav__logo-text">SecureTech</span>
-</a>
+            <a href="index.html" class="nav__logo">
+                <img src="assets/logo.jpg" 
+                     alt="SecureTech Solutions Logo" 
+                     class="nav__logo-image"
+                     width="40" 
+                     height="40">
+                <span class="nav__logo-text">SecureTech</span>
+            </a>
             
             <!-- Desktop Menu -->
             <div class="nav__menu">
@@ -114,191 +115,171 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="main-content">
+    <!-- Apple-style Hero Section -->
+    <section class="hero hero--apple" id="main-content">
+        <div class="hero__background">
+            <!-- Use your best CCTV image as full-screen background -->
+            <img src="assets/cctv/1.webp" alt="Advanced Security System" class="hero__bg-image">
+            <div class="hero__overlay"></div>
+        </div>
+        
         <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title fade-in">
-                    Advanced Security
-                    <span class="hero__title-accent">Solutions</span>
+            <div class="hero__content hero__content--apple">
+                <h1 class="hero__title--apple">
+                    <span class="hero__title-line">SecureTech</span>
+                    <span class="hero__title-line">Solutions</span>
                 </h1>
-                <p class="hero__subtitle fade-in" style="animation-delay: 100ms;">
-                    Professional security systems installation for homes, businesses, and industrial facilities across Kenya. 
-                    Protecting what matters most with cutting-edge technology.
+                <p class="hero__subtitle--apple">
+                    Professional Security Systems
                 </p>
-                <div class="hero__buttons fade-in" style="animation-delay: 200ms;">
-                    <a href="#services" class="btn btn--primary btn--large">Explore Services</a>
-                    <a href="tel:+254113301244" class="btn btn--secondary btn--large">Get Free Consultation</a>
+                <div class="hero__cta">
+                    <a href="#cctv-showcase" class="btn btn--apple">
+                        <span>View Solutions</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2v8M10 6l-4 4M2 6l4 4" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            
-            <div class="hero__image">
-                <img src="assets/hero/security-system.jpg" alt="Modern Security System Installation" loading="lazy" class="scale-in" style="animation-delay: 300ms;">
+        </div>
+        
+        <!-- Scroll indicator (Apple-style) -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- CCTV Showcase (Apple-style) -->
+    <section class="showcase" id="cctv-showcase">
+        <div class="showcase__visual">
+            <div class="showcase__image-container">
+                <!-- Multiple images for slideshow effect -->
+                <img src="assets/cctv/1.webp" alt="CCTV Installation" class="showcase__image active">
+                <img src="assets/cctv/2.webp" alt="CCTV Monitoring" class="showcase__image">
+                <img src="assets/cctv/3.webp" alt="CCTV Control Room" class="showcase__image">
+            </div>
+            <div class="showcase__slider-controls">
+                <button class="slider-btn slider-btn--prev">‹</button>
+                <button class="slider-btn slider-btn--next">›</button>
+            </div>
+        </div>
+        
+        <div class="showcase__content">
+            <div class="showcase__badge">CCTV Systems</div>
+            <h2 class="showcase__title">Advanced Surveillance</h2>
+            <p class="showcase__description">
+                4K resolution • Night vision • Remote access
+            </p>
+            <div class="showcase__cta">
+                <a href="cctv.html" class="btn btn--outline">Learn more</a>
+                <a href="tel:+254113301244" class="btn btn--primary">Get quote</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section" id="services">
+    <!-- Networking Showcase -->
+    <section class="showcase showcase--networking">
+        <div class="showcase__content">
+            <div class="showcase__badge">Networking</div>
+            <h2 class="showcase__title">Seamless Connectivity</h2>
+            <p class="showcase__description">
+                High-speed networks • Wireless solutions • Structured cabling
+            </p>
+            <div class="showcase__cta">
+                <a href="networking.html" class="btn btn--outline">Learn more</a>
+                <a href="tel:+254113301244" class="btn btn--primary">Get quote</a>
+            </div>
+        </div>
+        
+        <div class="showcase__visual">
+            <div class="showcase__image-container">
+                <img src="assets/cctv/4.webp" alt="Network Installation" class="showcase__image active">
+                <img src="assets/cctv/5.webp" alt="Network Setup" class="showcase__image">
+            </div>
+            <div class="showcase__slider-controls">
+                <button class="slider-btn slider-btn--prev">‹</button>
+                <button class="slider-btn slider-btn--next">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biometrics Showcase -->
+    <section class="showcase showcase--biometrics">
+        <div class="showcase__visual">
+            <div class="showcase__image-container">
+                <img src="assets/cctv/6.webp" alt="Biometric System" class="showcase__image active">
+                <img src="assets/cctv/7.webp" alt="Access Control" class="showcase__image">
+            </div>
+            <div class="showcase__slider-controls">
+                <button class="slider-btn slider-btn--prev">‹</button>
+                <button class="slider-btn slider-btn--next">›</button>
+            </div>
+        </div>
+        
+        <div class="showcase__content">
+            <div class="showcase__badge">Access Control</div>
+            <h2 class="showcase__title">Secure Access</h2>
+            <p class="showcase__description">
+                Fingerprint • Facial recognition • Time attendance
+            </p>
+            <div class="showcase__cta">
+                <a href="biometrics.html" class="btn btn--outline">Learn more</a>
+                <a href="tel:+254113301244" class="btn btn--primary">Get quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid (Apple-style) -->
+    <section class="products-grid" id="products">
         <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Our Security Solutions</h2>
-                <p class="section__subtitle">Comprehensive protection systems tailored to your specific needs</p>
-            </div>
+            <h2 class="section__title">Complete Security Solutions</h2>
+            <p class="section__subtitle">Everything you need for complete protection</p>
             
-            <div class="grid grid--3">
-                <!-- CCTV -->
-                <a href="cctv.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M40 12H16a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V16a4 4 0 00-4-4z" stroke="var(--accent-blue)" stroke-width="3"/>
-                            <circle cx="24" cy="26" r="6" stroke="var(--accent-blue)" stroke-width="3"/>
-                            <circle cx="24" cy="26" r="2" fill="var(--accent-blue)"/>
-                        </svg>
+            <div class="grid grid--apple">
+                <a href="electric-fence.html" class="grid-item">
+                    <div class="grid-item__image">
+                        <img src="assets/cctv/8.webp" alt="Electric Fence">
                     </div>
-                    <h3 class="card__title">CCTV Surveillance</h3>
-                    <p class="card__description">
-                        High-definition camera systems with remote monitoring, night vision, and smart motion detection.
-                    </p>
-                    <span class="card__link">View CCTV Solutions →</span>
+                    <div class="grid-item__content">
+                        <h3>Electric Fence</h3>
+                        <p>Perimeter security with alarm integration</p>
+                    </div>
                 </a>
                 
-                <!-- Networking -->
-                <a href="networking.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="10" stroke="var(--accent-purple)" stroke-width="3"/>
-                            <path d="M24 14v20M14 24h20" stroke="var(--accent-purple)" stroke-width="3"/>
-                            <circle cx="12" cy="12" r="2" fill="var(--accent-purple)"/>
-                            <circle cx="36" cy="12" r="2" fill="var(--accent-purple)"/>
-                            <circle cx="12" cy="36" r="2" fill="var(--accent-purple)"/>
-                            <circle cx="36" cy="36" r="2" fill="var(--accent-purple)"/>
-                        </svg>
+                <a href="automatic-gates.html" class="grid-item">
+                    <div class="grid-item__image">
+                        <img src="assets/cctv/9.webp" alt="Automatic Gates">
                     </div>
-                    <h3 class="card__title">Networking</h3>
-                    <p class="card__description">
-                        Professional network infrastructure, structured cabling, and wireless solutions for seamless connectivity.
-                    </p>
-                    <span class="card__link">View Networking Services →</span>
+                    <div class="grid-item__content">
+                        <h3>Automatic Gates</h3>
+                        <p>Motorized systems with remote control</p>
+                    </div>
                 </a>
                 
-                <!-- Biometrics -->
-                <a href="biometrics.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 10a7 7 0 100 14 7 7 0 000-14z" stroke="var(--accent-green)" stroke-width="3"/>
-                            <path d="M40 38c0-4.418-3.582-8-8-8H16c-4.418 0-8 3.582-8 8" stroke="var(--accent-green)" stroke-width="3"/>
-                            <circle cx="24" cy="24" r="10" stroke="var(--accent-green)" stroke-width="3"/>
-                        </svg>
+                <a href="alarms.html" class="grid-item">
+                    <div class="grid-item__image">
+                        <img src="assets/cctv/10.webp" alt="Alarm Systems">
                     </div>
-                    <h3 class="card__title">Biometric Systems</h3>
-                    <p class="card__description">
-                        Fingerprint and facial recognition for secure access control and time attendance management.
-                    </p>
-                    <span class="card__link">View Biometric Systems →</span>
+                    <div class="grid-item__content">
+                        <h3>Alarm Systems</h3>
+                        <p>Intrusion detection and monitoring</p>
+                    </div>
                 </a>
                 
-                <!-- Electric Fence -->
-                <a href="electric-fence.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="10" stroke="var(--accent-orange)" stroke-width="3"/>
-                            <path d="M24 14v20M14 24h20" stroke="var(--accent-orange)" stroke-width="3"/>
-                            <circle cx="24" cy="24" r="2" fill="var(--accent-orange)"/>
-                        </svg>
+                <a href="intercom.html" class="grid-item">
+                    <div class="grid-item__image">
+                        <img src="assets/cctv/11.webp" alt="Intercom Systems">
                     </div>
-                    <h3 class="card__title">Electric Fence</h3>
-                    <p class="card__description">
-                        Perimeter security with alarm integration, 24/7 monitoring, and remote control capabilities.
-                    </p>
-                    <span class="card__link">View Electric Fence →</span>
-                </a>
-                
-                <!-- Automatic Gates -->
-                <a href="automatic-gates.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="12" width="32" height="24" rx="2" stroke="var(--accent-pink)" stroke-width="3"/>
-                            <path d="M24 12v24M8 24h32" stroke="var(--accent-pink)" stroke-width="3"/>
-                        </svg>
+                    <div class="grid-item__content">
+                        <h3>Intercom Systems</h3>
+                        <p>Audio/video communication systems</p>
                     </div>
-                    <h3 class="card__title">Automatic Gates</h3>
-                    <p class="card__description">
-                        Motorized gate systems with remote control, safety sensors, and access control integration.
-                    </p>
-                    <span class="card__link">View Automatic Gates →</span>
-                </a>
-                
-                <!-- Products -->
-                <a href="products.html" class="card card--service">
-                    <div class="card__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="8" width="32" height="32" rx="2" stroke="var(--text-secondary)" stroke-width="3"/>
-                            <circle cx="24" cy="24" r="6" stroke="var(--text-secondary)" stroke-width="3"/>
-                            <path d="M18 18l12 12M30 18L18 30" stroke="var(--text-secondary)" stroke-width="3"/>
-                        </svg>
-                    </div>
-                    <h3 class="card__title">Products Catalog</h3>
-                    <p class="card__description">
-                        Browse our complete range of security products, accessories, and system components.
-                    </p>
-                    <span class="card__link">View All Products →</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="section section--alt" id="about">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Why Choose SecureTech?</h2>
-                <p class="section__subtitle">Kenya's trusted security solutions provider</p>
-            </div>
-            
-            <div class="grid grid--3">
-                <div class="feature">
-                    <div class="feature__icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 2L20 10L29 11L22 17L24 26L16 22L8 26L10 17L3 11L12 10L16 2z" stroke="var(--accent-blue)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature__title">Expert Installation</h3>
-                    <p class="feature__description">
-                        Certified technicians with years of experience in security system installation and maintenance.
-                    </p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature__icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M28 16c0 6.627-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4s12 5.373 12 12z" stroke="var(--accent-green)" stroke-width="2"/>
-                            <path d="M11 16l4 4 6-6" stroke="var(--accent-green)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature__title">24/7 Support</h3>
-                    <p class="feature__description">
-                        Round-the-clock technical support and emergency services for uninterrupted protection.
-                    </p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature__icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" stroke="var(--accent-purple)" stroke-width="2"/>
-                            <path d="M16 10v6l4 2" stroke="var(--accent-purple)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature__title">Latest Technology</h3>
-                    <p class="feature__description">
-                        We use cutting-edge security technology from leading global manufacturers.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
+    <!-- Stats Section (Keep your existing) -->
     <section class="section stats-section">
         <div class="container">
             <div class="stats-grid">
@@ -350,13 +331,11 @@
             <div class="footer__grid">
                 <div class="footer__column">
                     <a href="index.html" class="nav__logo">
-                        <div class="logo-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="var(--accent-blue)"/>
-                                <path d="M16 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z" fill="white"/>
-                                <path d="M16 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="var(--accent-blue)"/>
-                            </svg>
-                        </div>
+                        <img src="assets/logo.jpg" 
+                             alt="SecureTech Solutions Logo" 
+                             class="nav__logo-image"
+                             width="40" 
+                             height="40">
                         <span class="nav__logo-text">SecureTech</span>
                     </a>
                     <p class="footer__about">
@@ -439,5 +418,6 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+
 </body>
 </html>
