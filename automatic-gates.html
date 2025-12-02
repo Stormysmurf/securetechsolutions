@@ -1,275 +1,448 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Automatic Gates — SecureTech Solutions</title>
-    <meta name="description" content="Automatic gates installation and servicing by SecureTech Solutions">
-    <link rel="stylesheet" href="css/variables.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Gate Systems | SecureTech Solutions</title>
+    <meta name="description" content="Professional automatic gate installation - sliding gates, swing gates, remote control systems, and safety features.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/automatic-gate.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+    <link rel="stylesheet" href="css/pages.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
-    <div class="bg-waves"></div>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="var(--accent-blue)"/>
+                        <path d="M16 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z" fill="white"/>
+                        <path d="M16 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="var(--accent-blue)"/>
+                    </svg>
+                </div>
+                <span class="nav__logo-text">SecureTech</span>
+            </a>
+            
+            <div class="nav__menu">
+                <a href="index.html" class="nav__link">Home</a>
+                <div class="nav__dropdown">
+                    <button class="nav__link nav__link--dropdown nav__link--active">
+                        Services
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="nav__dropdown-content">
+                        <a href="cctv.html" class="nav__dropdown-link">CCTV Systems</a>
+                        <a href="networking.html" class="nav__dropdown-link">Networking</a>
+                        <a href="biometrics.html" class="nav__dropdown-link">Biometrics</a>
+                        <a href="electric-fence.html" class="nav__dropdown-link">Electric Fence</a>
+                        <a href="automatic-gates.html" class="nav__dropdown-link nav__dropdown-link--active">Automatic Gates</a>
+                    </div>
+                </div>
+                <a href="products.html" class="nav__link">Products</a>
+                <a href="index.html#about" class="nav__link">About</a>
+                <a href="index.html#contact" class="nav__link">Contact</a>
+            </div>
+            
+            <a href="tel:+254113301244" class="btn btn--primary nav__cta">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328z" fill="currentColor"/>
+                </svg>
+                +254 113 301 244
+            </a>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-inner">
-            <div class="logo-section">
-                <img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
-                <div class="brand-text">
-                    <div class="header-title">SecureTech Solutions</div>
-                    <div class="header-subtitle">Automatic Gates</div>
+    <!-- Service Hero -->
+    <section class="service-hero" id="main-content">
+        <div class="container">
+            <div class="service-hero__content">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="index.html#services">Services</a>
+                    <span>/</span>
+                    <span>Automatic Gates</span>
+                </nav>
+                
+                <h1 class="service-hero__title">Automatic Gate Systems</h1>
+                <p class="service-hero__subtitle">
+                    Professional motorized gate solutions with remote control, 
+                    safety features, and seamless access control integration.
+                </p>
+                
+                <div class="service-hero__stats">
+                    <div class="stat">
+                        <div class="stat__number">800kg</div>
+                        <div class="stat__label">Capacity</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number">Auto</div>
+                        <div class="stat__label">Reverse</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number">24/7</div>
+                        <div class="stat__label">Operation</div>
+                    </div>
                 </div>
             </div>
-            <a href="index.html" class="header-cta">← Back to Home</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero" role="img" aria-label="Automatic Gates"></div>
-        <div class="hero-content">
-            <h1>Automatic <span class="accent">Gates</span></h1>
-            <p class="lead">High-performance automatic gate systems for homes, apartments, businesses, and industrial facilities.</p>
+            
+            <div class="service-hero__image">
+                <img src="assets/services/automatic-gates-hero.jpg" alt="Automatic Gate Installation" loading="lazy">
+            </div>
         </div>
     </section>
 
-    <main class="container">
-
-        <!-- SLIDING GATES -->
-        <section class="gate-type-section" id="sliding-gates">
-            <div class="gate-hero sliding-hero">
-                <div class="gate-card">
-                    <span class="card-ribbon">Sliding Gate</span>
-                    <div class="gate-card-grid">
-                        <div class="gate-card-image" style="background-image: url('../assets/slidinggate.webp')"></div>
-                        <div class="gate-card-content">
-                            <h2>Premium Sliding Gates</h2>
-                            <p>Space-saving, robust motorized sliding gates engineered for smooth, reliable operation. Perfect for properties with limited space.</p>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="tel:+254113301244">Get a Quote</a>
-                                <a class="btn btn-secondary" href="products.html">View Products</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Gate Types -->
+    <section class="section section--compact">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Gate Types</h2>
+                <p class="section__subtitle">Choose the right automatic gate for your property</p>
             </div>
-
-            <div class="gate-features">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📏</div>
-                        <h3>Space Efficient</h3>
-                        <p>Ideal for driveways with limited side space, sliding parallel to your fence or wall.</p>
+            
+            <div class="grid grid--2">
+                <div class="card card--featured">
+                    <div class="card__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="16" width="32" height="16" rx="2" stroke="var(--accent-pink)" stroke-width="3"/>
+                            <path d="M16 16v16M32 16v32" stroke="var(--accent-pink)" stroke-width="3"/>
+                        </svg>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Heavy Duty Motors</h3>
-                        <p>Powerful motors capable of handling large and heavy gates with ease.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡</div>
-                        <h3>Secure Tracking</h3>
-                        <p>Sturdy steel tracks and rollers for smooth and secure gate movement.</p>
-                    </div>
-                </div>
-                <div class="gate-detail">
-                    <h3>About Sliding Gate Systems</h3>
-                    <p>Sliding gates run smoothly on tracks and are ideal where lateral space is available. Our installations include heavy-duty racks, weather-resistant rollers and professional alignment to ensure long life and quiet operation.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SWING GATES -->
-        <section class="gate-type-section" id="swing-gates">
-            <div class="gate-hero swing-hero">
-                <div class="gate-card">
-                    <span class="card-ribbon">Swing Gate</span>
-                    <div class="gate-card-grid">
-                        <div class="gate-card-image" style="background-image: url('../assets/swinggate.webp')"></div>
-                        <div class="gate-card-content">
-                            <h2>Reliable Swing Gates</h2>
-                            <p>Classic swing gates upgraded with automation — ideal for traditional entrances and elegant design preferences.</p>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="tel:+254113301244">Request Installation</a>
-                                <a class="btn btn-secondary" href="products.html">View Models</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gate-features">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🚗</div>
-                        <h3>Double Swing Option</h3>
-                        <p>Available in single or double swing configurations to match your entrance width.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔧</div>
-                        <h3>Hydraulic & Electric</h3>
-                        <p>Choose between hydraulic systems for heavy gates or electric for standard applications.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Precise Control</h3>
-                        <p>Accurate opening and closing with adjustable limit switches for perfect positioning.</p>
-                    </div>
-                </div>
-                <div class="gate-detail">
-                    <h3>About Swing Gate Systems</h3>
-                    <p>Swing gates are versatile and elegant — suitable for driveways with open clearance. We provide hydraulic or electromechanical actuators, adjustable stop points, and secure mounting to ensure reliable daily operation.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- REMOTE CONTROL SYSTEMS -->
-        <section class="gate-type-section" id="remote-control">
-            <div class="gate-hero remote-hero">
-                <div class="gate-card">
-                    <span class="card-ribbon">Control Systems</span>
-                    <div class="gate-card-grid">
-                        <div class="gate-card-image" style="background-image: url('../assets/remotecontrol.webp')"></div>
-                        <div class="gate-card-content">
-                            <h2>Smart Control Systems</h2>
-                            <p>Flexible remote keyfobs, mobile app integration, and keypad options for secure and convenient access.</p>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="tel:+254113301244">Request Setup</a>
-                                <a class="btn btn-secondary" href="products.html">See Accessories</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gate-features">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🎮</div>
-                        <h3>Remote Keyfobs</h3>
-                        <p>Wireless remote controls with multiple channel options for different users.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3>Mobile App Control</h3>
-                        <p>Control your gates from anywhere using our dedicated mobile application.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔑</div>
-                        <h3>Keypad Entry</h3>
-                        <p>Secure PIN code access for visitors and service personnel.</p>
-                    </div>
-                </div>
-                <div class="gate-detail">
-                    <h3>Control Options & Integration</h3>
-                    <p>From keyfobs to mobile apps and keypad entry, our control systems integrate with common access technologies and can be expanded for intercoms, CCTV triggers, and smart-home platforms for secure remote operation.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SAFETY FEATURES -->
-        <section class="safety-section">
-            <div class="section-header">
-                <h2>Safety <span class="accent">Features</span></h2>
-                <p>Comprehensive safety systems to protect people, vehicles, and property.</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Auto-Reverse</h3>
-                    <p>Automatically reverses direction if an obstruction is detected during closing.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📟</div>
-                    <h3>Photocell Sensors</h3>
-                    <p>Infrared beams that stop gate operation when interrupted for maximum safety.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛑</div>
-                    <h3>Manual Override</h3>
-                    <p>Emergency manual operation during power outages or system maintenance.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHAT YOU GET & WHY CHOOSE US -->
-        <section class="info-section">
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h2>What You Get</h2>
-                    <ul>
-                        <li>Heavy-duty sliding & swing gate motors</li>
-                        <li>Remote keyfob control + backup manual release</li>
-                        <li>Smooth opening/closing with obstruction sensing</li>
-                        <li>Steel racks, limit switches, and safety photocells</li>
-                        <li>Professional installation & wiring</li>
-                        <li>Semi-annual maintenance service</li>
+                    <h3 class="card__title">Sliding Gates</h3>
+                    <p class="card__description">
+                        Space-saving gates that slide parallel to your fence, 
+                        ideal for properties with limited side space.
+                    </p>
+                    <ul class="card__list">
+                        <li>Space efficient</li>
+                        <li>Heavy duty motors</li>
+                        <li>Secure tracking system</li>
                     </ul>
+                    <a href="#sliding-gates" class="btn btn--secondary">Learn More</a>
                 </div>
-
-                <div class="info-card">
-                    <h2>Why Choose Us</h2>
-                    <ul>
-                        <li>Fast installation with clean workmanship</li>
-                        <li>Reliable motors suitable for Kenyan climate</li>
-                        <li>1-year service warranty</li>
-                        <li>Affordable spare parts availability</li>
+                
+                <div class="card card--featured">
+                    <div class="card__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="16" width="32" height="16" rx="2" stroke="var(--accent-pink)" stroke-width="3"/>
+                            <path d="M24 16v16M8 24h32" stroke="var(--accent-pink)" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="card__title">Swing Gates</h3>
+                    <p class="card__description">
+                        Classic swing gates with automation, perfect for traditional 
+                        entrances and elegant design preferences.
+                    </p>
+                    <ul class="card__list">
+                        <li>Single or double swing</li>
+                        <li>Hydraulic or electric</li>
+                        <li>Precise control</li>
                     </ul>
+                    <a href="#swing-gates" class="btn btn--secondary">Learn More</a>
                 </div>
             </div>
-        </section>
-
-<!-- CALL TO ACTION -->
-<section class="cta-section">
-    <div class="cta-content">
-        <h2>Ready to Secure Your Property?</h2>
-        <p>Get a free consultation and quote for your automatic gate installation today.</p>
-        <div class="cta-buttons">
-            <a href="tel:+254113301244" class="btn btn-cta-primary">
-                <div id="phone-animation" style="display: inline-block; width: 20px; height: 20px; margin-right: 8px;"></div>
-                +254 113 301 244
-            </a>
-            <a href="index.html" class="btn btn-cta-secondary">Back to Home</a>
         </div>
-    </div>
-</section>
+    </section>
 
-    </main>
+    <!-- Control Systems -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Control Systems</h2>
+                <p class="section__subtitle">Flexible operation options for every need</p>
+            </div>
+            
+            <div class="grid grid--3">
+                <div class="feature">
+                    <div class="feature__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="8" y="8" width="16" height="16" rx="2" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <circle cx="16" cy="16" r="4" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature__title">Remote Keyfobs</h3>
+                    <p class="feature__description">
+                        Wireless remote controls with multiple channel options 
+                        for different users and access levels.
+                    </p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="8" y="8" width="16" height="16" rx="2" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M24 12L16 20L12 16" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature__title">Mobile App Control</h3>
+                    <p class="feature__description">
+                        Control your gates from anywhere using our dedicated 
+                        mobile application with real-time status updates.
+                    </p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="8" y="8" width="16" height="16" rx="2" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M12 16h8M16 12v8" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature__title">Keypad Entry</h3>
+                    <p class="feature__description">
+                        Secure PIN code access for visitors and service personnel, 
+                        with programmable access codes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Features -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Safety Features</h2>
+                <p class="section__subtitle">Protecting people, vehicles, and property</p>
+            </div>
+            
+            <div class="grid grid--2">
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 10" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="benefit__content">
+                        <h3 class="benefit__title">Auto-Reverse Mechanism</h3>
+                        <p class="benefit__description">
+                            Automatically reverses direction if an obstruction 
+                            is detected during closing for maximum safety.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 12H22" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M12 2V22" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="10" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="benefit__content">
+                        <h3 class="benefit__title">Photocell Sensors</h3>
+                        <p class="benefit__description">
+                            Infrared beams that stop gate operation when interrupted, 
+                            preventing accidents and ensuring safe operation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M12 8V12L14 14" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="benefit__content">
+                        <h3 class="benefit__title">Manual Override</h3>
+                        <p class="feature__description">
+                            Emergency manual operation during power outages 
+                            or system maintenance for uninterrupted access.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="benefit__content">
+                        <h3 class="benefit__title">Timer Controls</h3>
+                        <p class="benefit__description">
+                            Programmable timers for automatic opening/closing 
+                            schedules to match your daily routines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">System Integration</h2>
+                <p class="section__subtitle">Seamlessly connect with your security ecosystem</p>
+            </div>
+            
+            <div class="grid grid--3">
+                <div class="card">
+                    <div class="card__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <circle cx="16" cy="16" r="6" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="card__title">CCTV Integration</h3>
+                    <p class="card__description">
+                        Connect gate cameras to your existing CCTV system 
+                        for complete surveillance coverage.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M10 12h12M10 20h12" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <rect x="6" y="6" width="20" height="20" rx="2" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="card__title">Intercom Systems</h3>
+                    <p class="card__description">
+                        Audio/video intercom integration for visitor 
+                        identification before granting access.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M12 16h8M16 12v8" stroke="var(--accent-pink)" stroke-width="2"/>
+                            <circle cx="16" cy="16" r="10" stroke="var(--accent-pink)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="card__title">Access Control</h3>
+                    <p class="card__description">
+                        Integration with biometric, card, or keypad 
+                        access control systems for enhanced security.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta">
+                <h2 class="cta__title">Ready to Automate Your Gates?</h2>
+                <p class="cta__description">
+                    Get a free consultation and quote for your automatic gate system. 
+                    Our experts will design the perfect solution for your property.
+                </p>
+                <div class="cta__buttons">
+                    <a href="tel:+254113301244" class="btn btn--primary btn--large">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="currentColor"/>
+                        </svg>
+                        Call +254 113 301 244
+                    </a>
+                    <a href="index.html" class="btn btn--secondary btn--large">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="products.html">Products</a>
-                <a href="automatic-gates.html">Automatic Gates</a>
-                <a href="electric-fence.html">Electric Fence</a>
-                <a href="#contact">Contact</a>
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <a href="index.html" class="nav__logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="var(--accent-blue)"/>
+                                <path d="M16 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z" fill="white"/>
+                                <path d="M16 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="var(--accent-blue)"/>
+                            </svg>
+                        </div>
+                        <span class="nav__logo-text">SecureTech</span>
+                    </a>
+                    <p class="footer__about">
+                        Professional automatic gate installation and 
+                        motorized access control solutions.
+                    </p>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Quick Links</h3>
+                    <div class="footer__links">
+                        <a href="index.html" class="footer__link">Home</a>
+                        <a href="products.html" class="footer__link">Products</a>
+                        <a href="index.html#about" class="footer__link">About Us</a>
+                        <a href="index.html#contact" class="footer__link">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Other Services</h3>
+                    <div class="footer__links">
+                        <a href="cctv.html" class="footer__link">CCTV Systems</a>
+                        <a href="networking.html" class="footer__link">Networking</a>
+                        <a href="biometrics.html" class="footer__link">Biometrics</a>
+                        <a href="electric-fence.html" class="footer__link">Electric Fence</a>
+                    </div>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Contact</h3>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328z" fill="currentColor"/>
+                            </svg>
+                            <span>+254 113 301 244</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2-1a1 1 0 00-1 1v.217l7 4.2 7-4.2V4a1 1 0 00-1-1H2zm13 2.383l-6.5 3.9a1 1 0 01-1 0L1 5.383V12a1 1 0 001 1h12a1 1 0 001-1V5.383z" fill="currentColor"/>
+                            </svg>
+                            <span>info@securetech.co.ke</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-contact">
-                <strong>Contact:</strong> +254 113 301 244 | 
-                <strong>Email:</strong> info@securetechsolutions.co.ke
+            
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    © 2024 SecureTech Solutions. All rights reserved.
+                </div>
             </div>
-            <div class="footer-copyright">© 2024 SecureTech Solutions. All rights reserved.</div>
         </div>
     </footer>
 
-    <div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
-    
     <script src="js/main.js"></script>
 </body>
 </html>
