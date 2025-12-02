@@ -1,413 +1,229 @@
-(function(){
-  function onScrollHeader(){
-    const header = document.getElementById('header');
-    if(!header) return;
-    if(window.scrollY > 50) header.classList.add('scrolled'); 
-    else header.classList.remove('scrolled');
+// Apple-style JavaScript
+class SecureTech {
+  constructor() {
+    this.init();
   }
 
-  window.addEventListener('scroll', onScrollHeader);
+  init() {
+    this.setupNavigation();
+    this.setupAnimations();
+    this.setupIntersectionObserver();
+    this.setupServiceCards();
+    this.setupContactForm();
+  }
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-
-    onScrollHeader();
-
-    // Slideshow
-    const slides = document.querySelectorAll('.slide');
-    if(slides && slides.length){
-      let current = 0;
-
-      function show(i){ 
-        slides.forEach((s,idx)=> s.classList.toggle('active', idx===i)); 
-      }
-
-      const left = document.querySelector('.slide-nav.left');
-      const right = document.querySelector('.slide-nav.right');
-
-      if(left) left.addEventListener('click', ()=>{ 
-        current = (current-1+slides.length)%slides.length; 
-        show(current); 
+  setupNavigation() {
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav--open');
+        navToggle.setAttribute('aria-expanded', 
+          nav.classList.contains('nav--open')
+        );
       });
-
-      if(right) right.addEventListener('click', ()=>{ 
-        current = (current+1)%slides.length; 
-        show(current); 
-      });
-
-      show(current);
-      setInterval(()=>{ current=(current+1)%slides.length; show(current); }, 5000);
     }
 
-    // Service buttons navigation
-    document.querySelectorAll('.service-btn').forEach(btn=>{
-      btn.addEventListener('click', e=>{
-        const target = btn.getAttribute('data-target');
-        if(target) return location.href = target;
-      });
-    });
-
-// ===== NEON CARDS INTERACTIVITY =====
-(function initNeonCards() {
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  if (!serviceCards.length) return;
-  
-  console.log(`🎨 Enhancing ${serviceCards.length} service cards with neon effects`);
-  
-  // Add CSS animations for neon effects
-  if (!document.querySelector('#neon-cards-styles')) {
-    const style = document.createElement('style');
-    style.id = 'neon-cards-styles';
-    style.textContent = `
-      .card-ripple-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border-radius: 16px;
-        pointer-events: none;
-        z-index: 1;
-      }
-      
-      .card-ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255,20,147,0.6) 0%, rgba(138,43,226,0.4) 70%, transparent 100%);
-        transform: translate(-50%, -50%);
-        animation: rippleExpand 0.8s ease-out;
-        pointer-events: none;
-        width: 0;
-        height: 0;
-      }
-      
-      @keyframes rippleExpand {
-        to {
-          width: 300px;
-          height: 300px;
-          opacity: 0;
-        }
-      }
-      
-      .card-pulse {
-        animation: cardPulse 0.6s ease;
-      }
-      
-      @keyframes cardPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  // Initialize each card
-  serviceCards.forEach((card, index) => {
-    // Add data attribute for identification
-    card.setAttribute('data-card-index', index);
-    
-    // Add ripple effect container
-    const rippleContainer = document.createElement('div');
-    rippleContainer.className = 'card-ripple-container';
-    card.appendChild(rippleContainer);
-    
-    // Add click effect
-    card.addEventListener('click', function(e) {
-      if (e.target.classList.contains('service-btn')) return;
-      
-      // Create ripple effect
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const ripple = document.createElement('div');
-      ripple.className = 'card-ripple';
-      ripple.style.left = `${x}px`;
-      ripple.style.top = `${y}px`;
-      
-      rippleContainer.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 1000);
-      
-      // Pulse animation
-      card.classList.add('card-pulse');
-      setTimeout(() => card.classList.remove('card-pulse'), 600);
-      
-      // Click the button inside the card
-      const button = card.querySelector('.service-btn');
-      if (button) {
-        setTimeout(() => button.click(), 300);
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && nav.classList.contains('nav--open')) {
+        nav.classList.remove('nav--open');
       }
     });
-    
-    // Add keyboard navigation
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        card.click();
-      }
-    });
-  });
-  
-  console.log('✅ Neon card enhancements applied');
-})();
-
-    // WhatsApp Lottie
-    (function(){
-      const container = document.getElementById('whatsapp-lottie');
-      if(!container) return;
-
-      const waLink = 'https://wa.me/254113301244?text=Hello%2C%20I%20want%20to%20inquire%20about%20your%20services';
-      const jsonPath = 'assets/whatsapp.json';
-
-      fetch(jsonPath,{method:'HEAD'}).then(res=>{
-        if(!res.ok) return;
-        lottie.loadAnimation({
-          container: container,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: jsonPath
-        });
-        container.style.cursor='pointer';
-        container.addEventListener('click', ()=> window.open(waLink,'_blank'));
-      }).catch(err=>{
-        container.innerHTML='📞';
-      });
-    })();
-
-    // Tiny Lottie Phone
-    (function(){
-      const phoneContainer = document.getElementById('phone-animation');
-      if(!phoneContainer) return;
-
-      const phoneJsonPath = 'assets/phone.json';
-      try{
-        const phoneAnim = lottie.loadAnimation({
-          container: phoneContainer,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: phoneJsonPath
-        });
-        phoneContainer.style.cursor='pointer';
-        phoneContainer.addEventListener('click', ()=> location.href='tel:+254113301244');
-      }catch(e){
-        phoneContainer.innerHTML='📞';
-      }
-    })();
-
-    // face recognition card BIOMETRIC ANIMATIONS
-    (function(){
-      const container = document.getElementById('biometric-lottie-1');
-
-      if(!container) {
-        console.log('ℹ️ biometric-lottie-1 container not found');
-        return;
-      }
-
-      console.log('🚀 Loading face.json for biometric-lottie-1...');
-
-      fetch('assets/face.json')
-        .then(response => {
-          console.log('📡 Response status for face.json:', response.status);
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: face.json not found`);
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (nav.classList.contains('nav--open')) {
+            nav.classList.remove('nav--open');
           }
-          return response.json();
-        })
-        .then(animationData => {
-          console.log('✅ face.json loaded successfully for biometric-lottie-1');
-
-          const anim = lottie.loadAnimation({
-            container: container,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: animationData
-          });
-
-          anim.addEventListener('DOMLoaded', () => {
-            console.log('✅ face.json animation rendered successfully for biometric-lottie-1!');
-          });
-        })
-        .catch(error => {
-          console.error('❌ Failed to load face.json for biometric-lottie-1:', error);
-        });
-    })();
-
-    // CCTV Lottie animation
-    (function(){
-      const container = document.getElementById('cctv-lottie');
-
-      if(!container) {
-        return;
-      }
-
-      console.log('🚀 Starting CCTV animation load...');
-
-      fetch('assets/cctv.json')
-        .then(response => {
-          console.log('📡 CCTV Response status:', response.status);
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: cctv.json not found`);
-          }
-          return response.json();
-        })
-        .then(animationData => {
-          console.log('✅ cctv.json loaded successfully');
-
-          const anim = lottie.loadAnimation({
-            container: container,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: animationData
-          });
-
-          anim.addEventListener('DOMLoaded', () => {
-            console.log('✅ CCTV animation rendered successfully!');
-          });
-        })
-        .catch(error => {
-          console.error('❌ Failed to load CCTV animation:', error.message);
-        });
-    })();
-
-  });
-})();
-
-// face recognition card BIOMETRIC ANIMATIONS main page
-(function(){
-  const container = document.getElementById('biometric-lottie');
-
-  if(!container) {
-    console.log('ℹ️ biometric-lottie container not found');
-    return;
+        }
+      });
+    });
   }
 
-  console.log('🚀 Loading face.json for biometric-lottie...');
-
-  fetch('assets/face.json')
-    .then(response => {
-      console.log('📡 Response status for face.json:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: face.json not found`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ face.json loaded successfully for biometric-lottie');
-
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
+  setupAnimations() {
+    // Apple-style hover effects
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
       });
-
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ face.json animation rendered successfully for biometric-lottie!');
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
       });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load face.json for biometric-lottie:', error);
     });
-})();
 
-// fingerprint card BIOMETRIC ANIMATIONS
-(function(){
-  const container = document.getElementById('biometric-lottie-fn');
-
-  if(!container) {
-    console.log('ℹ️ biometric-lottie-fn container not found');
-    return;
+    // Button ripple effect
+    const buttons = document.querySelectorAll('.btn--primary');
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
   }
 
-  console.log('🚀 Loading fn.json for biometric-lottie-fn...');
+  setupIntersectionObserver() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  fetch('assets/fn.json')
-    .then(response => {
-      console.log('📡 Response status for fn.json:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: fn.json not found`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ fn.json loaded successfully for biometric-lottie-fn');
-
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
+    }, observerOptions);
 
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ fn.json animation rendered successfully for biometric-lottie-fn!');
-      });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load fn.json for biometric-lottie-fn:', error);
+    // Observe elements for scroll animations
+    document.querySelectorAll('.fade-in, .scale-in').forEach(el => {
+      observer.observe(el);
     });
-})();
-
-// networking card ANIMATIONS
-(function(){
-  const container = document.getElementById('net-lottie');
-
-  if(!container) {
-    console.log('ℹ️ net-lottie container not found');
-    return;
   }
 
-  console.log('🚀 Loading net.json for net-lottie...');
-
-  fetch('assets/net.json')
-    .then(response => {
-      console.log('📡 Response status for net.json:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: net.json not found`);
-      }
-      return response.json();
-    })
-    .then(animationData => {
-      console.log('✅ net.json loaded successfully for net-lottie');
-
-      const anim = lottie.loadAnimation({
-        container: container,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData
+  setupServiceCards() {
+    const serviceCards = document.querySelectorAll('.card--service');
+    
+    serviceCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          card.querySelector('a').click();
+        }
       });
-
-      anim.addEventListener('DOMLoaded', () => {
-        console.log('✅ net.json animation rendered successfully for net-lottie!');
+      
+      // Keyboard navigation
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
       });
-    })
-    .catch(error => {
-      console.error('❌ Failed to load net.json for net-lottie:', error);
     });
-})();
+  }
 
-// Slideshow helpers
-let currentSlide=0;
-const slides=document.querySelectorAll('.slide');
-let slideInterval;
+  setupContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
 
-function showSlide(index){
-  if(!slides || slides.length===0) return;
-  slides.forEach((slide,i)=> slide.classList.toggle('active', i===index));
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      // Show loading state
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      try {
+        // Simulate API call (replace with actual API endpoint)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Show success message
+        this.showNotification('Message sent successfully!', 'success');
+        contactForm.reset();
+      } catch (error) {
+        this.showNotification('Error sending message. Please try again.', 'error');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification--${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    // Apple-style animation
+    setTimeout(() => {
+      notification.classList.add('notification--visible');
+    }, 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+      notification.classList.remove('notification--visible');
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
+    }, 3000);
+  }
 }
-function nextSlide(){ if(!slides || slides.length===0) return; currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide);}
-function prevSlide(){ if(!slides || slides.length===0) return; currentSlide=(currentSlide-1+slides.length)%slides.length; showSlide(currentSlide);}
-function startSlideshow(){ if(!slides || slides.length===0) return; slideInterval=setInterval(nextSlide,3500);}
-function stopSlideshow(){ if(slideInterval){ clearInterval(slideInterval); } }
-if(document.querySelectorAll('.slide').length>0) startSlideshow();
-function scrollToServices(){ const s=document.getElementById('services'); if(s) s.scrollIntoView({behavior:'smooth'});}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new SecureTech();
+});
+
+// Add Apple-style utility functions
+const AppleUtils = {
+  // Format phone number
+  formatPhoneNumber(phone) {
+    return phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+  },
+
+  // Debounce function for performance
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  },
+
+  // Throttle function for scroll events
+  throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+};
+
+// Export utilities to window
+window.AppleUtils = AppleUtils;
