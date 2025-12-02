@@ -588,3 +588,28 @@
     padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
+
+/* Electric Fence specific styling */
+.showcase--fence .showcase__badge {
+  background: var(--accent-green); /* Green for security/safety */
+}
+
+/* Optional electric effect animation */
+.showcase--fence .showcase__badge::after {
+  content: "⚡";
+  margin-left: 8px;
+  animation: electricPulse 1.5s infinite;
+}
+
+@keyframes electricPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+/*automatic-gates*/
+
+.showcase:nth-child(even) .showcase__visual {
+  order: 2;  /* Image on RIGHT */
+}
+.showcase:nth-child(even) .showcase__content {
+  order: 1;  /* Content on LEFT */
+}
