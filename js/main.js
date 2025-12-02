@@ -10,6 +10,7 @@ class SecureTech {
     this.setupIntersectionObserver();
     this.setupServiceCards();
     this.setupContactForm();
+    this.setupAppleSlideshow(); // NEW: Apple-style slideshow
   }
 
   setupNavigation() {
@@ -159,6 +160,45 @@ class SecureTech {
       } finally {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // NEW: Apple-style slideshow functionality
+  setupAppleSlideshow() {
+    const slideshowContainers = document.querySelectorAll('.showcase__image-container');
+    
+    slideshowContainers.forEach(container => {
+      const images = container.querySelectorAll('.showcase__image');
+      if (images.length <= 1) return;
+      
+      let currentIndex = 0;
+      
+      // Auto-rotate every 5 seconds
+      setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+      }, 5000);
+      
+      // Manual controls if they exist
+      const prevBtn = container.parentElement.querySelector('.slider-btn--prev');
+      const nextBtn = container.parentElement.querySelector('.slider-btn--next');
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          images[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          images[currentIndex].classList.add('active');
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          images[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % images.length;
+          images[currentIndex].classList.add('active');
+        });
       }
     });
   }
