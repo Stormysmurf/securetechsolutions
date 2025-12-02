@@ -1,13 +1,52 @@
-/* ===== CSS VARIABLES ===== */
+/* ===== APPLE-INSPIRED DESIGN SYSTEM ===== */
 :root {
-  --bg: #000000;
-  --neon-purple: #8b2cff;
-  --neon-pink: #ff2de3;
-  --neon-blue: #00d9ff;
-  --muted: #cfd6db;
-  --card-bg: rgba(20, 20, 20, 0.55);
-  --glass: rgba(255, 255, 255, 0.05);
-  --accent: var(--neon-purple);
-  --max-width: 1400px;
-  --transition: all 0.3s ease;
+  /* Apple-like Color Palette */
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1d1d1f;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #86868b;
+  --text-tertiary: #424245;
+  
+  --accent-blue: #0071e3;
+  --accent-purple: #bf5af2;
+  --accent-pink: #ff2d55;
+  --accent-orange: #ff9500;
+  --accent-green: #30d158;
+  
+  /* Spacing (Apple's 8px grid) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+  
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 17px;
+  --font-size-lg: 21px;
+  --font-size-xl: 28px;
+  --font-size-xxl: 48px;
+  --font-size-hero: 64px;
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 16px 60px rgba(0, 0, 0, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Container Widths */
+  --container-sm: 672px;
+  --container-md: 896px;
+  --container-lg: 1280px;
+  --container-xl: 1440px;
 }
