@@ -224,3 +224,392 @@
     flex-direction: column;
   }
 }
+
+/* ===== APPLE-STYLE ENHANCEMENTS ===== */
+
+/* Apple-style Hero */
+.hero--apple {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 80px; /* Accounts for fixed navbar */
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero__bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.hero__content--apple {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xxxl) var(--spacing-lg);
+}
+
+.hero__title--apple {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--spacing-md);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__subtitle--apple {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.004em;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.8;
+}
+
+.btn--apple {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xxl);
+  font-size: 21px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.btn--apple:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(20px); opacity: 1; }
+}
+
+/* Apple-style Showcase Sections */
+.showcase {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase:nth-child(even) .showcase__visual {
+  order: 2;
+}
+
+.showcase:nth-child(even) .showcase__content {
+  order: 1;
+}
+
+.showcase__visual {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.showcase__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.showcase__image.active {
+  opacity: 1;
+}
+
+.showcase__slider-controls {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  gap: var(--spacing-sm);
+  z-index: 3;
+}
+
+.slider-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.showcase__content {
+  padding: var(--spacing-xxxl);
+  position: relative;
+  z-index: 2;
+}
+
+.showcase__badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--accent-blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.showcase__title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.08349;
+  letter-spacing: -0.003em;
+  margin-bottom: var(--spacing-md);
+}
+
+.showcase__description {
+  font-size: 24px;
+  line-height: 1.33341;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 400px;
+}
+
+.showcase__cta {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--accent-blue);
+  color: var(--accent-blue);
+  padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+.btn--outline:hover {
+  background: rgba(0, 113, 227, 0.1);
+}
+
+/* Apple-style Grid */
+.products-grid {
+  padding: var(--spacing-xxxl) 0;
+  background: var(--bg-secondary);
+}
+
+.grid--apple {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.grid-item {
+  background: var(--bg-tertiary);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-blue);
+}
+
+.grid-item__image {
+  height: 300px;
+  overflow: hidden;
+}
+
+.grid-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.grid-item:hover .grid-item__image img {
+  transform: scale(1.05);
+}
+
+.grid-item__content {
+  padding: var(--spacing-xl);
+}
+
+.grid-item__content h3 {
+  font-size: 24px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.grid-item__content p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsive Adjustments for Apple Styles */
+@media (max-width: 1024px) {
+  .hero__title--apple {
+    font-size: 64px;
+  }
+  
+  .showcase {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .showcase__visual {
+    height: 50vh;
+    order: 2 !important;
+  }
+  
+  .showcase__content {
+    order: 1 !important;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+  }
+  
+  .showcase__title {
+    font-size: 48px;
+  }
+  
+  .grid--apple {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title--apple {
+    font-size: 48px;
+  }
+  
+  .hero__subtitle--apple {
+    font-size: 21px;
+  }
+  
+  .showcase__title {
+    font-size: 36px;
+  }
+  
+  .showcase__description {
+    font-size: 18px;
+  }
+  
+  .showcase__cta {
+    flex-direction: column;
+  }
+  
+  .btn--apple {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title--apple {
+    font-size: 36px;
+  }
+  
+  .showcase__title {
+    font-size: 32px;
+  }
+  
+  .showcase__badge {
+    font-size: 12px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* Electric Fence specific styling */
+.showcase--fence .showcase__badge {
+  background: var(--accent-green); /* Green for security/safety */
+}
+
+/* Optional electric effect animation */
+.showcase--fence .showcase__badge::after {
+  content: "⚡";
+  margin-left: 8px;
+  animation: electricPulse 1.5s infinite;
+}
+
+@keyframes electricPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+/*automatic-gates*/
+
+.showcase:nth-child(even) .showcase__visual {
+  order: 2;  /* Image on RIGHT */
+}
+.showcase:nth-child(even) .showcase__content {
+  order: 1;  /* Content on LEFT */
+}

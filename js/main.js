@@ -10,12 +10,13 @@ class SecureTech {
     this.setupIntersectionObserver();
     this.setupServiceCards();
     this.setupContactForm();
+    this.setupAppleSlideshow(); // NEW: Apple-style slideshow
   }
 
   setupNavigation() {
     const nav = document.getElementById('nav');
     const navToggle = document.getElementById('navToggle');
-    
+
     if (navToggle) {
       navToggle.addEventListener('click', () => {
         nav.classList.toggle('nav--open');
@@ -38,14 +39,14 @@ class SecureTech {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           window.scrollTo({
             top: targetElement.offsetTop - 80,
             behavior: 'smooth'
           });
-          
+
           // Close mobile menu if open
           if (nav.classList.contains('nav--open')) {
             nav.classList.remove('nav--open');
@@ -62,7 +63,7 @@ class SecureTech {
       card.addEventListener('mouseenter', () => {
         card.style.transform = 'translateY(-4px)';
       });
-      
+
       card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0)';
       });
@@ -77,14 +78,14 @@ class SecureTech {
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
         ripple.classList.add('ripple');
-        
+
         this.appendChild(ripple);
-        
+
         setTimeout(() => {
           ripple.remove();
         }, 600);
@@ -115,14 +116,14 @@ class SecureTech {
 
   setupServiceCards() {
     const serviceCards = document.querySelectorAll('.card--service');
-    
+
     serviceCards.forEach(card => {
       card.addEventListener('click', (e) => {
         if (!e.target.closest('a')) {
           card.querySelector('a').click();
         }
       });
-      
+
       // Keyboard navigation
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -139,10 +140,10 @@ class SecureTech {
 
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
+
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
-      
+
       // Show loading state
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
@@ -150,7 +151,7 @@ class SecureTech {
       try {
         // Simulate API call (replace with actual API endpoint)
         await new Promise(resolve => setTimeout(resolve, 1500));
-        
+
         // Show success message
         this.showNotification('Message sent successfully!', 'success');
         contactForm.reset();
@@ -163,18 +164,57 @@ class SecureTech {
     });
   }
 
+  // NEW: Apple-style slideshow functionality
+  setupAppleSlideshow() {
+    const slideshowContainers = document.querySelectorAll('.showcase__image-container');
+
+    slideshowContainers.forEach(container => {
+      const images = container.querySelectorAll('.showcase__image');
+      if (images.length <= 1) return;
+
+      let currentIndex = 0;
+
+      // Auto-rotate every 5 seconds
+      setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+      }, 5000);
+
+      // Manual controls if they exist
+      const prevBtn = container.parentElement.querySelector('.slider-btn--prev');
+      const nextBtn = container.parentElement.querySelector('.slider-btn--next');
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          images[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          images[currentIndex].classList.add('active');
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          images[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % images.length;
+          images[currentIndex].classList.add('active');
+        });
+      }
+    });
+  }
+
   showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification--${type}`;
     notification.textContent = message;
-    
+
     document.body.appendChild(notification);
-    
+
     // Apple-style animation
     setTimeout(() => {
       notification.classList.add('notification--visible');
     }, 10);
-    
+
     // Remove after 3 seconds
     setTimeout(() => {
       notification.classList.remove('notification--visible');
