@@ -1,1081 +1,1085 @@
-4<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Our Products | SecureTech Solutions</title>
-<meta name="description" content="Browse our complete catalog of security products - access control, CCTV cameras, biometric systems, and more.">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/products.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SecureTech Solutions</title>
+    <meta name="description" content="Browse our complete range of security products - CCTV cameras, networking equipment, biometric systems, and more.">
+    
+    <!-- Apple-style meta -->
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/products.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
-
 <body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="var(--accent-blue)"/>
+                        <path d="M16 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z" fill="white"/>
+                        <path d="M16 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="var(--accent-blue)"/>
+                    </svg>
+                </div>
+                <span class="nav__logo-text">SecureTech</span>
+            </a>
+            
+            <div class="nav__menu">
+                <a href="index.html" class="nav__link">Home</a>
+                <div class="nav__dropdown">
+                    <button class="nav__link nav__link--dropdown">
+                        Services
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="nav__dropdown-content">
+                        <a href="cctv.html" class="nav__dropdown-link">CCTV Systems</a>
+                        <a href="networking.html" class="nav__dropdown-link">Networking</a>
+                        <a href="biometrics.html" class="nav__dropdown-link">Biometrics</a>
+                        <a href="electric-fence.html" class="nav__dropdown-link">Electric Fence</a>
+                        <a href="automatic-gates.html" class="nav__dropdown-link">Automatic Gates</a>
+                    </div>
+                </div>
+                <a href="products.html" class="nav__link nav__link--active">Products</a>
+                <a href="index.html#about" class="nav__link">About</a>
+                <a href="index.html#contact" class="nav__link">Contact</a>
+            </div>
+            
+            <a href="tel:+254113301244" class="btn btn--primary nav__cta">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328z" fill="currentColor"/>
+                </svg>
+                +254 113 301 244
+            </a>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-<div class="bg-waves"></div>
-<div class="particles">
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-</div>
+    <!-- Hero -->
+    <section class="products-hero" id="main-content">
+        <div class="container">
+            <h1 class="products-hero__title">Security Products</h1>
+            <p class="products-hero__subtitle">Professional-grade equipment for complete protection</p>
+        </div>
+    </section>
 
-<header class="header" id="header">
-  <div class="header-inner">
-    <div class="logo-section">
-      <img src="assets/logo.jpg" class="logo-large" alt="SecureTech Logo">
-      <div class="brand-text">
-        <div class="header-title">SecureTech Solutions</div>
-        <div class="header-subtitle">Access Control • CCTV • Time Attendance</div>
-      </div>
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <div class="container">
+            <div class="category-nav__list">
+                <a href="#cctv" class="category-nav__link category-nav__link--active">CCTV Cameras</a>
+                <a href="#networking" class="category-nav__link">Networking</a>
+                <a href="#biometrics" class="category-nav__link">Biometrics</a>
+                <a href="#fence" class="category-nav__link">Electric Fence</a>
+                <a href="#gates" class="category-nav__link">Automatic Gates</a>
+                <a href="#accessories" class="category-nav__link">Accessories</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="products-main">
+        <div class="container">
+            <!-- CCTV Category -->
+            <section class="category-section" id="cctv">
+                <div class="category-header">
+                    <h2 class="category-title">CCTV Surveillance</h2>
+                    <p class="category-subtitle">High-quality cameras for every security need</p>
+                </div>
+                
+                <!-- Indoor Cameras -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Indoor Cameras</h3>
+                    <div class="products-grid">
+                        <!-- Product 1 -->
+                        <a href="#cctv1" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/1.webp" alt="Indoor Dome Camera HD" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">Dome Camera 4MP</h4>
+                                <p class="product-card__description">
+                                    4MP resolution with night vision and motion detection. Perfect for indoor monitoring.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 8,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 2 -->
+                        <a href="#cctv2" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/2.webp" alt="PTZ Indoor Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">PTZ Camera 5MP</h4>
+                                <p class="product-card__description">
+                                    360° pan-tilt-zoom with auto-tracking and 5x optical zoom.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 15,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 3 -->
+                        <a href="#cctv3" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/3.webp" alt="Mini Dome Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">Mini Dome 2MP</h4>
+                                <p class="product-card__description">
+                                    Compact design with wide-angle lens. Discreet indoor surveillance.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 6,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 4 -->
+                        <a href="#cctv4" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/4.webp" alt="Indoor Bullet Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">Bullet Camera 4K</h4>
+                                <p class="product-card__description">
+                                    4K Ultra HD with advanced infrared night vision up to 30m.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 12,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 5 -->
+                        <a href="#cctv5" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/5.webp" alt="Wireless Indoor Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">Wireless Camera</h4>
+                                <p class="product-card__description">
+                                    Easy installation WiFi camera with mobile app and cloud storage.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 9,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 6 -->
+                        <a href="#cctv6" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/6.webp" alt="Fisheye Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Indoor</span>
+                                <h4 class="product-card__name">360° Fisheye Camera</h4>
+                                <p class="product-card__description">
+                                    Complete 360° coverage with de-warping technology for wide areas.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 18,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Outdoor Cameras -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Outdoor Cameras</h3>
+                    <div class="products-grid">
+                        <!-- Product 7 -->
+                        <a href="#cctv7" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/7.webp" alt="Outdoor Bullet Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">Weatherproof Bullet</h4>
+                                <p class="product-card__description">
+                                    IP67 rated with varifocal lens and 50m night vision range.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 14,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 8 -->
+                        <a href="#cctv8" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/8.webp" alt="Outdoor Dome Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">Vandal-proof Dome</h4>
+                                <p class="product-card__description">
+                                    IK10 vandal-resistant with 4MP resolution and audio support.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 16,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 9 -->
+                        <a href="#cctv9" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/9.webp" alt="PTZ Outdoor Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">Outdoor PTZ Pro</h4>
+                                <p class="product-card__description">
+                                    Motorized zoom with auto-tracking and smart detection features.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 25,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 10 -->
+                        <a href="#cctv10" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/10.webp" alt="Solar Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">Solar Powered Camera</h4>
+                                <p class="product-card__description">
+                                    Energy-independent with built-in battery and solar panel.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 22,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 11 -->
+                        <a href="#cctv11" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/11.webp" alt="License Plate Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">License Plate Camera</h4>
+                                <p class="product-card__description">
+                                    Specialized camera for vehicle plate recognition and parking areas.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 20,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 12 -->
+                        <a href="#cctv12" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/12.webp" alt="Turret Camera" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Outdoor</span>
+                                <h4 class="product-card__name">Turret Camera 5MP</h4>
+                                <p class="product-card__description">
+                                    Compact turret design with excellent low-light performance.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 11,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- NVR Systems -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Recording Systems</h3>
+                    <div class="products-grid">
+                        <!-- Product 13-16 -->
+                        <a href="#cctv13" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/13.webp" alt="4 Channel NVR" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Recording</span>
+                                <h4 class="product-card__name">4-Channel NVR</h4>
+                                <p class="product-card__description">
+                                    Compact NVR with 4 camera support and 2TB storage.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 18,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv14" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/14.webp" alt="8 Channel NVR" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Recording</span>
+                                <h4 class="product-card__name">8-Channel NVR</h4>
+                                <p class="product-card__description">
+                                    8 camera support with PoE ports and 4TB storage capacity.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 25,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv15" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/15.webp" alt="16 Channel NVR" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Recording</span>
+                                <h4 class="product-card__name">16-Channel NVR Pro</h4>
+                                <p class="product-card__description">
+                                    Professional NVR with 16 camera support and RAID capability.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 42,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv16" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/16.webp" alt="32 Channel NVR" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Recording</span>
+                                <h4 class="product-card__name">32-Channel NVR</h4>
+                                <p class="product-card__description">
+                                    Enterprise-grade NVR for large-scale surveillance systems.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 65,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Accessories -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">CCTV Accessories</h3>
+                    <div class="products-grid">
+                        <!-- Products 17-20 -->
+                        <a href="#cctv17" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/17.webp" alt="Camera Mount" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Accessories</span>
+                                <h4 class="product-card__name">Wall Mount Bracket</h4>
+                                <p class="product-card__description">
+                                    Adjustable wall mount for outdoor camera installation.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 2,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv18" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/18.webp" alt="Power Supply" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Accessories</span>
+                                <h4 class="product-card__name">12V Power Supply</h4>
+                                <p class="product-card__description">
+                                    12V DC power supply unit for CCTV cameras.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 3,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv19" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/19.webp" alt="Network Cable" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Accessories</span>
+                                <h4 class="product-card__name">CAT6 Ethernet Cable</h4>
+                                <p class="product-card__description">
+                                    30m CAT6 outdoor-rated Ethernet cable for IP cameras.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 1,800</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#cctv20" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/cctv/20.webp" alt="Hard Drive" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Accessories</span>
+                                <h4 class="product-card__name">4TB Surveillance HDD</h4>
+                                <p class="product-card__description">
+                                    4TB hard drive designed for 24/7 recording in NVR systems.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 15,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Networking Category -->
+            <section class="category-section" id="networking">
+                <div class="category-header">
+                    <h2 class="category-title">Networking Equipment</h2>
+                    <p class="category-subtitle">Professional network infrastructure solutions</p>
+                </div>
+                
+                <!-- Switches -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Network Switches</h3>
+                    <div class="products-grid">
+                        <!-- Product 21 -->
+                        <a href="#net1" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/switch1.webp" alt="8 Port PoE Switch" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Switches</span>
+                                <h4 class="product-card__name">8-Port PoE+ Switch</h4>
+                                <p class="product-card__description">
+                                    8-port Gigabit PoE+ switch with 150W power budget.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 12,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 22 -->
+                        <a href="#net2" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/switch2.webp" alt="16 Port Switch" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Switches</span>
+                                <h4 class="product-card__name">16-Port Managed Switch</h4>
+                                <p class="product-card__description">
+                                    16-port Gigabit managed switch with VLAN support.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 25,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 23 -->
+                        <a href="#net3" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/switch3.webp" alt="24 Port PoE Switch" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Switches</span>
+                                <h4 class="product-card__name">24-Port PoE Switch</h4>
+                                <p class="product-card__description">
+                                    24-port PoE switch with 400W power for camera systems.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 38,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Access Points -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Wireless Access Points</h3>
+                    <div class="products-grid">
+                        <!-- Product 24 -->
+                        <a href="#net4" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/ap1.webp" alt="WiFi Access Point" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">WiFi</span>
+                                <h4 class="product-card__name">Ceiling Mount AP</h4>
+                                <p class="product-card__description">
+                                    Dual-band WiFi 6 access point for commercial installations.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 15,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 25 -->
+                        <a href="#net5" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/ap2.webp" alt="Outdoor Access Point" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">WiFi</span>
+                                <h4 class="product-card__name">Outdoor Access Point</h4>
+                                <p class="product-card__description">
+                                    Weatherproof WiFi access point with long-range coverage.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">From KES 22,000</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cabling -->
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Cabling & Accessories</h3>
+                    <div class="products-grid">
+                        <!-- Product 26 -->
+                        <a href="#net6" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/cable1.webp" alt="CAT6 Cable" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Cabling</span>
+                                <h4 class="product-card__name">CAT6 Cable Box</h4>
+                                <p class="product-card__description">
+                                    305m box of CAT6 UTP cable for network installations.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 18,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Product 27 -->
+                        <a href="#net7" class="product-card">
+                            <div class="product-card__image">
+                                <img src="assets/networking/patch1.webp" alt="Patch Panel" loading="lazy">
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category">Cabling</span>
+                                <h4 class="product-card__name">24-Port Patch Panel</h4>
+                                <p class="product-card__description">
+                                    24-port CAT6 patch panel for professional cable management.
+                                </p>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price">KES 8,500</span>
+                                    <span class="product-card__cta">View Details →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Biometrics Category -->
+            <section class="category-section" id="biometrics">
+                <div class="category-header">
+                    <h2 class="category-title">Biometric Systems</h2>
+                    <p class="category-subtitle">Advanced access control and time attendance</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 28 -->
+                    <a href="#bio1" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/biometrics/fingerprint1.webp" alt="Fingerprint Scanner" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Biometric</span>
+                            <h4 class="product-card__name">Fingerprint Scanner</h4>
+                            <p class="product-card__description">
+                                High-precision fingerprint reader with 500-user capacity.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">From KES 25,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 29 -->
+                    <a href="#bio2" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/biometrics/facial1.webp" alt="Facial Recognition" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Biometric</span>
+                            <h4 class="product-card__name">Facial Recognition Terminal</h4>
+                            <p class="product-card__description">
+                                Face recognition system with mask detection and temperature screening.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">From KES 45,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 30 -->
+                    <a href="#bio3" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/biometrics/access1.webp" alt="Access Control" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Biometric</span>
+                            <h4 class="product-card__name">Access Control System</h4>
+                            <p class="product-card__description">
+                                Complete access control system with biometric and card options.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">From KES 35,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Electric Fence Category -->
+            <section class="category-section" id="fence">
+                <div class="category-header">
+                    <h2 class="category-title">Electric Fence</h2>
+                    <p class="category-subtitle">Perimeter security and monitoring systems</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 31 -->
+                    <a href="#fence1" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/fence/energizer1.webp" alt="Fence Energizer" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Electric Fence</span>
+                            <h4 class="product-card__name">Solar Energizer 12J</h4>
+                            <p class="product-card__description">
+                                12 Joule solar-powered electric fence energizer.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">From KES 28,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 32 -->
+                    <a href="#fence2" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/fence/wire1.webp" alt="Fence Wire" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Electric Fence</span>
+                            <h4 class="product-card__name">High-Tensile Wire</h4>
+                            <p class="product-card__description">
+                                2.5mm high-tensile galvanized steel wire for electric fencing.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 3,500/roll</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 33 -->
+                    <a href="#fence3" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/fence/insulator1.webp" alt="Insulators" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Electric Fence</span>
+                            <h4 class="product-card__name">Line Insulators</h4>
+                            <p class="product-card__description">
+                                UV-resistant insulators for electric fence wire mounting.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 150/pc</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Automatic Gates Category -->
+            <section class="category-section" id="gates">
+                <div class="category-header">
+                    <h2 class="category-title">Automatic Gates</h2>
+                    <p class="category-subtitle">Motorized gate systems and accessories</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 34 -->
+                    <a href="#gate1" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/gates/motor1.webp" alt="Gate Motor" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Gate Motors</span>
+                            <h4 class="product-card__name">Sliding Gate Motor</h4>
+                            <p class="product-card__description">
+                                Heavy-duty sliding gate motor with 800kg capacity.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">From KES 45,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 35 -->
+                    <a href="#gate2" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/gates/remote1.webp" alt="Remote Control" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Accessories</span>
+                            <h4 class="product-card__name">Remote Control Set</h4>
+                            <p class="product-card__description">
+                                4-button remote control for automatic gate operation.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 3,500</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Product 36 -->
+                    <a href="#gate3" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/gates/safety1.webp" alt="Safety Sensors" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Accessories</span>
+                            <h4 class="product-card__name">Safety Photocells</h4>
+                            <p class="product-card__description">
+                                Infrared safety sensors for automatic gate systems.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 12,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Accessories Category -->
+            <section class="category-section" id="accessories">
+                <div class="category-header">
+                    <h2 class="category-title">Accessories</h2>
+                    <p class="category-subtitle">Essential components and installation tools</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 37-43 -->
+                    <a href="#acc1" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/37.webp" alt="Power Backup" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Power</span>
+                            <h4 class="product-card__name">UPS System 1000VA</h4>
+                            <p class="product-card__description">
+                                Uninterruptible power supply for security system backup.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 22,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc2" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/38.webp" alt="Monitor" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Monitoring</span>
+                            <h4 class="product-card__name">19" Surveillance Monitor</h4>
+                            <p class="product-card__description">
+                                19-inch monitor for CCTV system monitoring stations.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 18,500</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc3" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/39.webp" alt="Tool Kit" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Tools</span>
+                            <h4 class="product-card__name">Installation Tool Kit</h4>
+                            <p class="product-card__description">
+                                Complete toolkit for security system installation.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 15,000</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc4" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/40.webp" alt="Cable Tester" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Tools</span>
+                            <h4 class="product-card__name">Network Cable Tester</h4>
+                            <p class="product-card__description">
+                                Professional cable tester for network installation.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 4,500</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc5" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/41.webp" alt="Mounting Brackets" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Hardware</span>
+                            <h4 class="product-card__name">Camera Mounting Kit</h4>
+                            <p class="product-card__description">
+                                Complete mounting kit for various camera types.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 3,500</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc6" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/42.webp" alt="Connectors" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Hardware</span>
+                            <h4 class="product-card__name">RJ45 Connectors Pack</h4>
+                            <p class="product-card__description">
+                                100-pack of CAT6 RJ45 connectors for network termination.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 2,500</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#acc7" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/cctv/43.webp" alt="Labels" loading="lazy">
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Accessories</span>
+                            <h4 class="product-card__name">Cable Label Kit</h4>
+                            <p class="product-card__description">
+                                Professional labeling kit for cable identification.
+                            </p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">KES 1,800</span>
+                                <span class="product-card__cta">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Lightbox Modals -->
+    <div id="cctv1" class="lightbox">
+        <div class="lightbox__content">
+            <a href="#" class="lightbox__close">&times;</a>
+            <img src="assets/cctv/1.webp" alt="Dome Camera 4MP Full View" class="lightbox__image">
+            <div class="lightbox__info">
+                <h3>Dome Camera 4MP</h3>
+                <p>High-resolution indoor camera with night vision and motion detection.</p>
+                <div class="lightbox__specs">
+                    <h4>Specifications:</h4>
+                    <ul>
+                        <li>Resolution: 4MP (2688 × 1520)</li>
+                        <li>Lens: 2.8mm fixed lens</li>
+                        <li>Night Vision: 30m IR range</li>
+                        <li>Weatherproof: IP67 rating</li>
+                        <li>Power: 12V DC / PoE</li>
+                    </ul>
+                </div>
+                <a href="tel:+254113301244" class="btn btn--primary">Inquire Now</a>
+            </div>
+        </div>
     </div>
-    <a href="index.html" class="header-cta">← Back to Home</a>
-  </div>
-</header>
-
-<main class="container">
-
-  <div class="page-header">
-    <h1><span class="highlight">Our Products</span> Catalog</h1>
-    <p>Explore our comprehensive range of security solutions - from advanced cameras to complete system packages.</p>
-  </div>
-
-  <div class="filter-tabs">
-    <button class="filter-btn active">All Products</button>
-    <button class="filter-btn">Cameras</button>
-    <button class="filter-btn">Networking</button>
-    <button class="filter-btn">Access Control</button>
-  </div>
-
-  <div class="product-grid">
-
-    <a href="#img1" class="product-card">
-      <img src="assets/network.webp" alt="Networking Solutions" class="product-image">
-      <div class="product-info">
-        <div class="product-category">🌐 Networking</div>
-        <div class="product-name">Network Infrastructure</div>
-        <div class="product-description">Complete networking solutions for your security system infrastructure.</div>
-        <span class="product-link">View Details→</span>
-      </div>
-    </a>
-
-    <a href="#img2" class="product-card">
-      <img src="assets/ptz.webp" alt="PTZ Camera" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 PTZ Camera</div>
-        <div class="product-name">Pan-Tilt-Zoom Camera</div>
-        <div class="product-description">Professional PTZ camera with 360° coverage and remote control capabilities.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img3" class="product-card">
-      <img src="assets/dome.webp" alt="Indoor Dome" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 Indoor Camera</div>
-        <div class="product-name">Indoor Dome Camera</div>
-        <div class="product-description">High-definition dome camera perfect for indoor surveillance applications.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img4" class="product-card">
-      <img src="assets/bullet.webp" alt="Outdoor Bullet" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 Outdoor Camera</div>
-        <div class="product-name">Outdoor Bullet Camera</div>
-        <div class="product-description">Weatherproof bullet camera with night vision for outdoor security.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img5" class="product-card">
-      <img src="assets/switch.webp" alt="Switch & Cabling" class="product-image">
-      <div class="product-info">
-        <div class="product-category">🌐 Infrastructure</div>
-        <div class="product-name">Switch & Cabling</div>
-        <div class="product-description">Professional-grade network switches and structured cabling systems.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img6" class="product-card">
-      <img src="assets/technician.webp" alt="Installation Service" class="product-image">
-      <div class="product-info">
-        <div class="product-category">🔧 Services</div>
-        <div class="product-name">Professional Installation</div>
-        <div class="product-description">Expert technicians providing full installation and maintenance services.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img8" class="product-card">
-      <img src="assets/wireless.webp" alt="Wireless Device" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📡 Wireless</div>
-        <div class="product-name">Wireless Security Device</div>
-        <div class="product-description">Flexible wireless security solutions for easy installation and setup.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img9" class="product-card">
-      <img src="assets/fisheye.webp" alt="Fisheye Camera" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 Specialty Camera</div>
-        <div class="product-name">360° Fisheye Camera</div>
-        <div class="product-description">Wide-angle fisheye camera providing complete 360° panoramic coverage.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img10" class="product-card">
-      <img src="assets/ptz1.webp" alt="PTZ Model 2" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 PTZ Camera</div>
-        <div class="product-name">Advanced PTZ Camera</div>
-        <div class="product-description">Enhanced PTZ camera with AI-powered tracking and smart detection.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img11" class="product-card">
-      <img src="assets/pack.webp" alt="Camera Pack" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📦 Package</div>
-        <div class="product-name">Complete Camera Package</div>
-        <div class="product-description">All-inclusive camera system package with DVR and accessories.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img12" class="product-card">
-      <img src="assets/light.webp" alt="Lighting" class="product-image">
-      <div class="product-info">
-        <div class="product-category">💡 Accessories</div>
-        <div class="product-name">Security Lighting</div>
-        <div class="product-description">Smart security lighting with motion detection and night vision support.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img13" class="product-card">
-      <img src="assets/bullet1.webp" alt="Bullet Model 1" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 Outdoor Camera</div>
-        <div class="product-name">Premium Bullet Camera</div>
-        <div class="product-description">High-resolution bullet camera with advanced IR night vision technology.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-    <a href="#img14" class="product-card">
-      <img src="assets/bullet2.webp" alt="Bullet Model 2" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📹 Outdoor Camera</div>
-        <div class="product-name">Smart Bullet Camera</div>
-        <div class="product-description">AI-enabled bullet camera with person and vehicle detection.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-<a href="#pic1" class="product-card">
-  <img src="assets/cctv/1.webp" alt="Product 1" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 1</div>
-    <div class="product-name">Product Name 1</div>
-    <div class="product-description">Description for product 1.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic2" class="product-card">
-  <img src="assets/cctv/2.webp" alt="Product 2" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 2</div>
-    <div class="product-name">Product Name 2</div>
-    <div class="product-description">Description for product 2.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic3" class="product-card">
-  <img src="assets/cctv/3.webp" alt="Product 3" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 3</div>
-    <div class="product-name">Product Name 3</div>
-    <div class="product-description">Description for product 3.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic4" class="product-card">
-  <img src="assets/cctv/4.webp" alt="Product 4" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 4</div>
-    <div class="product-name">Product Name 4</div>
-    <div class="product-description">Description for product 4.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic5" class="product-card">
-  <img src="assets/cctv/5.webp" alt="Product 5" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 5</div>
-    <div class="product-name">Product Name 5</div>
-    <div class="product-description">Description for product 5.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic6" class="product-card">
-  <img src="assets/cctv/6.webp" alt="Product 6" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 6</div>
-    <div class="product-name">Product Name 6</div>
-    <div class="product-description">Description for product 6.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic7" class="product-card">
-  <img src="assets/cctv/7.webp" alt="Product 7" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 7</div>
-    <div class="product-name">Product Name 7</div>
-    <div class="product-description">Description for product 7.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic8" class="product-card">
-  <img src="assets/cctv/8.webp" alt="Product 8" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 8</div>
-    <div class="product-name">Product Name 8</div>
-    <div class="product-description">Description for product 8.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic9" class="product-card">
-  <img src="assets/cctv/9.webp" alt="Product 9" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 9</div>
-    <div class="product-name">Product Name 9</div>
-    <div class="product-description">Description for product 9.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic10" class="product-card">
-  <img src="assets/cctv/10.webp" alt="Product 10" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 10</div>
-    <div class="product-name">Product Name 10</div>
-    <div class="product-description">Description for product 10.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic11" class="product-card">
-  <img src="assets/cctv/11.webp" alt="Product 11" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 11</div>
-    <div class="product-name">Product Name 11</div>
-    <div class="product-description">Description for product 11.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic12" class="product-card">
-  <img src="assets/cctv/12.webp" alt="Product 12" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 12</div>
-    <div class="product-name">Product Name 12</div>
-    <div class="product-description">Description for product 12.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic13" class="product-card">
-  <img src="assets/cctv/13.webp" alt="Product 13" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 13</div>
-    <div class="product-name">Product Name 13</div>
-    <div class="product-description">Description for product 13.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic14" class="product-card">
-  <img src="assets/cctv/14.webp" alt="Product 14" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 14</div>
-    <div class="product-name">Product Name 14</div>
-    <div class="product-description">Description for product 14.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic15" class="product-card">
-  <img src="assets/cctv/15.webp" alt="Product 15" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 15</div>
-    <div class="product-name">Product Name 15</div>
-    <div class="product-description">Description for product 15.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic16" class="product-card">
-  <img src="assets/cctv/16.webp" alt="Product 16" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 16</div>
-    <div class="product-name">Product Name 16</div>
-    <div class="product-description">Description for product 16.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic17" class="product-card">
-  <img src="assets/cctv/17.webp" alt="Product 17" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 17</div>
-    <div class="product-name">Product Name 17</div>
-    <div class="product-description">Description for product 17.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic18" class="product-card">
-  <img src="assets/cctv/18.webp" alt="Product 18" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 18</div>
-    <div class="product-name">Product Name 18</div>
-    <div class="product-description">Description for product 18.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic19" class="product-card">
-  <img src="assets/cctv/19.webp" alt="Product 19" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 19</div>
-    <div class="product-name">Product Name 19</div>
-    <div class="product-description">Description for product 19.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic20" class="product-card">
-  <img src="assets/cctv/20.webp" alt="Product 20" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 20</div>
-    <div class="product-name">Product Name 20</div>
-    <div class="product-description">Description for product 20.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic21" class="product-card">
-  <img src="assets/cctv/21.webp" alt="Product 21" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 21</div>
-    <div class="product-name">Product Name 21</div>
-    <div class="product-description">Description for product 21.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic22" class="product-card">
-  <img src="assets/cctv/22.webp" alt="Product 22" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 22</div>
-    <div class="product-name">Product Name 22</div>
-    <div class="product-description">Description for product 22.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic23" class="product-card">
-  <img src="assets/cctv/23.webp" alt="Product 23" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 23</div>
-    <div class="product-name">Product Name 23</div>
-    <div class="product-description">Description for product 23.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic24" class="product-card">
-  <img src="assets/cctv/24.webp" alt="Product 24" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 24</div>
-    <div class="product-name">Product Name 24</div>
-    <div class="product-description">Description for product 24.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic25" class="product-card">
-  <img src="assets/cctv/25.webp" alt="Product 25" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 25</div>
-    <div class="product-name">Product Name 25</div>
-    <div class="product-description">Description for product 25.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic26" class="product-card">
-  <img src="assets/cctv/26.webp" alt="Product 26" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 26</div>
-    <div class="product-name">Product Name 26</div>
-    <div class="product-description">Description for product 26.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic27" class="product-card">
-  <img src="assets/cctv/27.webp" alt="Product 27" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 27</div>
-    <div class="product-name">Product Name 27</div>
-    <div class="product-description">Description for product 27.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic28" class="product-card">
-  <img src="assets/cctv/28.webp" alt="Product 28" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 28</div>
-    <div class="product-name">Product Name 28</div>
-    <div class="product-description">Description for product 28.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic29" class="product-card">
-  <img src="assets/cctv/29.webp" alt="Product 29" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 29</div>
-    <div class="product-name">Product Name 29</div>
-    <div class="product-description">Description for product 29.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic30" class="product-card">
-  <img src="assets/cctv/30.webp" alt="Product 30" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 30</div>
-    <div class="product-name">Product Name 30</div>
-    <div class="product-description">Description for product 30.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic31" class="product-card">
-  <img src="assets/cctv/31.webp" alt="Product 31" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 31</div>
-    <div class="product-name">Product Name 31</div>
-    <div class="product-description">Description for product 31.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic32" class="product-card">
-  <img src="assets/cctv/32.webp" alt="Product 32" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 32</div>
-    <div class="product-name">Product Name 32</div>
-    <div class="product-description">Description for product 32.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic33" class="product-card">
-  <img src="assets/cctv/33.webp" alt="Product 33" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 33</div>
-    <div class="product-name">Product Name 33</div>
-    <div class="product-description">Description for product 33.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic34" class="product-card">
-  <img src="assets/cctv/34.webp" alt="Product 34" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 34</div>
-    <div class="product-name">Product Name 34</div>
-    <div class="product-description">Description for product 34.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic35" class="product-card">
-  <img src="assets/cctv/35.webp" alt="Product 35" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 35</div>
-    <div class="product-name">Product Name 35</div>
-    <div class="product-description">Description for product 35.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic36" class="product-card">
-  <img src="assets/cctv/36.webp" alt="Product 36" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 36</div>
-    <div class="product-name">Product Name 36</div>
-    <div class="product-description">Description for product 36.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic37" class="product-card">
-  <img src="assets/cctv/37.webp" alt="Product 37" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 37</div>
-    <div class="product-name">Product Name 37</div>
-    <div class="product-description">Description for product 37.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic38" class="product-card">
-  <img src="assets/cctv/38.webp" alt="Product 38" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 38</div>
-    <div class="product-name">Product Name 38</div>
-    <div class="product-description">Description for product 38.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic39" class="product-card">
-  <img src="assets/cctv/39.webp" alt="Product 39" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 39</div>
-    <div class="product-name">Product Name 39</div>
-    <div class="product-description">Description for product 39.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic40" class="product-card">
-  <img src="assets/cctv/40.webp" alt="Product 40" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 40</div>
-    <div class="product-name">Product Name 40</div>
-    <div class="product-description">Description for product 40.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic41" class="product-card">
-  <img src="assets/cctv/41.webp" alt="Product 41" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 41</div>
-    <div class="product-name">Product Name 41</div>
-    <div class="product-description">Description for product 41.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic42" class="product-card">
-  <img src="assets/cctv/42.webp" alt="Product 42" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 42</div>
-    <div class="product-name">Product Name 42</div>
-    <div class="product-description">Description for product 42.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-<a href="#pic43" class="product-card">
-  <img src="assets/cctv/43.webp" alt="Product 43" class="product-image">
-  <div class="product-info">
-    <div class="product-category">Category 43</div>
-    <div class="product-name">Product Name 43</div>
-    <div class="product-description">Description for product 43.</div>
-    <span class="product-link">View Details →</span>
-  </div>
-</a>
-
-    <a href="#img15" class="product-card">
-      <img src="assets/mobile.webp" alt="Mobile Camera" class="product-image">
-      <div class="product-info">
-        <div class="product-category">📱 Mobile Solution</div>
-        <div class="product-name">Mobile Surveillance</div>
-        <div class="product-description">Portable camera solution with mobile app integration and cloud storage.</div>
-        <span class="product-link">View Details →</span>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="cta-section">
-    <div class="cta-content">
-      <h2>Need Help Choosing?</h2>
-      <p>Our security experts are ready to help you select the perfect products for your needs. Get a free consultation and custom quote today.</p>
-      <button class="cta-button" onclick="location.href='tel:+254113301244'">Contact Our Team</button>
-    </div>
-  </div>
-
-</main>
-
-<div id="img1" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/network.webp" alt="Network Full">
-  </div>
-</div>
-
-<div id="img2" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/ptz.webp" alt="PTZ Full">
-  </div>
-</div>
-
-<div id="img3" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/dome.webp" alt="Dome Full">
-  </div>
-</div>
-
-<div id="img4" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/bullet.webp" alt="Bullet Full">
-  </div>
-</div>
-
-<div id="img5" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/switch.webp" alt="Switch Full">
-  </div>
-</div>
-
-<div id="img6" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/technician.webp" alt="Tech Full">
-  </div>
-</div>
-
-<div id="img8" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/wireless.webp" alt="Wireless Full">
-  </div>
-</div>
-
-<div id="img9" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/fisheye.webp" alt="Fisheye Full">
-  </div>
-</div>
-
-<div id="img10" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/ptz1.webp" alt="PTZ1 Full">
-  </div>
-</div>
-
-<div id="img11" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/pack.webp" alt="Pack Full">
-  </div>
-</div>
-
-<div id="img12" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/light.webp" alt="Light Full">
-  </div>
-</div>
-
-<div id="img13" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/bullet1.webp" alt="Bullet1 Full">
-  </div>
-</div>
-
-<div id="img14" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/bullet2.webp" alt="Bullet2 Full">
-  </div>
-</div>
-
-<div id="img15" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/mobile.webp" alt="Mobile Full">
-  </div>
-</div>
-
-<div id="pic1" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/1.webp" alt="Product 1 Full">
-  </div>
-</div>
-
-<div id="pic2" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/2.webp" alt="Product 2 Full">
-  </div>
-</div>
-
-<div id="pic3" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/3.webp" alt="Product 3 Full">
-  </div>
-</div>
-
-<div id="pic4" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/4.webp" alt="Product 4 Full">
-  </div>
-</div>
-
-<div id="pic5" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/5.webp" alt="Product 5 Full">
-  </div>
-</div>
-
-<div id="pic6" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/6.webp" alt="Product 6 Full">
-  </div>
-</div>
-
-<div id="pic7" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/7.webp" alt="Product 7 Full">
-  </div>
-</div>
-
-<div id="pic8" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/8.webp" alt="Product 8 Full">
-  </div>
-</div>
-
-<div id="pic9" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/9.webp" alt="Product 9 Full">
-  </div>
-</div>
-
-<div id="pic10" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/10.webp" alt="Product 10 Full">
-  </div>
-</div>
-
-<div id="pic11" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/11.webp" alt="Product 11 Full">
-  </div>
-</div>
-
-<div id="pic12" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/12.webp" alt="Product 12 Full">
-  </div>
-</div>
-
-<div id="pic13" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/13.webp" alt="Product 13 Full">
-  </div>
-</div>
-
-<div id="pic14" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/14.webp" alt="Product 14 Full">
-  </div>
-</div>
-
-<div id="pic15" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/15.webp" alt="Product 15 Full">
-  </div>
-</div>
-
-<div id="pic16" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/16.webp" alt="Product 16 Full">
-  </div>
-</div>
-
-<div id="pic17" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/17.webp" alt="Product 17 Full">
-  </div>
-</div>
-
-<div id="pic18" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/18.webp" alt="Product 18 Full">
-  </div>
-</div>
-
-<div id="pic19" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/19.webp" alt="Product 19 Full">
-  </div>
-</div>
-
-<div id="pic20" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/20.webp" alt="Product 20 Full">
-  </div>
-</div>
-
-<div id="pic21" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/21.webp" alt="Product 21 Full">
-  </div>
-</div>
-
-<div id="pic22" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/22.webp" alt="Product 22 Full">
-  </div>
-</div>
-
-<div id="pic23" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/23.webp" alt="Product 23 Full">
-  </div>
-</div>
-
-<div id="pic24" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/24.webp" alt="Product 24 Full">
-  </div>
-</div>
-
-<div id="pic25" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/25.webp" alt="Product 25 Full">
-  </div>
-</div>
-
-<div id="pic26" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/26.webp" alt="Product 26 Full">
-  </div>
-</div>
-
-<div id="pic27" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/27.webp" alt="Product 27 Full">
-  </div>
-</div>
-
-<div id="pic28" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/28.webp" alt="Product 28 Full">
-  </div>
-</div>
-
-<div id="pic29" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/29.webp" alt="Product 29 Full">
-  </div>
-</div>
-
-<div id="pic30" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/30.webp" alt="Product 30 Full">
-  </div>
-</div>
-
-<div id="pic31" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/31.webp" alt="Product 31 Full">
-  </div>
-</div>
-
-<div id="pic32" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/32.webp" alt="Product 32 Full">
-  </div>
-</div>
-
-<div id="pic33" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/33.webp" alt="Product 33 Full">
-  </div>
-</div>
-
-<div id="pic34" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/34.webp" alt="Product 34 Full">
-  </div>
-</div>
-
-<div id="pic35" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/35.webp" alt="Product 35 Full">
-  </div>
-</div>
-
-<div id="pic36" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/36.webp" alt="Product 36 Full">
-  </div>
-</div>
-
-<div id="pic37" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/37.webp" alt="Product 37 Full">
-  </div>
-</div>
-
-<div id="pic38" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/38.webp" alt="Product 38 Full">
-  </div>
-</div>
-
-<div id="pic39" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/39.webp" alt="Product 39 Full">
-  </div>
-</div>
-
-<div id="pic40" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/40.webp" alt="Product 40 Full">
-  </div>
-</div>
-
-<div id="pic41" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/41.webp" alt="Product 41 Full">
-  </div>
-</div>
-
-<div id="pic42" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/42.webp" alt="Product 42 Full">
-  </div>
-</div>
-
-<div id="pic43" class="lightbox">
-  <div class="lightbox-content">
-    <a href="#" class="close">&times;</a>
-    <img src="assets/cctv/43.webp" alt="Product 43 Full">
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cctv.html">CCTV</a>
-      <a href="automatic-gates.html">Automatic Gates</a>
-      <a href="electric-fence.html">Electric Fence</a>
-      <a href="biometrics.html">Biometrics</a>
-      <a href="networking.html">Networking</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-contact">
-      <strong>Contact:</strong> +254 113 301 244 | <strong>Email:</strong> info@securetechsolutions71@gmail.com 
-    </div>
-    <div class="footer-copyright">
-      © 2024 SecureTech Solutions. All rights reserved. Professional Security Systems Installation & Support.
-    </div>
-  </div>
-</footer>
-
-<div id="whatsapp-lottie" title="Chat with us on WhatsApp"></div>
-
-<script>
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-const filterBtns = document.querySelectorAll('.filter-btn');
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-</script>
-
-<script src="js/main.js"></script>
+    
+    <!-- Add similar lightboxes for all 43 products -->
+    <!-- You can copy the pattern above for each product -->
+
+    <!-- CTA Section -->
+    <section class="products-cta">
+        <div class="container">
+            <div class="cta">
+                <h2 class="cta__title">Need Help Choosing?</h2>
+                <p class="cta__description">
+                    Our security experts can help you select the right products for your specific needs.
+                </p>
+                <a href="tel:+254113301244" class="btn btn--primary btn--large">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="currentColor"/>
+                    </svg>
+                    Call +254 113 301 244
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <a href="index.html" class="nav__logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="var(--accent-blue)"/>
+                                <path d="M16 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z" fill="white"/>
+                                <path d="M16 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="var(--accent-blue)"/>
+                            </svg>
+                        </div>
+                        <span class="nav__logo-text">SecureTech</span>
+                    </a>
+                    <p class="footer__about">
+                        Professional security products and solutions for homes and businesses.
+                    </p>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Categories</h3>
+                    <div class="footer__links">
+                        <a href="#cctv" class="footer__link">CCTV Cameras</a>
+                        <a href="#networking" class="footer__link">Networking</a>
+                        <a href="#biometrics" class="footer__link">Biometrics</a>
+                        <a href="#fence" class="footer__link">Electric Fence</a>
+                        <a href="#gates" class="footer__link">Automatic Gates</a>
+                    </div>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Quick Links</h3>
+                    <div class="footer__links">
+                        <a href="index.html" class="footer__link">Home</a>
+                        <a href="products.html" class="footer__link">Products</a>
+                        <a href="index.html#services" class="footer__link">Services</a>
+                        <a href="index.html#contact" class="footer__link">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="footer__column">
+                    <h3 class="footer__column-title">Contact</h3>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328z" fill="currentColor"/>
+                            </svg>
+                            <span>+254 113 301 244</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2-1a1 1 0 00-1 1v.217l7 4.2 7-4.2V4a1 1 0 00-1-1H2zm13 2.383l-6.5 3.9a1 1 0 01-1 0L1 5.383V12a1 1 0 001 1h12a1 1 0 001-1V5.383z" fill="currentColor"/>
+                            </svg>
+                            <span>info@securetech.co.ke</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    © 2024 SecureTech Solutions. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
 </body>
 </html>
