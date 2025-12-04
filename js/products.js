@@ -1,53 +1,147 @@
 // Products Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Category navigation smooth scroll
-    const categoryLinks = document.querySelectorAll('.category-nav__link');
+    // Category filtering system
+    const filterButtons = document.querySelectorAll('.filter-btn');
     const categorySections = document.querySelectorAll('.category-section');
+    const productCards = document.querySelectorAll('.product-card');
+    const categoryLinks = document.querySelectorAll('.category-nav__link');
 
+    // Initialize all categories as visible
+    let currentCategory = 'all';
+    
+    // Filter products function
+    function filterProducts(category) {
+        currentCategory = category;
+        
+        // Update active filter button
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Show/hide category sections
+        categorySections.forEach(section => {
+            const sectionCategory = section.dataset.category;
+            
+            if (category === 'all' || sectionCategory === category) {
+                // Show section with animation
+                section.style.display = 'block';
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 50);
+                
+                // Also show all product cards in this section
+                const cardsInSection = section.querySelectorAll('.product-card');
+                cardsInSection.forEach(card => {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+            } else {
+                // Hide section with animation
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    section.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Update URL hash for bookmarking
+        if (category !== 'all') {
+            window.location.hash = category;
+        } else {
+            history.replaceState(null, null, ' ');
+        }
+        
+        // Update category nav active state
+        updateCategoryNav(category);
+    }
+    
+    // Update category navigation based on active filter
+    function updateCategoryNav(category) {
+        categoryLinks.forEach(link => {
+            link.classList.remove('category-nav__link--active');
+            const linkCategory = link.getAttribute('href').replace('#', '');
+            if (linkCategory === category) {
+                link.classList.add('category-nav__link--active');
+            } else if (category === 'all' && linkCategory === 'cctv') {
+                // Default to CCTV when showing all
+                link.classList.add('category-nav__link--active');
+            }
+        });
+    }
+    
+    // Add click event to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            filterProducts(category);
+            
+            // Scroll to top of products
+            window.scrollTo({
+                top: document.querySelector('.products-main').offsetTop - 140,
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Category navigation smooth scroll
     categoryLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
+            const targetCategory = this.getAttribute('href').replace('#', '');
+            
+            // Set the filter to this category
+            filterProducts(targetCategory);
+            
+            // Find and scroll to the category section
+            const targetSection = document.querySelector(`[data-category="${targetCategory}"]`);
             if (targetSection) {
-                // Update active link
-                categoryLinks.forEach(l => l.classList.remove('category-nav__link--active'));
-                this.classList.add('category-nav__link--active');
-
-                // Scroll to section
                 window.scrollTo({
-                    top: targetSection.offsetTop - 120,
+                    top: targetSection.offsetTop - 140,
                     behavior: 'smooth'
                 });
             }
         });
     });
-
-    // Intersection Observer for active category highlighting
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                categoryLinks.forEach(link => {
-                    link.classList.remove('category-nav__link--active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('category-nav__link--active');
-                    }
-                });
-            }
-        });
-    }, {
-        threshold: 0.3,
-        rootMargin: '-100px 0px -100px 0px'
-    });
-
-    categorySections.forEach(section => observer.observe(section));
-
+    
+    // Check URL hash on page load
+    function checkInitialCategory() {
+        const hash = window.location.hash.replace('#', '');
+        const validCategories = ['cctv', 'networking', 'biometrics', 'fence', 'gates', 'accessories'];
+        
+        if (validCategories.includes(hash)) {
+            filterProducts(hash);
+            
+            // Scroll to category after a brief delay
+            setTimeout(() => {
+                const targetSection = document.querySelector(`[data-category="${hash}"]`);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 140,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        } else {
+            // Default to all products
+            filterProducts('all');
+        }
+    }
+    
+    // Initialize with URL hash or default
+    checkInitialCategory();
+    
     // Lightbox functionality
     const lightboxes = document.querySelectorAll('.lightbox');
     const closeButtons = document.querySelectorAll('.lightbox__close');
-
+    
     // Close lightbox when clicking close button
     closeButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -59,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    
     // Close lightbox when clicking outside content
     lightboxes.forEach(lightbox => {
         lightbox.addEventListener('click', function(e) {
@@ -69,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    
     // Close lightbox with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
@@ -81,34 +175,52 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
+    
     // Product card hover effects
-    const productCards = document.querySelectorAll('.product-card');
-
     productCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-4px)';
         });
-
+        
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
     });
-
-    // Add to cart functionality (placeholder)
-    const addToCartButtons = document.querySelectorAll('.btn--add-to-cart');
-
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const productName = this.closest('.lightbox__info').querySelector('h3').textContent;
-
-            // Show notification
-            showNotification(`Added ${productName} to cart`, 'success');
+    
+    // Intersection Observer for active category highlighting (for scrolling)
+    const observer = new IntersectionObserver((entries) => {
+        // Only update if we're in "all" mode
+        if (currentCategory !== 'all') return;
+        
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionCategory = entry.target.dataset.category;
+                updateCategoryNav(sectionCategory);
+            }
         });
+    }, {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -100px 0px'
     });
-
-    // Notification function
+    
+    // Only observe when showing all categories
+    if (currentCategory === 'all') {
+        categorySections.forEach(section => observer.observe(section));
+    }
+    
+    // Add smooth transitions for product cards
+    productCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100 + (index % 6) * 50);
+    });
+    
+    // Notification function for future use (like adding to cart)
     function showNotification(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification notification--${type}`;
@@ -124,15 +236,15 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: 1000;
             animation: slideIn 0.3s ease;
         `;
-
+        
         document.body.appendChild(notification);
-
+        
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease';
             setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
-
+    
     // Add CSS for notifications
     const style = document.createElement('style');
     style.textContent = `
