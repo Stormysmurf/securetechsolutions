@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | SecureTech Solutions</title>
     <meta name="description" content="Browse our complete range of security products - CCTV cameras, networking equipment, biometric systems, and more.">
-    
+
     <!-- Apple-style meta -->
     <meta name="theme-color" content="#ffffff">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/products.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
     <!-- Skip to main content -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="container nav__container">
@@ -41,7 +41,7 @@
                 </div>
                 <span class="nav__logo-text">SecureTech</span>
             </a>
-            
+
             <div class="nav__menu">
                 <a href="index.html" class="nav__link">Home</a>
                 <div class="nav__dropdown">
@@ -63,14 +63,14 @@
                 <a href="index.html#about" class="nav__link">About</a>
                 <a href="index.html#contact" class="nav__link">Contact</a>
             </div>
-            
+
             <a href="tel:+254113301244" class="btn btn--primary nav__cta">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328z" fill="currentColor"/>
                 </svg>
                 +254 113 301 244
             </a>
-            
+
             <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -101,22 +101,37 @@
         </div>
     </nav>
 
+    <!-- Category Filters -->
+    <div class="category-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="cctv">CCTV Cameras</button>
+                <button class="filter-btn" data-category="networking">Networking</button>
+                <button class="filter-btn" data-category="biometrics">Biometrics</button>
+                <button class="filter-btn" data-category="fence">Electric Fence</button>
+                <button class="filter-btn" data-category="gates">Automatic Gates</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="products-main">
         <div class="container">
             <!-- CCTV Category -->
-            <section class="category-section" id="cctv">
+            <section class="category-section" id="cctv" data-category="cctv">
                 <div class="category-header">
                     <h2 class="category-title">CCTV Surveillance</h2>
                     <p class="category-subtitle">High-quality cameras for every security need</p>
                 </div>
-                
+
                 <!-- Indoor Cameras -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Indoor Cameras</h3>
                     <div class="products-grid">
                         <!-- Product 1 -->
-                        <a href="#cctv1" class="product-card">
+                        <a href="#cctv1" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/1.webp" alt="Indoor Dome Camera HD" loading="lazy">
                             </div>
@@ -132,9 +147,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 2 -->
-                        <a href="#cctv2" class="product-card">
+                        <a href="#cctv2" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/2.webp" alt="PTZ Indoor Camera" loading="lazy">
                             </div>
@@ -150,9 +165,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 3 -->
-                        <a href="#cctv3" class="product-card">
+                        <a href="#cctv3" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/3.webp" alt="Mini Dome Camera" loading="lazy">
                             </div>
@@ -168,9 +183,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 4 -->
-                        <a href="#cctv4" class="product-card">
+                        <a href="#cctv4" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/4.webp" alt="Indoor Bullet Camera" loading="lazy">
                             </div>
@@ -186,9 +201,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 5 -->
-                        <a href="#cctv5" class="product-card">
+                        <a href="#cctv5" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/5.webp" alt="Wireless Indoor Camera" loading="lazy">
                             </div>
@@ -204,9 +219,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 6 -->
-                        <a href="#cctv6" class="product-card">
+                        <a href="#cctv6" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/6.webp" alt="Fisheye Camera" loading="lazy">
                             </div>
@@ -224,13 +239,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Outdoor Cameras -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Outdoor Cameras</h3>
                     <div class="products-grid">
                         <!-- Product 7 -->
-                        <a href="#cctv7" class="product-card">
+                        <a href="#cctv7" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/7.webp" alt="Outdoor Bullet Camera" loading="lazy">
                             </div>
@@ -246,9 +261,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 8 -->
-                        <a href="#cctv8" class="product-card">
+                        <a href="#cctv8" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/8.webp" alt="Outdoor Dome Camera" loading="lazy">
                             </div>
@@ -264,9 +279,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 9 -->
-                        <a href="#cctv9" class="product-card">
+                        <a href="#cctv9" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/9.webp" alt="PTZ Outdoor Camera" loading="lazy">
                             </div>
@@ -282,9 +297,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 10 -->
-                        <a href="#cctv10" class="product-card">
+                        <a href="#cctv10" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/10.webp" alt="Solar Camera" loading="lazy">
                             </div>
@@ -300,9 +315,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 11 -->
-                        <a href="#cctv11" class="product-card">
+                        <a href="#cctv11" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/11.webp" alt="License Plate Camera" loading="lazy">
                             </div>
@@ -318,9 +333,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 12 -->
-                        <a href="#cctv12" class="product-card">
+                        <a href="#cctv12" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/12.webp" alt="Turret Camera" loading="lazy">
                             </div>
@@ -338,13 +353,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- NVR Systems -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Recording Systems</h3>
                     <div class="products-grid">
                         <!-- Product 13-16 -->
-                        <a href="#cctv13" class="product-card">
+                        <a href="#cctv13" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/13.webp" alt="4 Channel NVR" loading="lazy">
                             </div>
@@ -360,8 +375,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv14" class="product-card">
+
+                        <a href="#cctv14" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/14.webp" alt="8 Channel NVR" loading="lazy">
                             </div>
@@ -377,8 +392,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv15" class="product-card">
+
+                        <a href="#cctv15" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/15.webp" alt="16 Channel NVR" loading="lazy">
                             </div>
@@ -394,8 +409,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv16" class="product-card">
+
+                        <a href="#cctv16" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/16.webp" alt="32 Channel NVR" loading="lazy">
                             </div>
@@ -413,13 +428,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Accessories -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">CCTV Accessories</h3>
                     <div class="products-grid">
                         <!-- Products 17-20 -->
-                        <a href="#cctv17" class="product-card">
+                        <a href="#cctv17" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/17.webp" alt="Camera Mount" loading="lazy">
                             </div>
@@ -435,8 +450,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv18" class="product-card">
+
+                        <a href="#cctv18" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/18.webp" alt="Power Supply" loading="lazy">
                             </div>
@@ -452,8 +467,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv19" class="product-card">
+
+                        <a href="#cctv19" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/19.webp" alt="Network Cable" loading="lazy">
                             </div>
@@ -469,8 +484,8 @@
                                 </div>
                             </div>
                         </a>
-                        
-                        <a href="#cctv20" class="product-card">
+
+                        <a href="#cctv20" class="product-card" data-category="cctv">
                             <div class="product-card__image">
                                 <img src="assets/cctv/20.webp" alt="Hard Drive" loading="lazy">
                             </div>
@@ -489,20 +504,20 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Networking Category -->
-            <section class="category-section" id="networking">
+            <section class="category-section" id="networking" data-category="networking">
                 <div class="category-header">
                     <h2 class="category-title">Networking Equipment</h2>
                     <p class="category-subtitle">Professional network infrastructure solutions</p>
                 </div>
-                
+
                 <!-- Switches -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Network Switches</h3>
                     <div class="products-grid">
                         <!-- Product 21 -->
-                        <a href="#net1" class="product-card">
+                        <a href="#net1" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/switch1.webp" alt="8 Port PoE Switch" loading="lazy">
                             </div>
@@ -518,9 +533,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 22 -->
-                        <a href="#net2" class="product-card">
+                        <a href="#net2" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/switch2.webp" alt="16 Port Switch" loading="lazy">
                             </div>
@@ -536,9 +551,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 23 -->
-                        <a href="#net3" class="product-card">
+                        <a href="#net3" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/switch3.webp" alt="24 Port PoE Switch" loading="lazy">
                             </div>
@@ -556,13 +571,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Access Points -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Wireless Access Points</h3>
                     <div class="products-grid">
                         <!-- Product 24 -->
-                        <a href="#net4" class="product-card">
+                        <a href="#net4" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/ap1.webp" alt="WiFi Access Point" loading="lazy">
                             </div>
@@ -578,9 +593,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 25 -->
-                        <a href="#net5" class="product-card">
+                        <a href="#net5" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/ap2.webp" alt="Outdoor Access Point" loading="lazy">
                             </div>
@@ -598,13 +613,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Cabling -->
                 <div class="subcategory">
                     <h3 class="subcategory-title">Cabling & Accessories</h3>
                     <div class="products-grid">
                         <!-- Product 26 -->
-                        <a href="#net6" class="product-card">
+                        <a href="#net6" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/cable1.webp" alt="CAT6 Cable" loading="lazy">
                             </div>
@@ -620,9 +635,9 @@
                                 </div>
                             </div>
                         </a>
-                        
+
                         <!-- Product 27 -->
-                        <a href="#net7" class="product-card">
+                        <a href="#net7" class="product-card" data-category="networking">
                             <div class="product-card__image">
                                 <img src="assets/networking/patch1.webp" alt="Patch Panel" loading="lazy">
                             </div>
@@ -641,17 +656,17 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Biometrics Category -->
-            <section class="category-section" id="biometrics">
+            <section class="category-section" id="biometrics" data-category="biometrics">
                 <div class="category-header">
                     <h2 class="category-title">Biometric Systems</h2>
                     <p class="category-subtitle">Advanced access control and time attendance</p>
                 </div>
-                
+
                 <div class="products-grid">
                     <!-- Product 28 -->
-                    <a href="#bio1" class="product-card">
+                    <a href="#bio1" class="product-card" data-category="biometrics">
                         <div class="product-card__image">
                             <img src="assets/biometrics/fingerprint1.webp" alt="Fingerprint Scanner" loading="lazy">
                         </div>
@@ -667,9 +682,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 29 -->
-                    <a href="#bio2" class="product-card">
+                    <a href="#bio2" class="product-card" data-category="biometrics">
                         <div class="product-card__image">
                             <img src="assets/biometrics/facial1.webp" alt="Facial Recognition" loading="lazy">
                         </div>
@@ -685,9 +700,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 30 -->
-                    <a href="#bio3" class="product-card">
+                    <a href="#bio3" class="product-card" data-category="biometrics">
                         <div class="product-card__image">
                             <img src="assets/biometrics/access1.webp" alt="Access Control" loading="lazy">
                         </div>
@@ -705,17 +720,17 @@
                     </a>
                 </div>
             </section>
-            
+
             <!-- Electric Fence Category -->
-            <section class="category-section" id="fence">
+            <section class="category-section" id="fence" data-category="fence">
                 <div class="category-header">
                     <h2 class="category-title">Electric Fence</h2>
                     <p class="category-subtitle">Perimeter security and monitoring systems</p>
                 </div>
-                
+
                 <div class="products-grid">
                     <!-- Product 31 -->
-                    <a href="#fence1" class="product-card">
+                    <a href="#fence1" class="product-card" data-category="fence">
                         <div class="product-card__image">
                             <img src="assets/fence/energizer1.webp" alt="Fence Energizer" loading="lazy">
                         </div>
@@ -731,9 +746,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 32 -->
-                    <a href="#fence2" class="product-card">
+                    <a href="#fence2" class="product-card" data-category="fence">
                         <div class="product-card__image">
                             <img src="assets/fence/wire1.webp" alt="Fence Wire" loading="lazy">
                         </div>
@@ -749,9 +764,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 33 -->
-                    <a href="#fence3" class="product-card">
+                    <a href="#fence3" class="product-card" data-category="fence">
                         <div class="product-card__image">
                             <img src="assets/fence/insulator1.webp" alt="Insulators" loading="lazy">
                         </div>
@@ -769,17 +784,17 @@
                     </a>
                 </div>
             </section>
-            
+
             <!-- Automatic Gates Category -->
-            <section class="category-section" id="gates">
+            <section class="category-section" id="gates" data-category="gates">
                 <div class="category-header">
                     <h2 class="category-title">Automatic Gates</h2>
                     <p class="category-subtitle">Motorized gate systems and accessories</p>
                 </div>
-                
+
                 <div class="products-grid">
                     <!-- Product 34 -->
-                    <a href="#gate1" class="product-card">
+                    <a href="#gate1" class="product-card" data-category="gates">
                         <div class="product-card__image">
                             <img src="assets/gates/motor1.webp" alt="Gate Motor" loading="lazy">
                         </div>
@@ -795,9 +810,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 35 -->
-                    <a href="#gate2" class="product-card">
+                    <a href="#gate2" class="product-card" data-category="gates">
                         <div class="product-card__image">
                             <img src="assets/gates/remote1.webp" alt="Remote Control" loading="lazy">
                         </div>
@@ -813,9 +828,9 @@
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Product 36 -->
-                    <a href="#gate3" class="product-card">
+                    <a href="#gate3" class="product-card" data-category="gates">
                         <div class="product-card__image">
                             <img src="assets/gates/safety1.webp" alt="Safety Sensors" loading="lazy">
                         </div>
@@ -833,17 +848,17 @@
                     </a>
                 </div>
             </section>
-            
+
             <!-- Accessories Category -->
-            <section class="category-section" id="accessories">
+            <section class="category-section" id="accessories" data-category="accessories">
                 <div class="category-header">
                     <h2 class="category-title">Accessories</h2>
                     <p class="category-subtitle">Essential components and installation tools</p>
                 </div>
-                
+
                 <div class="products-grid">
                     <!-- Product 37-43 -->
-                    <a href="#acc1" class="product-card">
+                    <a href="#acc1" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/37.webp" alt="Power Backup" loading="lazy">
                         </div>
@@ -859,8 +874,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc2" class="product-card">
+
+                    <a href="#acc2" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/38.webp" alt="Monitor" loading="lazy">
                         </div>
@@ -876,8 +891,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc3" class="product-card">
+
+                    <a href="#acc3" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/39.webp" alt="Tool Kit" loading="lazy">
                         </div>
@@ -893,8 +908,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc4" class="product-card">
+
+                    <a href="#acc4" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/40.webp" alt="Cable Tester" loading="lazy">
                         </div>
@@ -910,8 +925,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc5" class="product-card">
+
+                    <a href="#acc5" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/41.webp" alt="Mounting Brackets" loading="lazy">
                         </div>
@@ -927,8 +942,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc6" class="product-card">
+
+                    <a href="#acc6" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/42.webp" alt="Connectors" loading="lazy">
                         </div>
@@ -944,8 +959,8 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <a href="#acc7" class="product-card">
+
+                    <a href="#acc7" class="product-card" data-category="accessories">
                         <div class="product-card__image">
                             <img src="assets/cctv/43.webp" alt="Labels" loading="lazy">
                         </div>
@@ -988,9 +1003,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Add similar lightboxes for all 43 products -->
-    <!-- You can copy the pattern above for each product -->
 
     <!-- CTA Section -->
     <section class="products-cta">
@@ -1029,7 +1041,7 @@
                         Professional security products and solutions for homes and businesses.
                     </p>
                 </div>
-                
+
                 <div class="footer__column">
                     <h3 class="footer__column-title">Categories</h3>
                     <div class="footer__links">
@@ -1040,7 +1052,7 @@
                         <a href="#gates" class="footer__link">Automatic Gates</a>
                     </div>
                 </div>
-                
+
                 <div class="footer__column">
                     <h3 class="footer__column-title">Quick Links</h3>
                     <div class="footer__links">
@@ -1050,7 +1062,7 @@
                         <a href="index.html#contact" class="footer__link">Contact</a>
                     </div>
                 </div>
-                
+
                 <div class="footer__column">
                     <h3 class="footer__column-title">Contact</h3>
                     <div class="footer__contact">
@@ -1069,7 +1081,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer__bottom">
                 <div class="footer__copyright">
                     © 2024 SecureTech Solutions. All rights reserved.
