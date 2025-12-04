@@ -64,6 +64,48 @@
     background: var(--accent-blue-light);
 }
 
+/* Category Filters */
+.category-filters {
+    background: var(--bg-secondary);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 120px;
+    z-index: 80;
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-body-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
 /* Main Content */
 .products-main {
     padding: var(--spacing-xxl) 0;
@@ -72,6 +114,12 @@
 .category-section {
     margin-bottom: var(--spacing-xxxl);
     scroll-margin-top: 140px;
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+/* Hide categories by default (will be shown via JS) */
+.category-section.hidden {
+    display: none !important;
 }
 
 .category-header {
@@ -123,6 +171,12 @@
     transition: all var(--transition-normal);
     display: block;
     position: relative;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card.hidden {
+    display: none;
 }
 
 .product-card:hover {
@@ -202,6 +256,13 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+}
+
+/* Active filter styles */
+.filter-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
 }
 
 /* Lightbox */
@@ -344,14 +405,34 @@
     to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    
+
     .category-nav__list {
         gap: var(--spacing-lg);
+    }
+
+    .filter-buttons {
+        gap: var(--spacing-xs);
+    }
+    
+    .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-caption);
     }
 }
 
@@ -360,33 +441,44 @@
         padding-top: 120px;
         padding-bottom: var(--spacing-xl);
     }
-    
+
     .products-hero__title {
         font-size: var(--font-size-title-medium);
     }
-    
+
     .products-hero__subtitle {
         font-size: var(--font-size-body-medium);
     }
-    
+
     .category-nav {
         top: 70px;
     }
-    
+
     .category-nav__list {
         gap: var(--spacing-md);
         padding: var(--spacing-sm) 0;
     }
-    
+
     .category-nav__link {
         font-size: var(--font-size-caption);
     }
-    
+
+    .category-filters {
+        top: 110px;
+    }
+
+    .filter-buttons {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: var(--spacing-xs) 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: var(--spacing-md);
     }
-    
+
     .product-card__content {
         padding: var(--spacing-md);
     }
@@ -396,19 +488,28 @@
     .products-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .category-nav__list {
         gap: var(--spacing-sm);
     }
-    
+
+    .filter-buttons {
+        gap: 6px;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
     .lightbox__content {
         margin: var(--spacing-sm);
     }
-    
+
     .lightbox__image {
         height: 300px;
     }
-    
+
     .lightbox__info {
         padding: var(--spacing-lg);
     }
